@@ -12,7 +12,7 @@ import Footer from '@/components/sections/footer';
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col font-secondary text-text-dark">
+    <div className="flex min-h-screen flex-col">
       <Navigation />
       <main className="flex-grow">
         <Hero />

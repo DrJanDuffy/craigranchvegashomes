@@ -1,26 +1,13 @@
-import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import './globals.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas',
-  description:
-    "Discover luxury homes in Craig Ranch, Las Vegas. Find your dream home in one of the city's most prestigious communities with premium amenities and excellent location.",
-  keywords:
-    'Craig Ranch, Las Vegas homes, luxury real estate, Nevada homes, Las Vegas real estate, Craig Ranch community',
-  authors: [{ name: 'Craig Ranch Vegas Homes' }],
-  creator: 'Craig Ranch Vegas Homes',
-  publisher: 'Craig Ranch Vegas Homes',
+  title: "Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas",
+  description: "Discover luxury homes in Craig Ranch, Las Vegas. Find your dream home in one of the city's most prestigious communities with premium amenities and excellent location.",
+  keywords: "Craig Ranch, Las Vegas homes, luxury real estate, Nevada homes, Las Vegas real estate, Craig Ranch community",
+  authors: [{ name: "Craig Ranch Vegas Homes" }],
+  creator: "Craig Ranch Vegas Homes",
+  publisher: "Craig Ranch Vegas Homes",
   formatDetection: {
     email: false,
     address: false,
@@ -31,9 +18,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas',
-    description:
-      "Discover luxury homes in Craig Ranch, Las Vegas. Find your dream home in one of the city's most prestigious communities.",
+    title: "Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas",
+    description: "Discover luxury homes in Craig Ranch, Las Vegas. Find your dream home in one of the city's most prestigious communities.",
     url: 'https://craigranchvegas.com',
     siteName: 'Craig Ranch Vegas Homes',
     locale: 'en_US',
@@ -41,9 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas',
-    description:
-      "Discover luxury homes in Craig Ranch, Las Vegas. Find your dream home in one of the city's most prestigious communities.",
+    title: "Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas",
+    description: "Discover luxury homes in Craig Ranch, Las Vegas. Find your dream home in one of the city's most prestigious communities.",
   },
   robots: {
     index: true,
@@ -64,10 +49,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en">
+      <body className="antialiased">
         {children}
       </body>
     </html>
