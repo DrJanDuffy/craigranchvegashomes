@@ -34,17 +34,20 @@ The website uses a carefully crafted design system with the following color pale
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd craig-ranch-vegas-homes
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 ```
