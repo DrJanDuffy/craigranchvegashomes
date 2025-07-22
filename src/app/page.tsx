@@ -4,6 +4,7 @@ import Navigation from '@/components/sections/navigation';
 import Hero from '@/components/sections/hero';
 import HomeEvaluationSection from '@/components/sections/home-evaluation';
 import RealEstateListings from '@/components/sections/real-estate-listings';
+import NorthLasVegasNeighborhoods from '@/components/sections/north-las-vegas-neighborhoods';
 import PropertyCategories from '@/components/sections/property-categories';
 import FeaturedCommunities from '@/components/sections/featured-communities';
 import MarketDataSection from '@/components/sections/market-data';
@@ -20,6 +21,7 @@ export default function Home() {
           <Hero />
           <HomeEvaluationSection />
           <RealEstateListings />
+          <NorthLasVegasNeighborhoods />
           <PropertyCategories />
           <FeaturedCommunities />
           <MarketDataSection />
