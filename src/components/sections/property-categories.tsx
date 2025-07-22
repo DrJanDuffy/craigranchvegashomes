@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function PropertyCategories() {
   const categories = [
     {
@@ -68,9 +70,12 @@ export default function PropertyCategories() {
                     {category.count}
                   </span>
                 </div>
-                <button className='w-full mt-4 bg-[#3A8DDE] text-white py-3 rounded-lg font-semibold hover:bg-[#2A7DCE] transition-colors duration-200'>
+                <Link 
+                  href="http://drjanduffy.realscout.com/onboarding"
+                  className='w-full mt-4 bg-[#3A8DDE] text-white py-3 rounded-lg font-semibold hover:bg-[#2A7DCE] transition-colors duration-200 block text-center'
+                >
                   View Properties
-                </button>
+                </Link>
               </div>
             </div>
           ))}

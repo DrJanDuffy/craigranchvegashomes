@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function Navigation() {
   return (
     <nav className='bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50'>
@@ -35,9 +37,12 @@ export default function Navigation() {
           </div>
 
           {/* CTA Button */}
-          <button className='bg-[#3A8DDE] text-white px-6 py-2 rounded-lg hover:bg-[#2A7DCE] transition-colors duration-200 font-medium'>
+          <Link 
+            href="http://drjanduffy.realscout.com/onboarding"
+            className='bg-[#3A8DDE] text-white px-6 py-2 rounded-lg hover:bg-[#2A7DCE] transition-colors duration-200 font-medium'
+          >
             Get Started
-          </button>
+          </Link>
         </div>
       </div>
     </nav>

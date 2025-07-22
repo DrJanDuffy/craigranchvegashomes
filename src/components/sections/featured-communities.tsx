@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function FeaturedCommunities() {
   const communities = [
     {
@@ -83,9 +85,12 @@ export default function FeaturedCommunities() {
                 </div>
               </div>
               
-              <button className='w-full bg-[#3A8DDE] text-white py-3 rounded-lg font-semibold hover:bg-[#2A7DCE] transition-colors duration-200'>
+              <Link 
+                href="http://drjanduffy.realscout.com/onboarding"
+                className='w-full bg-[#3A8DDE] text-white py-3 rounded-lg font-semibold hover:bg-[#2A7DCE] transition-colors duration-200 block text-center'
+              >
                 Explore {community.name}
-              </button>
+              </Link>
             </div>
           ))}
         </div>

@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function HomeEvaluationSection() {
   return (
     <section className='py-20 bg-white'>
@@ -83,12 +85,12 @@ export default function HomeEvaluationSection() {
                 />
               </div>
               
-              <button
-                type='submit'
-                className='w-full bg-[#16B286] text-white py-4 rounded-lg text-lg font-semibold hover:bg-[#15A276] transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1'
+              <Link
+                href="http://drjanduffy.realscout.com/onboarding"
+                className='w-full bg-[#16B286] text-white py-4 rounded-lg text-lg font-semibold hover:bg-[#15A276] transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 block text-center'
               >
                 Get Free Evaluation
-              </button>
+              </Link>
             </form>
           </div>
         </div>

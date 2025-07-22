@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function MarketDataSection() {
   const marketStats = [
     {
@@ -84,9 +86,12 @@ export default function MarketDataSection() {
               of 23 days on market. The area&apos;s excellent schools, amenities, and 
               convenient location continue to drive buyer interest.
             </p>
-            <button className='mt-6 bg-[#16B286] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#15A276] transition-colors duration-200'>
+            <Link 
+              href="http://drjanduffy.realscout.com/onboarding"
+              className='mt-6 bg-[#16B286] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#15A276] transition-colors duration-200 inline-block'
+            >
               View Full Market Report
-            </button>
+            </Link>
           </div>
         </div>
       </div>

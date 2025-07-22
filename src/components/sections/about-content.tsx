@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function AboutContent() {
   return (
     <section className='py-20 bg-white'>
@@ -58,9 +60,12 @@ export default function AboutContent() {
               </div>
             </div>
             
-            <button className='bg-[#3A8DDE] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#2A7DCE] transition-colors duration-200'>
+            <Link 
+              href="http://drjanduffy.realscout.com/onboarding"
+              className='bg-[#3A8DDE] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#2A7DCE] transition-colors duration-200 inline-block'
+            >
               Learn More About Us
-            </button>
+            </Link>
           </div>
           
           {/* Stats/Image Placeholder */}
