@@ -15,40 +15,40 @@ type BlogPost = {
 
 const blogPosts: BlogPost[] = [
   {
-    imageUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c28de574-2ab5-4dce-b3b9-b55c3e5e3821-totalvegasrealestate-com/assets/images/31651-vegas-home-builders-preview-5.jpg",
-    category: "Las Vegas New Construction",
-    categoryLink: "https://www.totalvegasrealestate.com/blog/category/las-vegas-new-construction/",
-    title: "12 Most Popular Home Builders in Las Vegas, NV: Builders for Every Style & Budget",
-    postLink: "https://www.totalvegasrealestate.com/blog/best-custom-home-builders-in-the-las-vegas-area/",
-    author: "BY Robert Little",
-    date: "7/18/2025"
+    imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&crop=center",
+    category: "Mortgage Rates",
+    categoryLink: "https://www.simplifyingthemarket.com/en/category/mortgage-rates/",
+    title: "The Latest Mortgage Rate Forecasts: Don't Delay Your Move",
+    postLink: "https://www.simplifyingthemarket.com/en/2025/07/22/the-latest-mortgage-rate-forecasts-infographic",
+    author: "Simplifying the Market",
+    date: "July 22, 2025"
   },
   {
-    imageUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c28de574-2ab5-4dce-b3b9-b55c3e5e3821-totalvegasrealestate-com/assets/images/48684-irs-publication-527-preview-6.jpg",
-    category: "Buying a Home",
-    categoryLink: "https://www.totalvegasrealestate.com/blog/category/buying-a-home/",
-    title: "How to Optimize Vacation Rental Taxes with IRS Publication 527",
-    postLink: "https://www.totalvegasrealestate.com/blog/vacation-rental-tax-tips/",
-    author: "BY Robert Little",
-    date: "7/8/2025"
+    imageUrl: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop&crop=center",
+    category: "Selling Tips",
+    categoryLink: "https://www.simplifyingthemarket.com/en/category/selling-tips/",
+    title: "Don't Make These Mistakes When Selling Your House",
+    postLink: "https://www.simplifyingthemarket.com/en/2025/07/21/dont-make-these-mistakes-when-selling-your-house",
+    author: "Simplifying the Market",
+    date: "July 21, 2025"
   },
   {
-    imageUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c28de574-2ab5-4dce-b3b9-b55c3e5e3821-totalvegasrealestate-com/assets/images/48176-buying-first-investment-property-preview-7.jpg",
-    category: "Buying a Home",
-    categoryLink: "https://www.totalvegasrealestate.com/blog/category/buying-a-home/",
-    title: "Buying Your First Rental Property? What First-Time Investors Need to Know",
-    postLink: "https://www.totalvegasrealestate.com/blog/buying-first-investment-property/",
-    author: "BY Robert Little",
-    date: "6/17/2025"
+    imageUrl: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop&crop=center",
+    category: "New Construction",
+    categoryLink: "https://www.simplifyingthemarket.com/en/category/new-construction/",
+    title: "Why a Newly Built Home Might Be the Move Right Now",
+    postLink: "https://www.simplifyingthemarket.com/en/2025/07/17/why-a-newly-built-home-might-be-the-move-right-now",
+    author: "Simplifying the Market",
+    date: "July 17, 2025"
   },
   {
-    imageUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c28de574-2ab5-4dce-b3b9-b55c3e5e3821-totalvegasrealestate-com/assets/images/34776-henderson-expensive-neighborhoods-preview-8.jpg",
-    category: "Henderson Real Estate",
-    categoryLink: "https://www.totalvegasrealestate.com/blog/category/henderson-real-estate/",
-    title: "Where Are the Most Expensive Homes in Henderson NV? 8 Luxury Neighborhoods",
-    postLink: "https://www.totalvegasrealestate.com/blog/most-expensive-neighborhoods-in-henderson-nv/",
-    author: "BY Robert Little",
-    date: "6/5/2025"
+    imageUrl: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&h=600&fit=crop&crop=center",
+    category: "Buying & Selling",
+    categoryLink: "https://www.simplifyingthemarket.com/en/category/buying-selling/",
+    title: "Selling and Buying at the Same Time: Here's What You Need to Know",
+    postLink: "https://www.simplifyingthemarket.com/en/2025/07/09/selling-and-buying-at-the-same-time-heres-what-you-need-to-know",
+    author: "Simplifying the Market",
+    date: "July 9, 2025"
   }
 ];
 
@@ -89,7 +89,7 @@ const BlogPosts = () => {
     <section className="bg-[#F8F9FA] py-20">
       <div className="max-w-[1200px] mx-auto px-5">
         <h2 className="text-[32px] font-primary font-regular text-[#333333] text-center mb-12">
-          Recently from Our Blog
+          Latest Market Insights
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[30px]">
           {blogPosts.map((post, index) => (
@@ -98,10 +98,10 @@ const BlogPosts = () => {
         </div>
         <div className="text-center mt-12">
           <Link
-            href="https://www.totalvegasrealestate.com/blog/"
+            href="https://www.simplifyingthemarket.com/en/feed?a=956758-ef2edda2f940e018328655620ea05f18"
             className="inline-block bg-[#2C3E50] text-white font-primary font-medium text-sm py-[10px] px-6 rounded-lg hover:bg-[#333333] transition-colors duration-300"
           >
-            View All Blog Posts
+            View All Market Insights
           </Link>
         </div>
       </div>
