@@ -34,4 +34,12 @@ declare namespace JSX {
       [key: string]: any;
     };
   }
+}
+
+// Homebot global declarations
+declare global {
+  interface Window {
+    Homebot: (selector: string, token: string) => void;
+    __hb_namespace: string;
+  }
 } 
