@@ -6,6 +6,7 @@ import HomeEvaluationSection from '@/components/sections/home-evaluation';
 import PropertyCategories from '@/components/sections/property-categories';
 import FeaturedCommunities from '@/components/sections/featured-communities';
 import MarketDataSection from '@/components/sections/market-data';
+import RealEstateListings from '@/components/sections/real-estate-listings';
 import BlogPosts from '@/components/sections/blog-posts';
 import AboutContent from '@/components/sections/about-content';
 import Footer from '@/components/sections/footer';
@@ -20,6 +21,7 @@ export default function Home() {
         <PropertyCategories />
         <FeaturedCommunities />
         <MarketDataSection />
+        <RealEstateListings />
         <BlogPosts />
         <AboutContent />
       </main>
