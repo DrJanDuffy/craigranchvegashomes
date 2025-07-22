@@ -16,14 +16,16 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       <Navigation />
       <main className="flex-grow">
-        <Hero />
-        <HomeEvaluationSection />
-        <RealEstateListings />
-        <PropertyCategories />
-        <FeaturedCommunities />
-        <MarketDataSection />
-        <BlogPosts />
-        <AboutContent />
+        <article>
+          <Hero />
+          <HomeEvaluationSection />
+          <RealEstateListings />
+          <PropertyCategories />
+          <FeaturedCommunities />
+          <MarketDataSection />
+          <BlogPosts />
+          <AboutContent />
+        </article>
       </main>
       <Footer />
     </div>
