@@ -1,80 +1,94 @@
 export default function Home() {
   return (
     <div className='min-h-screen bg-gradient-to-br from-[#F7F9FC] to-white'>
-      {/* Navigation */}
+      {/* ===== NAVIGATION SECTION ===== */}
       <nav className='bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='flex justify-between items-center h-16'>
+            {/* Logo/Brand */}
             <div className='flex items-center'>
               <h1 className='text-2xl font-bold text-[#0A2540]'>
                 Craig Ranch Vegas Homes
               </h1>
             </div>
+
+            {/* Navigation Links */}
             <div className='hidden md:flex space-x-8'>
               <a
                 href='#homes'
-                className='text-[#0A2540] hover:text-[#3A8DDE] transition-colors'
+                className='text-[#0A2540] hover:text-[#3A8DDE] transition-colors duration-200'
               >
                 Homes
               </a>
               <a
                 href='#neighborhood'
-                className='text-[#0A2540] hover:text-[#3A8DDE] transition-colors'
+                className='text-[#0A2540] hover:text-[#3A8DDE] transition-colors duration-200'
               >
                 Neighborhood
               </a>
               <a
                 href='#contact'
-                className='text-[#0A2540] hover:text-[#3A8DDE] transition-colors'
+                className='text-[#0A2540] hover:text-[#3A8DDE] transition-colors duration-200'
               >
                 Contact
               </a>
             </div>
-            <button className='bg-[#3A8DDE] text-white px-6 py-2 rounded-lg hover:bg-[#2A7DCE] transition-colors'>
+
+            {/* CTA Button */}
+            <button className='bg-[#3A8DDE] text-white px-6 py-2 rounded-lg hover:bg-[#2A7DCE] transition-colors duration-200 font-medium'>
               Get Started
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* ===== HERO SECTION ===== */}
       <section className='relative h-screen flex items-center justify-center overflow-hidden'>
+        {/* Background Overlay */}
         <div className='absolute inset-0 bg-gradient-to-r from-[#0A2540]/80 to-[#3A8DDE]/60'></div>
+
+        {/* Hero Content */}
         <div className='relative z-10 text-center text-white max-w-4xl mx-auto px-4'>
-          <h1 className='text-5xl md:text-7xl font-bold mb-6'>
+          <h1 className='text-5xl md:text-7xl font-bold mb-6 leading-tight'>
             Find Your Dream Home in
-            <span className='block text-[#16B286]'>Craig Ranch</span>
+            <span className='block text-[#16B286] mt-2'>Craig Ranch</span>
           </h1>
-          <p className='text-xl md:text-2xl mb-8 text-gray-100'>
+
+          <p className='text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto leading-relaxed'>
             Discover luxury living in one of Las Vegas&apos; most prestigious
             communities
           </p>
+
+          {/* Hero CTA Buttons */}
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-            <button className='bg-[#16B286] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#15A276] transition-colors shadow-lg'>
+            <button className='bg-[#16B286] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#15A276] transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1'>
               View Available Homes
             </button>
-            <button className='bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/30 transition-colors border border-white/30'>
+            <button className='bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/30 transition-colors duration-200 border border-white/30 hover:border-white/50'>
               Schedule a Tour
             </button>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* ===== FEATURES SECTION ===== */}
       <section className='py-20 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          {/* Section Header */}
           <div className='text-center mb-16'>
             <h2 className='text-4xl font-bold text-[#0A2540] mb-4'>
               Why Choose Craig Ranch?
             </h2>
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
               Experience the perfect blend of luxury, comfort, and community in
               one of Las Vegas&apos; most sought-after neighborhoods
             </p>
           </div>
 
+          {/* Features Grid */}
           <div className='grid md:grid-cols-3 gap-8'>
-            <div className='text-center p-8 rounded-xl bg-[#F7F9FC] hover:shadow-lg transition-shadow'>
+            {/* Feature Card 1: Luxury Homes */}
+            <div className='text-center p-8 rounded-xl bg-[#F7F9FC] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2'>
               <div className='w-16 h-16 bg-[#3A8DDE] rounded-full flex items-center justify-center mx-auto mb-6'>
                 <svg
                   className='w-8 h-8 text-white'
@@ -93,12 +107,13 @@ export default function Home() {
               <h3 className='text-2xl font-semibold text-[#0A2540] mb-4'>
                 Luxury Homes
               </h3>
-              <p className='text-gray-600'>
+              <p className='text-gray-600 leading-relaxed'>
                 Stunning custom homes with premium finishes and modern amenities
               </p>
             </div>
 
-            <div className='text-center p-8 rounded-xl bg-[#F7F9FC] hover:shadow-lg transition-shadow'>
+            {/* Feature Card 2: Prime Location */}
+            <div className='text-center p-8 rounded-xl bg-[#F7F9FC] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2'>
               <div className='w-16 h-16 bg-[#16B286] rounded-full flex items-center justify-center mx-auto mb-6'>
                 <svg
                   className='w-8 h-8 text-white'
@@ -123,13 +138,14 @@ export default function Home() {
               <h3 className='text-2xl font-semibold text-[#0A2540] mb-4'>
                 Prime Location
               </h3>
-              <p className='text-gray-600'>
+              <p className='text-gray-600 leading-relaxed'>
                 Conveniently located with easy access to shopping, dining, and
                 entertainment
               </p>
             </div>
 
-            <div className='text-center p-8 rounded-xl bg-[#F7F9FC] hover:shadow-lg transition-shadow'>
+            {/* Feature Card 3: Community */}
+            <div className='text-center p-8 rounded-xl bg-[#F7F9FC] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2'>
               <div className='w-16 h-16 bg-[#3A8DDE] rounded-full flex items-center justify-center mx-auto mb-6'>
                 <svg
                   className='w-8 h-8 text-white'
@@ -148,7 +164,7 @@ export default function Home() {
               <h3 className='text-2xl font-semibold text-[#0A2540] mb-4'>
                 Community
               </h3>
-              <p className='text-gray-600'>
+              <p className='text-gray-600 leading-relaxed'>
                 Friendly neighborhood with excellent schools and family-friendly
                 amenities
               </p>
@@ -157,78 +173,110 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* ===== CTA SECTION ===== */}
       <section className='py-20 bg-gradient-to-r from-[#0A2540] to-[#3A8DDE]'>
         <div className='max-w-4xl mx-auto text-center px-4'>
           <h2 className='text-4xl font-bold text-white mb-6'>
             Ready to Find Your Dream Home?
           </h2>
-          <p className='text-xl text-gray-200 mb-8'>
+          <p className='text-xl text-gray-200 mb-8 leading-relaxed'>
             Let us help you discover the perfect home in Craig Ranch. Contact us
             today for a personalized experience.
           </p>
+
+          {/* CTA Buttons */}
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-            <button className='bg-[#16B286] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#15A276] transition-colors'>
+            <button className='bg-[#16B286] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#15A276] transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1'>
               Contact Us Today
             </button>
-            <button className='bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/30 transition-colors border border-white/30'>
+            <button className='bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/30 transition-colors duration-200 border border-white/30 hover:border-white/50'>
               View Virtual Tour
             </button>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
+      {/* ===== FOOTER SECTION ===== */}
       <footer className='bg-[#0A2540] text-white py-12'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          {/* Footer Content Grid */}
           <div className='grid md:grid-cols-4 gap-8'>
+            {/* Company Info */}
             <div>
               <h3 className='text-2xl font-bold mb-4'>
                 Craig Ranch Vegas Homes
               </h3>
-              <p className='text-gray-300'>
+              <p className='text-gray-300 leading-relaxed'>
                 Your trusted partner in finding the perfect home in Craig Ranch.
               </p>
             </div>
+
+            {/* Quick Links */}
             <div>
               <h4 className='text-lg font-semibold mb-4'>Quick Links</h4>
               <ul className='space-y-2 text-gray-300'>
                 <li>
-                  <a href='#' className='hover:text-white transition-colors'>
+                  <a
+                    href='#'
+                    className='hover:text-white transition-colors duration-200 hover:underline'
+                  >
                     Available Homes
                   </a>
                 </li>
                 <li>
-                  <a href='#' className='hover:text-white transition-colors'>
+                  <a
+                    href='#'
+                    className='hover:text-white transition-colors duration-200 hover:underline'
+                  >
                     Neighborhood
                   </a>
                 </li>
                 <li>
-                  <a href='#' className='hover:text-white transition-colors'>
+                  <a
+                    href='#'
+                    className='hover:text-white transition-colors duration-200 hover:underline'
+                  >
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href='#' className='hover:text-white transition-colors'>
+                  <a
+                    href='#'
+                    className='hover:text-white transition-colors duration-200 hover:underline'
+                  >
                     Contact
                   </a>
                 </li>
               </ul>
             </div>
+
+            {/* Contact Info */}
             <div>
               <h4 className='text-lg font-semibold mb-4'>Contact Info</h4>
               <ul className='space-y-2 text-gray-300'>
-                <li>Phone: (702) 555-0123</li>
-                <li>Email: info@craigranchvegas.com</li>
-                <li>Address: Craig Ranch, Las Vegas, NV</li>
+                <li className='flex items-center'>
+                  <span className='mr-2'>📞</span>
+                  (702) 555-0123
+                </li>
+                <li className='flex items-center'>
+                  <span className='mr-2'>✉️</span>
+                  info@craigranchvegas.com
+                </li>
+                <li className='flex items-center'>
+                  <span className='mr-2'>📍</span>
+                  Craig Ranch, Las Vegas, NV
+                </li>
               </ul>
             </div>
+
+            {/* Social Media */}
             <div>
               <h4 className='text-lg font-semibold mb-4'>Follow Us</h4>
               <div className='flex space-x-4'>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors'
+                  className='text-gray-300 hover:text-white transition-colors duration-200 hover:scale-110 transform'
+                  aria-label='Twitter'
                 >
                   <svg
                     className='w-6 h-6'
@@ -240,7 +288,8 @@ export default function Home() {
                 </a>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors'
+                  className='text-gray-300 hover:text-white transition-colors duration-200 hover:scale-110 transform'
+                  aria-label='Facebook'
                 >
                   <svg
                     className='w-6 h-6'
@@ -252,7 +301,8 @@ export default function Home() {
                 </a>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors'
+                  className='text-gray-300 hover:text-white transition-colors duration-200 hover:scale-110 transform'
+                  aria-label='Instagram'
                 >
                   <svg
                     className='w-6 h-6'
@@ -265,6 +315,8 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          {/* Footer Bottom */}
           <div className='border-t border-gray-700 mt-8 pt-8 text-center text-gray-300'>
             <p>&copy; 2024 Craig Ranch Vegas Homes. All rights reserved.</p>
           </div>
