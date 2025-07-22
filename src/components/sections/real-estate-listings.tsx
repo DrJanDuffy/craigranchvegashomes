@@ -11,7 +11,12 @@ export default function RealEstateListings() {
     // Create the RealScout widget element dynamically
     if (widgetRef.current && typeof window !== 'undefined') {
       const widget = document.createElement('realscout-office-listings');
-      widget.setAttribute('office-id', 'your-office-id');
+      widget.setAttribute('agent-encoded-id', 'QWdlbnQtMjI1MDUw');
+      widget.setAttribute('sort-order', 'STATUS_AND_SIGNIFICANT_CHANGE');
+      widget.setAttribute('listing-status', 'For Sale');
+      widget.setAttribute('property-types', 'SFR,MF,TC');
+      widget.setAttribute('price-min', '600000');
+      widget.setAttribute('price-max', '1200000');
       widget.setAttribute('layout', isMobile ? 'mobile' : 'desktop');
       widget.setAttribute('show-filters', 'true');
       widget.setAttribute('show-sort', 'true');
@@ -46,7 +51,7 @@ export default function RealEstateListings() {
               Current Listings
             </h3>
             <p className="text-gray-600">
-              Browse our curated selection of premium properties
+              Browse our curated selection of premium properties in the $600K - $1.2M range
             </p>
           </div>
 
@@ -58,7 +63,7 @@ export default function RealEstateListings() {
             <div className="text-center">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#3A8DDE] mx-auto mb-4"></div>
               <p className="text-gray-500 text-sm">
-                Loading real estate listings...
+                Loading luxury properties in Craig Ranch...
               </p>
             </div>
           </div>
