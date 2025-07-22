@@ -10,18 +10,20 @@ Craig Ranch Vegas Homes is a comprehensive real estate platform designed to help
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm, yarn, pnpm, or bun
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/DrJanDuffy/craigranchvegashomes.git
 cd craigranchvegashomes
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 # or
@@ -33,6 +35,7 @@ bun install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 # or
@@ -48,11 +51,13 @@ bun dev
 ## 🎨 Design System
 
 ### Typography
+
 - **Primary Font**: Source Sans Pro (300, 400, 500 weights)
 - **Secondary Font**: Open Sans (400 weight)
 - **Hierarchy**: H1 (48px), H2 (32px), Body (16px), Navigation (14px)
 
 ### Color Palette
+
 - **Primary Navy**: `#2C3E50` - Main brand color
 - **White**: `#FFFFFF` - Background and text
 - **Light Gray**: `#F8F9FA` - Subtle backgrounds
@@ -63,7 +68,7 @@ bun dev
 
 ## 🏗️ Project Structure
 
-```
+```text
 src/
 ├── app/
 │   ├── page.tsx (main page with component imports)
@@ -105,6 +110,7 @@ src/
 ## 📱 Features
 
 ### Real Estate Features
+
 - **Property Search**: Interactive home evaluation forms
 - **Market Data**: Real-time real estate statistics
 - **Community Showcase**: Featured areas within Craig Ranch
@@ -112,6 +118,7 @@ src/
 - **Blog Content**: Latest market insights and guides
 
 ### Technical Features
+
 - **Responsive Design**: Mobile-first approach
 - **SEO Optimized**: Meta tags, structured data, and performance
 - **Type Safety**: Full TypeScript implementation
