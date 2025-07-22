@@ -1,0 +1,33 @@
+{
+  "name": "craig-ranch-vegas-homes",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Luxury real estate website for Craig Ranch Vegas Homes - Find your dream home in Las Vegas' most prestigious community",
+  "keywords": ["real estate", "las vegas", "craig ranch", "luxury homes", "nevada"],
+  "author": "Craig Ranch Vegas Homes",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write .",
+    "analyze": "ANALYZE=true npm run build"
+  },
+  "dependencies": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "next": "15.4.2"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.2",
+    "@eslint/eslintrc": "^3"
+  }
+}
