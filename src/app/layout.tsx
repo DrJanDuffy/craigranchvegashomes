@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { Source_Sans_Pro, Open_Sans } from 'next/font/google';
+import { Source_Sans_3, Open_Sans } from 'next/font/google';
 import './globals.css';
 
 // Optimize fonts with next/font
-const sourceSansPro = Source_Sans_Pro({
+const sourceSansPro = Source_Sans_3({
   weight: ['300', '400', '500'],
   subsets: ['latin'],
   display: 'swap',
