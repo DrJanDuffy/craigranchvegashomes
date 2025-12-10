@@ -147,7 +147,12 @@ export default function ContactPage() {
               <Link href='/homes'>View Available Homes</Link>
             </Button>
             <Button asChild size='lg' variant='outline'>
-              <Link href='http://drjanduffy.realscout.com/onboarding'>
+              <Link
+                href='http://drjanduffy.realscout.com/onboarding'
+                target='_blank'
+                rel='noopener noreferrer'
+                prefetch={false}
+              >
                 Schedule Consultation
               </Link>
             </Button>

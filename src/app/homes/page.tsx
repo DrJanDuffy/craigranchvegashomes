@@ -125,7 +125,12 @@ export default function HomesPage() {
               size='lg'
               className='bg-[#3A8DDE] hover:bg-[#2A7DCE] text-white'
             >
-              <Link href='http://drjanduffy.realscout.com/onboarding'>
+              <Link
+                href='http://drjanduffy.realscout.com/onboarding'
+                target='_blank'
+                rel='noopener noreferrer'
+                prefetch={false}
+              >
                 View All Listings
               </Link>
             </Button>

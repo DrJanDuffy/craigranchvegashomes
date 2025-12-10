@@ -112,7 +112,12 @@ export default function FeaturedCommunities() {
                   asChild
                   className='w-full bg-[#3A8DDE] hover:bg-[#2A7DCE] text-white'
                 >
-                  <Link href='http://drjanduffy.realscout.com/onboarding'>
+                  <Link
+                    href='http://drjanduffy.realscout.com/onboarding'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    prefetch={false}
+                  >
                     Explore {community.name}
                   </Link>
                 </Button>

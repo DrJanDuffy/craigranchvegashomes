@@ -76,6 +76,9 @@ const BlogPostCard = ({ post }: { post: BlogPost }) => {
     <Card className='group overflow-hidden h-full hover:shadow-xl transition-all duration-300'>
       <Link
         href={post.postLink}
+        target='_blank'
+        rel='noopener noreferrer'
+        prefetch={false}
         className='block relative w-full h-[190px] overflow-hidden'
       >
         <Image
@@ -93,12 +96,25 @@ const BlogPostCard = ({ post }: { post: BlogPost }) => {
           variant='outline'
           className='w-fit mb-2 text-[#007BFF] border-[#007BFF]/30'
         >
-          <Link href={post.categoryLink} className='hover:underline'>
+          <Link
+            href={post.categoryLink}
+            target='_blank'
+            rel='noopener noreferrer'
+            prefetch={false}
+            className='hover:underline'
+          >
             {post.category}
           </Link>
         </Badge>
         <CardTitle className='group-hover:text-[#007BFF] transition-colors duration-300'>
-          <Link href={post.postLink}>{post.title}</Link>
+          <Link
+            href={post.postLink}
+            target='_blank'
+            rel='noopener noreferrer'
+            prefetch={false}
+          >
+            {post.title}
+          </Link>
         </CardTitle>
       </CardHeader>
       <CardFooter className='flex-col items-start gap-2 pt-0'>
@@ -126,6 +142,9 @@ const BlogPosts = () => {
         <div className='text-center mt-12'>
           <Link
             href='https://www.simplifyingthemarket.com/en/feed?a=956758-ef2edda2f940e018328655620ea05f18'
+            target='_blank'
+            rel='noopener noreferrer'
+            prefetch={false}
             className='inline-block bg-[#2C3E50] text-white font-primary font-medium text-sm py-[10px] px-6 rounded-lg hover:bg-[#333333] transition-colors duration-300'
           >
             View All Market Insights

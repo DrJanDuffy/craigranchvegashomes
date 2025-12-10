@@ -102,7 +102,12 @@ export default function PropertyCategories() {
                   asChild
                   className='w-full bg-[#3A8DDE] hover:bg-[#2A7DCE] text-white'
                 >
-                  <Link href='http://drjanduffy.realscout.com/onboarding'>
+                  <Link
+                    href='http://drjanduffy.realscout.com/onboarding'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    prefetch={false}
+                  >
                     View Properties
                   </Link>
                 </Button>

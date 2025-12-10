@@ -163,6 +163,9 @@ const NeighborhoodCard = ({ neighborhood }: { neighborhood: Neighborhood }) => {
 
         <Link
           href='http://drjanduffy.realscout.com/onboarding'
+          target='_blank'
+          rel='noopener noreferrer'
+          prefetch={false}
           className='w-full bg-[#3A8DDE] text-white py-3 rounded-lg font-semibold hover:bg-[#2A7DCE] transition-colors duration-200 block text-center'
         >
           View {neighborhood.name} Homes
@@ -208,6 +211,9 @@ const NorthLasVegasNeighborhoods = () => {
             </p>
             <Link
               href='http://drjanduffy.realscout.com/onboarding'
+              target='_blank'
+              rel='noopener noreferrer'
+              prefetch={false}
               className='bg-[#16B286] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#15A276] transition-colors duration-200 inline-block'
             >
               Start Your Home Search

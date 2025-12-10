@@ -189,7 +189,12 @@ export default function MarketDataSection() {
                   asChild
                   className='bg-[#16B286] hover:bg-[#15A276] text-white'
                 >
-                  <Link href='http://drjanduffy.realscout.com/onboarding'>
+                  <Link
+                    href='http://drjanduffy.realscout.com/onboarding'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    prefetch={false}
+                  >
                     View Full Market Report
                   </Link>
                 </Button>

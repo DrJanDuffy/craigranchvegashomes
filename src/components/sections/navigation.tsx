@@ -48,7 +48,12 @@ export default function Navigation() {
               asChild
               className='bg-[#3A8DDE] hover:bg-[#2A7DCE] text-white'
             >
-              <Link href='http://drjanduffy.realscout.com/onboarding'>
+              <Link
+                href='http://drjanduffy.realscout.com/onboarding'
+                target='_blank'
+                rel='noopener noreferrer'
+                prefetch={false}
+              >
                 Get Started
               </Link>
             </Button>
@@ -82,6 +87,9 @@ export default function Navigation() {
                   >
                     <Link
                       href='http://drjanduffy.realscout.com/onboarding'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      prefetch={false}
                       onClick={() => setOpen(false)}
                     >
                       Get Started

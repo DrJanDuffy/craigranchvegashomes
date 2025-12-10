@@ -22,12 +22,18 @@ export default function Hero() {
         <div className='flex flex-col sm:flex-row gap-4 justify-center'>
           <Link
             href='http://drjanduffy.realscout.com/onboarding'
+            target='_blank'
+            rel='noopener noreferrer'
+            prefetch={false}
             className='bg-[#16B286] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#15A276] transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1'
           >
             View Available Homes
           </Link>
           <Link
             href='http://drjanduffy.realscout.com/onboarding'
+            target='_blank'
+            rel='noopener noreferrer'
+            prefetch={false}
             className='bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/30 transition-colors duration-200 border border-white/30 hover:border-white/50'
           >
             Schedule a Tour
