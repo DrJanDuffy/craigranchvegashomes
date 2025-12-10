@@ -1,4 +1,5 @@
 import PageLayout from '@/components/layout/page-layout';
+import GoogleMap from '@/components/sections/google-map';
 import {
   Card,
   CardContent,
@@ -342,8 +343,49 @@ export default function NeighborhoodsPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Location Map Section */}
       <section className='py-16 bg-white'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-12'>
+            <div className='w-16 h-16 bg-[#3A8DDE]/10 rounded-lg flex items-center justify-center mx-auto mb-4'>
+              <MapPin className='h-8 w-8 text-[#3A8DDE]' />
+            </div>
+            <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
+              Craig Ranch Location
+            </h2>
+            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
+              Explore the location of Craig Ranch and its distinct neighborhoods in
+              North Las Vegas. The community is conveniently located near major
+              access routes, schools, and the 170-acre Craig Ranch Regional Park.
+            </p>
+          </div>
+          <div className='relative'>
+            <GoogleMap
+              address='Craig Ranch, North Las Vegas, NV 89031'
+              latitude={36.2831}
+              longitude={-115.1331}
+              zoom={13}
+              height='500px'
+              title='Craig Ranch Neighborhoods Location'
+            />
+          </div>
+          <div className='mt-6 text-center'>
+            <Link
+              href='https://www.google.com/maps/search/?api=1&query=Craig+Ranch+North+Las+Vegas+NV+89031'
+              target='_blank'
+              rel='noopener noreferrer'
+              prefetch={false}
+              className='text-[#3A8DDE] hover:text-[#2A7DCE] font-semibold inline-flex items-center gap-2'
+            >
+              <MapPin className='h-4 w-4' />
+              Open in Google Maps
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className='py-16 bg-[#F7F9FC]'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
           <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
             Find Your Perfect Neighborhood

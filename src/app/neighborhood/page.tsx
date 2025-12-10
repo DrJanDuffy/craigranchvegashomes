@@ -3,6 +3,7 @@ import FeaturedCommunities from '@/components/sections/featured-communities';
 import NorthLasVegasNeighborhoods from '@/components/sections/north-las-vegas-neighborhoods';
 import CraigRanchListings from '@/components/sections/craig-ranch-listings';
 import CraigRanchPropertySearch from '@/components/sections/craig-ranch-property-search';
+import GoogleMap from '@/components/sections/google-map';
 import {
   Card,
   CardContent,
@@ -358,6 +359,48 @@ export default function NeighborhoodPage() {
                 </CardDescription>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Location Map Section */}
+      <section className='py-16 bg-white'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-12'>
+            <div className='w-16 h-16 bg-[#3A8DDE]/10 rounded-lg flex items-center justify-center mx-auto mb-4'>
+              <MapPin className='h-8 w-8 text-[#3A8DDE]' />
+            </div>
+            <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
+              Craig Ranch Location
+            </h2>
+            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
+              Located in North Las Vegas, Craig Ranch is conveniently situated near
+              the VA Hospital, Nellis Air Force Base, the 215 Beltway, and I-15.
+              The community is in the 89031 zip code with easy access to schools,
+              parks, and shopping.
+            </p>
+          </div>
+          <div className='relative'>
+            <GoogleMap
+              address='Craig Ranch, North Las Vegas, NV 89031'
+              latitude={36.2831}
+              longitude={-115.1331}
+              zoom={13}
+              height='500px'
+              title='Craig Ranch Community Location'
+            />
+          </div>
+          <div className='mt-6 text-center'>
+            <Link
+              href='https://www.google.com/maps/search/?api=1&query=Craig+Ranch+North+Las+Vegas+NV+89031'
+              target='_blank'
+              rel='noopener noreferrer'
+              prefetch={false}
+              className='text-[#3A8DDE] hover:text-[#2A7DCE] font-semibold inline-flex items-center gap-2'
+            >
+              <MapPin className='h-4 w-4' />
+              Open in Google Maps
+            </Link>
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import PageLayout from '@/components/layout/page-layout';
 import ContactForm from '@/components/sections/contact-form';
+import GoogleMap from '@/components/sections/google-map';
 import {
   Card,
   CardContent,
@@ -177,6 +178,43 @@ export default function ContactPage() {
                 </CardContent>
               </Card>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className='py-16 bg-[#F7F9FC]'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-8'>
+            <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
+              Find Us on the Map
+            </h2>
+            <p className='text-lg text-gray-600 max-w-2xl mx-auto'>
+              Located in Craig Ranch, North Las Vegas, we serve clients throughout
+              Las Vegas, Henderson, and surrounding communities.
+            </p>
+          </div>
+          <div className='relative'>
+            <GoogleMap
+              address='Craig Ranch, North Las Vegas, NV 89031'
+              latitude={36.2831}
+              longitude={-115.1331}
+              zoom={14}
+              height='500px'
+              title='Craig Ranch Location'
+            />
+          </div>
+          <div className='mt-6 text-center'>
+            <Link
+              href='https://www.google.com/maps/search/?api=1&query=Craig+Ranch+North+Las+Vegas+NV+89031'
+              target='_blank'
+              rel='noopener noreferrer'
+              prefetch={false}
+              className='text-[#3A8DDE] hover:text-[#2A7DCE] font-semibold inline-flex items-center gap-2'
+            >
+              <MapPin className='h-4 w-4' />
+              Open in Google Maps
+            </Link>
           </div>
         </div>
       </section>
