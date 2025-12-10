@@ -59,15 +59,34 @@ export default function Footer() {
             <ul className='space-y-2 text-gray-300'>
               <li className='flex items-center'>
                 <span className='mr-2'>📞</span>
-                (702) 555-0123
+                <a
+                  href='tel:7025001955'
+                  className='hover:text-white transition-colors'
+                >
+                  (702) 500-1955
+                </a>
+              </li>
+              <li className='flex items-center'>
+                <span className='mr-2'>📞</span>
+                <a
+                  href='tel:7025001530'
+                  className='hover:text-white transition-colors'
+                >
+                  (702) 500-1530
+                </a>
               </li>
               <li className='flex items-center'>
                 <span className='mr-2'>✉️</span>
-                info@craigranchvegas.com
+                <a
+                  href='mailto:info@craigranchvegas.com'
+                  className='hover:text-white transition-colors'
+                >
+                  info@craigranchvegas.com
+                </a>
               </li>
               <li className='flex items-center'>
                 <span className='mr-2'>📍</span>
-                Craig Ranch, Las Vegas, NV
+                Craig Ranch, North Las Vegas, NV 89031
               </li>
             </ul>
           </div>

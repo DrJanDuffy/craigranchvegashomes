@@ -13,6 +13,7 @@ export default function Navigation() {
     { href: '/', label: 'Home' },
     { href: '/homes', label: 'Homes' },
     { href: '/neighborhood', label: 'Neighborhood' },
+    { href: '/neighborhoods', label: 'Neighborhoods' },
     { href: '/community', label: 'Community' },
     { href: '/market-data', label: 'Market Data' },
     { href: '/contact', label: 'Contact' },

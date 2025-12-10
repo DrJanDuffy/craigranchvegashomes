@@ -30,9 +30,11 @@ export default function HomesPage() {
             Homes for Sale in Craig Ranch
           </h1>
           <p className='text-xl text-gray-200 max-w-3xl'>
-            Discover luxury homes in one of Las Vegas&apos; most prestigious
-            communities. From single-family homes to luxury estates, find your
-            perfect property in Craig Ranch.
+            Discover homes for sale in the Craig Ranch community in North Las
+            Vegas. Work with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway
+            HomeServices® Nevada, to find your perfect property. Prices range
+            from $415,000 for 3-bedroom homes to $738,700+ for luxury 4+ bedroom
+            estates.
           </p>
         </div>
       </div>
@@ -110,14 +112,165 @@ export default function HomesPage() {
 
       <PropertyCategories />
 
+      {/* Working with Dr. Jan Duffy Section */}
+      <section className='py-16 bg-white'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-12'>
+            <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
+              Working with Dr. Jan Duffy
+            </h2>
+            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
+              Dr. Jan Duffy is a REALTOR® with Berkshire Hathaway HomeServices®
+              Nevada, specializing in various communities across Las Vegas and
+              Henderson. She offers expert, data-driven advice and personalized
+              consultations.
+            </p>
+          </div>
+
+          <div className='grid md:grid-cols-3 gap-6'>
+            <Card className='border-0 shadow-lg'>
+              <CardHeader>
+                <CardTitle>Contact Information</CardTitle>
+              </CardHeader>
+              <CardContent className='space-y-2'>
+                <p className='text-gray-700'>
+                  <strong>Phone:</strong>{' '}
+                  <a
+                    href='tel:7025001955'
+                    className='text-[#3A8DDE] hover:underline'
+                  >
+                    (702) 500-1955
+                  </a>
+                </p>
+                <p className='text-gray-700'>
+                  <strong>Alternate:</strong>{' '}
+                  <a
+                    href='tel:7025001530'
+                    className='text-[#3A8DDE] hover:underline'
+                  >
+                    (702) 500-1530
+                  </a>
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className='border-0 shadow-lg'>
+              <CardHeader>
+                <CardTitle>Website Listings</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className='text-gray-700 mb-3'>
+                  Explore current property listings through her website:
+                </p>
+                <Link
+                  href='http://drjanduffy.realscout.com/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  prefetch={false}
+                  className='text-[#3A8DDE] hover:underline font-semibold'
+                >
+                  drjanduffy.realscout.com →
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className='border-0 shadow-lg'>
+              <CardHeader>
+                <CardTitle>Expertise</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className='text-gray-700'>
+                  Specializes in luxury homes and estates in Las Vegas and
+                  Henderson. Offers expert, data-driven advice and personalized
+                  consultations for buyers and sellers.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Price Range & Community Info */}
       <section className='py-16 bg-[#F7F9FC]'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='grid lg:grid-cols-2 gap-12'>
+            <div>
+              <h2 className='text-3xl font-bold text-[#0A2540] mb-6'>
+                Homes for Sale in Craig Ranch
+              </h2>
+              <div className='space-y-4 text-gray-700'>
+                <p>
+                  <strong>Community Information:</strong> Craig Ranch is a
+                  master-planned community located in North Las Vegas, near the
+                  VA Hospital and major access routes like the 215-beltway and
+                  I-15.
+                </p>
+                <p>
+                  <strong>Price Range:</strong> Home prices vary, with new
+                  construction and resale options available. Recent examples
+                  range from around $415,000 for a 3-bedroom home to $738,700 for
+                  a larger 4-bedroom house.
+                </p>
+                <p>
+                  <strong>Builders:</strong> Builders in the community have
+                  included Century Communities, offering various floor plans across
+                  multiple collections.
+                </p>
+              </div>
+              <div className='mt-6'>
+                <Button asChild variant='outline'>
+                  <Link href='/neighborhoods'>Explore Neighborhoods</Link>
+                </Button>
+              </div>
+            </div>
+
+            <div>
+              <h2 className='text-3xl font-bold text-[#0A2540] mb-6'>
+                Community Amenities
+              </h2>
+              <div className='space-y-4'>
+                <p className='text-gray-700'>
+                  The community features multiple neighborhoods, several parks, and
+                  is in close proximity to the 170-acre Craig Ranch Regional Park,
+                  which includes:
+                </p>
+                <ul className='space-y-2 text-gray-700'>
+                  <li className='flex items-center'>
+                    <span className='text-[#16B286] mr-2'>✓</span>
+                    Skate park (65,000 square feet)
+                  </li>
+                  <li className='flex items-center'>
+                    <span className='text-[#16B286] mr-2'>✓</span>
+                    Three dog parks
+                  </li>
+                  <li className='flex items-center'>
+                    <span className='text-[#16B286] mr-2'>✓</span>
+                    Sports fields (baseball, basketball, tennis, volleyball)
+                  </li>
+                  <li className='flex items-center'>
+                    <span className='text-[#16B286] mr-2'>✓</span>
+                    Community gardens
+                  </li>
+                  <li className='flex items-center'>
+                    <span className='text-[#16B286] mr-2'>✓</span>
+                    Water features
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className='py-16 bg-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
           <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
             Ready to Find Your Dream Home?
           </h2>
           <p className='text-lg text-gray-600 mb-8'>
-            Our expert team is here to help you find the perfect property in
-            Craig Ranch. Schedule a consultation or browse our current listings.
+            Dr. Jan Duffy can provide you with the most current and specific
+            listings within the Craig Ranch community that match your
+            requirements. Contact her directly or utilize her online resources.
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
             <Button
@@ -126,7 +279,7 @@ export default function HomesPage() {
               className='bg-[#3A8DDE] hover:bg-[#2A7DCE] text-white'
             >
               <Link
-                href='http://drjanduffy.realscout.com/onboarding'
+                href='http://drjanduffy.realscout.com/'
                 target='_blank'
                 rel='noopener noreferrer'
                 prefetch={false}
@@ -135,7 +288,7 @@ export default function HomesPage() {
               </Link>
             </Button>
             <Button asChild size='lg' variant='outline'>
-              <Link href='/contact'>Contact Us</Link>
+              <Link href='/contact'>Contact Dr. Jan Duffy</Link>
             </Button>
           </div>
         </div>

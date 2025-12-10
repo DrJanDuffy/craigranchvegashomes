@@ -8,20 +8,22 @@ export default function AboutContent() {
           {/* Content */}
           <div>
             <h2 className='text-4xl font-bold text-[#0A2540] mb-6'>
-              About Craig Ranch Vegas Homes
+              About Dr. Jan Duffy
             </h2>
             <p className='text-lg text-gray-600 mb-6 leading-relaxed'>
-              We are your trusted partner in finding the perfect home in one of
-              Las Vegas&apos; most prestigious communities. With years of
-              experience in the Craig Ranch area, we understand what makes this
-              neighborhood special.
+              Dr. Jan Duffy is a REALTOR® with{' '}
+              <strong>Berkshire Hathaway HomeServices® Nevada</strong>, your
+              trusted partner in finding the perfect home in one of Las Vegas&apos;
+              most prestigious communities. With years of experience in the Craig
+              Ranch area and throughout Las Vegas and Henderson, she understands
+              what makes each neighborhood special.
             </p>
             <p className='text-lg text-gray-600 mb-8 leading-relaxed'>
-              Our team of dedicated real estate professionals is committed to
-              providing exceptional service, expert guidance, and personalized
-              attention to every client. Whether you&apos;re buying, selling, or
-              investing, we&apos;re here to help you achieve your real estate
-              goals.
+              Dr. Duffy is committed to providing exceptional service, expert
+              guidance, and personalized attention to every client. She offers
+              expert, data-driven advice and personalized consultations. Whether
+              you&apos;re buying, selling, or investing, she&apos;s here to help
+              you achieve your real estate goals.
             </p>
 
             {/* Key Features */}
@@ -108,15 +110,23 @@ export default function AboutContent() {
               </div>
             </div>
 
-            <Link
-              href='http://drjanduffy.realscout.com/onboarding'
-              target='_blank'
-              rel='noopener noreferrer'
-              prefetch={false}
-              className='bg-[#3A8DDE] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#2A7DCE] transition-colors duration-200 inline-block'
-            >
-              Learn More About Us
-            </Link>
+            <div className='flex flex-col sm:flex-row gap-4'>
+              <Link
+                href='http://drjanduffy.realscout.com/'
+                target='_blank'
+                rel='noopener noreferrer'
+                prefetch={false}
+                className='bg-[#3A8DDE] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#2A7DCE] transition-colors duration-200 inline-block text-center'
+              >
+                View All Listings
+              </Link>
+              <Link
+                href='/contact'
+                className='bg-white border-2 border-[#3A8DDE] text-[#3A8DDE] px-8 py-4 rounded-lg font-semibold hover:bg-[#3A8DDE]/10 transition-colors duration-200 inline-block text-center'
+              >
+                Contact Dr. Jan Duffy
+              </Link>
+            </div>
           </div>
 
           {/* Stats/Image Placeholder */}

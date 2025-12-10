@@ -534,7 +534,10 @@ export default function NeighborhoodPage() {
               <Link href='/homes'>View Available Homes</Link>
             </Button>
             <Button asChild size='lg' variant='outline'>
-              <Link href='/contact'>Get Neighborhood Guide</Link>
+              <Link href='/neighborhoods'>Explore Neighborhoods</Link>
+            </Button>
+            <Button asChild size='lg' variant='outline'>
+              <Link href='/contact'>Contact Dr. Jan Duffy</Link>
             </Button>
           </div>
         </div>

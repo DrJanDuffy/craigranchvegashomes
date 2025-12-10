@@ -164,9 +164,14 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'RealEstateAgent',
-              name: 'Craig Ranch Vegas Homes',
+              name: 'Dr. Jan Duffy',
               description:
-                'Luxury real estate services in Craig Ranch, Las Vegas, Nevada',
+                'REALTOR® with Berkshire Hathaway HomeServices® Nevada, specializing in luxury homes and estates in Las Vegas and Henderson',
+              jobTitle: 'REALTOR®',
+              worksFor: {
+                '@type': 'Organization',
+                name: 'Berkshire Hathaway HomeServices Nevada',
+              },
               url: 'https://craigranchvegas.com',
               logo: 'https://craigranchvegas.com/logo.png',
               image: 'https://craigranchvegas.com/og-image.jpg',
@@ -194,10 +199,14 @@ export default function RootLayout({
               },
               contactPoint: {
                 '@type': 'ContactPoint',
-                telephone: '+1-702-555-0123',
+                telephone: '+1-702-500-1955',
                 contactType: 'customer service',
                 areaServed: 'US',
                 availableLanguage: 'English',
+              },
+              memberOf: {
+                '@type': 'Organization',
+                name: 'Berkshire Hathaway HomeServices Nevada',
               },
               sameAs: [
                 'https://www.facebook.com/craigranchvegas',
@@ -219,7 +228,7 @@ export default function RootLayout({
               description:
                 'Luxury real estate services in Craig Ranch, Las Vegas',
               url: 'https://craigranchvegas.com',
-              telephone: '+1-702-555-0123',
+              telephone: '+1-702-500-1955',
               address: {
                 '@type': 'PostalAddress',
                 streetAddress: 'Craig Ranch',
