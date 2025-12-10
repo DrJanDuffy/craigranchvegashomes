@@ -1,35 +1,96 @@
-'use client';
-
-import Navigation from '@/components/sections/navigation';
+import { Metadata } from 'next';
+import PageLayout from '@/components/layout/page-layout';
 import Hero from '@/components/sections/hero';
 import HomeEvaluationSection from '@/components/sections/home-evaluation';
-import RealEstateListings from '@/components/sections/real-estate-listings';
-import NorthLasVegasNeighborhoods from '@/components/sections/north-las-vegas-neighborhoods';
 import PropertyCategories from '@/components/sections/property-categories';
 import FeaturedCommunities from '@/components/sections/featured-communities';
-import MarketDataSection from '@/components/sections/market-data';
 import BlogPosts from '@/components/sections/blog-posts';
-import AboutContent from '@/components/sections/about-content';
-import Footer from '@/components/sections/footer';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { ArrowRight, Home as HomeIcon, MapPin, TrendingUp } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas, Nevada',
+  description: 'Find your dream home in Craig Ranch, Las Vegas. Browse luxury homes, explore the neighborhood, and discover why Craig Ranch is one of Las Vegas\' most prestigious communities.',
+  keywords: 'Craig Ranch, Las Vegas real estate, luxury homes, Las Vegas homes for sale, North Las Vegas, Nevada real estate',
+};
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <Navigation />
-      <main className="flex-grow">
-        <article>
-          <Hero />
-          <HomeEvaluationSection />
-          <RealEstateListings />
-          <NorthLasVegasNeighborhoods />
-          <PropertyCategories />
-          <FeaturedCommunities />
-          <MarketDataSection />
-          <BlogPosts />
-          <AboutContent />
-        </article>
-      </main>
-      <Footer />
-    </div>
+    <PageLayout>
+      <article>
+        <Hero />
+        
+        {/* Quick Links Section */}
+        <section className="py-12 bg-white border-b">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-3 gap-6">
+              <Link href="/homes" className="block">
+                <Button variant="outline" className="w-full h-auto py-6 flex-col gap-2 hover:bg-[#F7F9FC]">
+                  <HomeIcon className="h-8 w-8 text-[#3A8DDE]" />
+                  <span className="text-lg font-semibold">Browse Homes</span>
+                  <span className="text-sm text-gray-600">View all available properties</span>
+                </Button>
+              </Link>
+              <Link href="/neighborhood" className="block">
+                <Button variant="outline" className="w-full h-auto py-6 flex-col gap-2 hover:bg-[#F7F9FC]">
+                  <MapPin className="h-8 w-8 text-[#16B286]" />
+                  <span className="text-lg font-semibold">Explore Craig Ranch</span>
+                  <span className="text-sm text-gray-600">Learn about the neighborhood</span>
+                </Button>
+              </Link>
+              <Link href="/market-data" className="block">
+                <Button variant="outline" className="w-full h-auto py-6 flex-col gap-2 hover:bg-[#F7F9FC]">
+                  <TrendingUp className="h-8 w-8 text-[#0A2540]" />
+                  <span className="text-lg font-semibold">Market Insights</span>
+                  <span className="text-sm text-gray-600">Latest trends and statistics</span>
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <HomeEvaluationSection />
+        <PropertyCategories />
+        <FeaturedCommunities />
+        
+        {/* Market Data Preview */}
+        <section className="py-16 bg-gradient-to-r from-[#0A2540] to-[#3A8DDE]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Craig Ranch Market Overview
+            </h2>
+            <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+              Stay informed with the latest real estate trends in Las Vegas&apos; most prestigious community
+            </p>
+            <div className="grid md:grid-cols-4 gap-6 mb-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <div className="text-3xl font-bold text-white mb-1">$875K</div>
+                <div className="text-gray-300 text-sm">Avg Home Price</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <div className="text-3xl font-bold text-white mb-1">23</div>
+                <div className="text-gray-300 text-sm">Days on Market</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <div className="text-3xl font-bold text-white mb-1">156</div>
+                <div className="text-gray-300 text-sm">Active Listings</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <div className="text-3xl font-bold text-white mb-1">+5.2%</div>
+                <div className="text-gray-300 text-sm">Price Growth</div>
+              </div>
+            </div>
+            <Button asChild className="bg-[#16B286] hover:bg-[#15A276] text-white">
+              <Link href="/market-data">
+                View Full Market Report <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </section>
+
+        <BlogPosts />
+      </article>
+    </PageLayout>
   );
 }

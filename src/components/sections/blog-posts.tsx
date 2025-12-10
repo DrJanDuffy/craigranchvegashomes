@@ -2,6 +2,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 type BlogPost = {
   imageUrl: string;
@@ -54,7 +56,7 @@ const blogPosts: BlogPost[] = [
 
 const BlogPostCard = ({ post }: { post: BlogPost }) => {
   return (
-    <article className="group flex flex-col bg-white rounded-lg shadow-card overflow-hidden text-left h-full">
+    <Card className="group overflow-hidden h-full hover:shadow-xl transition-all duration-300">
       <Link href={post.postLink} className="block relative w-full h-[190px] overflow-hidden">
         <Image
           src={post.imageUrl}
@@ -64,23 +66,23 @@ const BlogPostCard = ({ post }: { post: BlogPost }) => {
           className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
         />
       </Link>
-      <div className="p-[15px] flex flex-col flex-grow">
-        <div className="flex-grow">
-          <Link href={post.categoryLink} className="text-[#007BFF] text-xs font-secondary hover:underline w-fit">
+      <CardHeader>
+        <Badge variant="outline" className="w-fit mb-2 text-[#007BFF] border-[#007BFF]/30">
+          <Link href={post.categoryLink} className="hover:underline">
             {post.category}
           </Link>
+        </Badge>
+        <CardTitle className="group-hover:text-[#007BFF] transition-colors duration-300">
           <Link href={post.postLink}>
-            <h3 className="mt-1 font-primary text-[#333333] transition-colors duration-300 group-hover:text-[#007BFF] text-[19px] leading-tight font-light">
-              {post.title}
-            </h3>
+            {post.title}
           </Link>
-        </div>
-        <div className="mt-4">
-          <p className="text-[#666666] text-xs font-secondary uppercase">{post.author}</p>
-          <p className="text-[#666666] text-xs font-secondary">{post.date}</p>
-        </div>
-      </div>
-    </article>
+        </CardTitle>
+      </CardHeader>
+      <CardFooter className="flex-col items-start gap-2 pt-0">
+        <CardDescription className="text-xs uppercase">{post.author}</CardDescription>
+        <CardDescription className="text-xs">{post.date}</CardDescription>
+      </CardFooter>
+    </Card>
   );
 };
 

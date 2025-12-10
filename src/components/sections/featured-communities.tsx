@@ -1,6 +1,10 @@
 'use client';
 
 import Link from 'next/link';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 
 export default function FeaturedCommunities() {
   const communities = [
@@ -43,55 +47,67 @@ export default function FeaturedCommunities() {
         {/* Communities Grid */}
         <div className='grid md:grid-cols-3 gap-8'>
           {communities.map((community, index) => (
-            <div
+            <Card
               key={index}
-              className='bg-[#F7F9FC] rounded-xl p-8 hover:shadow-lg transition-shadow duration-300'
+              className='bg-[#F7F9FC] hover:shadow-lg transition-all duration-300 border-0'
             >
-              <h3 className='text-2xl font-semibold text-[#0A2540] mb-3'>
-                {community.name}
-              </h3>
-              <p className='text-gray-600 mb-6 leading-relaxed'>
-                {community.description}
-              </p>
-              
-              <div className='space-y-4 mb-6'>
-                <div className='flex justify-between items-center'>
-                  <span className='text-gray-600'>Average Price:</span>
-                  <span className='text-[#16B286] font-semibold text-lg'>
-                    {community.avgPrice}
-                  </span>
+              <CardHeader>
+                <CardTitle className='text-2xl text-[#0A2540]'>
+                  {community.name}
+                </CardTitle>
+                <CardDescription className='text-base'>
+                  {community.description}
+                </CardDescription>
+              </CardHeader>
+
+              <CardContent className='space-y-4'>
+                <div className='space-y-3'>
+                  <div className='flex justify-between items-center'>
+                    <span className='text-gray-600'>Average Price:</span>
+                    <Badge variant="default" className='bg-[#16B286] text-white font-semibold text-base px-3 py-1'>
+                      {community.avgPrice}
+                    </Badge>
+                  </div>
+                  <Separator />
+                  <div className='flex justify-between items-center'>
+                    <span className='text-gray-600'>Homes Available:</span>
+                    <Badge variant="secondary" className='font-semibold'>
+                      {community.homesAvailable}
+                    </Badge>
+                  </div>
                 </div>
-                <div className='flex justify-between items-center'>
-                  <span className='text-gray-600'>Homes Available:</span>
-                  <span className='text-[#3A8DDE] font-semibold'>
-                    {community.homesAvailable}
-                  </span>
+                
+                <Separator className='my-4' />
+                
+                <div>
+                  <h4 className='text-sm font-semibold text-[#0A2540] mb-3'>
+                    Key Amenities:
+                  </h4>
+                  <div className='flex flex-wrap gap-2'>
+                    {community.amenities.map((amenity, amenityIndex) => (
+                      <Badge
+                        key={amenityIndex}
+                        variant="outline"
+                        className='bg-white text-[#0A2540] border-gray-200'
+                      >
+                        {amenity}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </CardContent>
               
-              <div className='mb-6'>
-                <h4 className='text-sm font-semibold text-[#0A2540] mb-2'>
-                  Key Amenities:
-                </h4>
-                <div className='flex flex-wrap gap-2'>
-                  {community.amenities.map((amenity, amenityIndex) => (
-                    <span
-                      key={amenityIndex}
-                      className='bg-white px-3 py-1 rounded-full text-sm text-[#0A2540] border border-gray-200'
-                    >
-                      {amenity}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              
-              <Link 
-                href="http://drjanduffy.realscout.com/onboarding"
-                className='w-full bg-[#3A8DDE] text-white py-3 rounded-lg font-semibold hover:bg-[#2A7DCE] transition-colors duration-200 block text-center'
-              >
-                Explore {community.name}
-              </Link>
-            </div>
+              <CardFooter>
+                <Button 
+                  asChild
+                  className='w-full bg-[#3A8DDE] hover:bg-[#2A7DCE] text-white'
+                >
+                  <Link href="http://drjanduffy.realscout.com/onboarding">
+                    Explore {community.name}
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
           ))}
         </div>
       </div>

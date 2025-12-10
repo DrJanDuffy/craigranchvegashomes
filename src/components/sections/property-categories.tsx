@@ -1,6 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
 export default function PropertyCategories() {
   const categories = [
@@ -9,21 +12,24 @@ export default function PropertyCategories() {
       description: 'Spacious family homes with modern amenities',
       price: '$500K - $1.2M',
       image: '/images/single-family.jpg',
-      count: '24 Available'
+      count: '24 Available',
+      features: ['3-5 Bedrooms', '2-4 Bathrooms', 'Garage']
     },
     {
       title: 'Luxury Estates',
       description: 'Premium properties with exceptional finishes',
       price: '$1.5M - $3M+',
       image: '/images/luxury-estates.jpg',
-      count: '8 Available'
+      count: '8 Available',
+      features: ['5+ Bedrooms', 'Premium Finishes', 'Large Lots']
     },
     {
       title: 'New Construction',
       description: 'Brand new homes with latest features',
       price: '$600K - $1.8M',
       image: '/images/new-construction.jpg',
-      count: '12 Available'
+      count: '12 Available',
+      features: ['Energy Efficient', 'Smart Home', 'Warranty']
     }
   ];
 
@@ -43,9 +49,9 @@ export default function PropertyCategories() {
         {/* Property Categories Grid */}
         <div className='grid md:grid-cols-3 gap-8'>
           {categories.map((category, index) => (
-            <div
+            <Card
               key={index}
-              className='bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2'
+              className='overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg'
             >
               {/* Placeholder for image */}
               <div className='h-48 bg-gradient-to-br from-[#0A2540] to-[#3A8DDE] flex items-center justify-center'>
@@ -55,29 +61,44 @@ export default function PropertyCategories() {
                 </div>
               </div>
               
-              <div className='p-6'>
-                <h3 className='text-2xl font-semibold text-[#0A2540] mb-2'>
+              <CardHeader>
+                <CardTitle className='text-2xl text-[#0A2540]'>
                   {category.title}
-                </h3>
-                <p className='text-gray-600 mb-4 leading-relaxed'>
+                </CardTitle>
+                <CardDescription className='text-base'>
                   {category.description}
-                </p>
-                <div className='flex justify-between items-center'>
+                </CardDescription>
+              </CardHeader>
+
+              <CardContent className='space-y-4'>
+                <div className='flex flex-wrap gap-2'>
+                  {category.features.map((feature, featureIndex) => (
+                    <Badge key={featureIndex} variant="outline" className='text-[#0A2540] border-[#0A2540]/20'>
+                      {feature}
+                    </Badge>
+                  ))}
+                </div>
+                <div className='flex justify-between items-center pt-2'>
                   <span className='text-[#16B286] font-semibold text-lg'>
                     {category.price}
                   </span>
-                  <span className='text-sm text-gray-500'>
+                  <Badge variant="secondary" className='text-sm'>
                     {category.count}
-                  </span>
+                  </Badge>
                 </div>
-                <Link 
-                  href="http://drjanduffy.realscout.com/onboarding"
-                  className='w-full mt-4 bg-[#3A8DDE] text-white py-3 rounded-lg font-semibold hover:bg-[#2A7DCE] transition-colors duration-200 block text-center'
+              </CardContent>
+
+              <CardFooter>
+                <Button 
+                  asChild
+                  className='w-full bg-[#3A8DDE] hover:bg-[#2A7DCE] text-white'
                 >
-                  View Properties
-                </Link>
-              </div>
-            </div>
+                  <Link href="http://drjanduffy.realscout.com/onboarding">
+                    View Properties
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
           ))}
         </div>
       </div>
