@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import {
   Card,
@@ -15,28 +13,28 @@ import { Button } from '@/components/ui/button';
 export default function PropertyCategories() {
   const categories = [
     {
-      title: 'Single Family Homes',
-      description: 'Spacious family homes with modern amenities',
-      price: '$500K - $1.2M',
+      title: 'Single Story Homes',
+      description: 'Spacious single-story homes perfect for families',
+      price: '1,519 - 2,947 sq.ft.',
       image: '/images/single-family.jpg',
-      count: '24 Available',
-      features: ['3-5 Bedrooms', '2-4 Bathrooms', 'Garage'],
+      count: '17 Floor Plans',
+      features: ['Up to 5 Bedrooms', 'Up to 3 Bathrooms', '2 Bay Garage'],
     },
     {
-      title: 'Luxury Estates',
-      description: 'Premium properties with exceptional finishes',
-      price: '$1.5M - $3M+',
+      title: 'Two Story Homes',
+      description: 'Elegant two-story homes with modern layouts',
+      price: '1,519 - 2,947 sq.ft.',
       image: '/images/luxury-estates.jpg',
-      count: '8 Available',
-      features: ['5+ Bedrooms', 'Premium Finishes', 'Large Lots'],
+      count: '17 Floor Plans',
+      features: ['Up to 5 Bedrooms', 'Up to 3 Bathrooms', '2 Bay Garage'],
     },
     {
-      title: 'New Construction',
-      description: 'Brand new homes with latest features',
-      price: '$600K - $1.8M',
+      title: 'Gated Community',
+      description: 'Master planned community with incredible amenities',
+      price: '6 Neighborhoods',
       image: '/images/new-construction.jpg',
-      count: '12 Available',
-      features: ['Energy Efficient', 'Smart Home', 'Warranty'],
+      count: '7 Parks + Trails',
+      features: ['Gated Entry', 'Regional Park', 'Miles of Trails'],
     },
   ];
 

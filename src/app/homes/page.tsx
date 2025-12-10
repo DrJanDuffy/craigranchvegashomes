@@ -13,7 +13,9 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Home, MapPin, DollarSign, TrendingUp } from 'lucide-react';
 
-export const metadata = {
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: 'Homes for Sale in Craig Ranch, Las Vegas | Craig Ranch Vegas Homes',
   description:
     "Browse luxury homes for sale in Craig Ranch, Las Vegas. Find your dream home in one of Las Vegas' most prestigious communities.",

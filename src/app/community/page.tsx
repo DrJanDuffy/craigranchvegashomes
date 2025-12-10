@@ -20,7 +20,9 @@ import {
   Building2,
 } from 'lucide-react';
 
-export const metadata = {
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title:
     'Craig Ranch Community Guide: Schools, Amenities & Lifestyle | Las Vegas',
   description:
@@ -111,8 +113,9 @@ export default function CommunityPage() {
             Craig Ranch Community Guide
           </h1>
           <p className='text-xl text-gray-200 max-w-3xl'>
-            Discover the schools, amenities, and lifestyle that make Craig Ranch
-            one of Las Vegas&apos; most desirable communities.
+            A gated master planned community in North Las Vegas featuring 6
+            neighborhoods, 7 parks, 17 floor plans, and miles of trails near
+            Craig Ranch Regional Park.
           </p>
         </div>
       </div>

@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import {
   Card,
@@ -16,25 +14,27 @@ import { Separator } from '@/components/ui/separator';
 export default function FeaturedCommunities() {
   const communities = [
     {
-      name: 'Craig Ranch North',
-      description: 'Family-friendly area with excellent schools',
-      avgPrice: '$750K',
-      homesAvailable: 15,
-      amenities: ['Top Schools', 'Parks', 'Shopping'],
+      name: '6 Neighborhoods',
+      description:
+        'Multiple inspired home collections across 6 distinct neighborhoods',
+      avgPrice: '17 Floor Plans',
+      homesAvailable: '1,519-2,947 sq.ft.',
+      amenities: ['Single Story', 'Two Story', 'Up to 5 Bedrooms'],
     },
     {
-      name: 'Craig Ranch Estates',
-      description: 'Luxury homes with premium amenities',
-      avgPrice: '$1.2M',
-      homesAvailable: 8,
-      amenities: ['Golf Course', 'Clubhouse', 'Pool'],
+      name: 'Parks & Recreation',
+      description:
+        '7 community parks plus a 3.5-acre park with miles of trails',
+      avgPrice: 'Regional Park',
+      homesAvailable: 'Nearby Access',
+      amenities: ['Walking Trails', 'Playgrounds', 'Open Spaces'],
     },
     {
-      name: 'Craig Ranch Village',
-      description: 'Convenient location near shopping and dining',
-      avgPrice: '$650K',
-      homesAvailable: 22,
-      amenities: ['Shopping Center', 'Restaurants', 'Transit'],
+      name: 'Prime Location',
+      description: 'Convenient proximity to major area hubs and transportation',
+      avgPrice: 'Easy Access',
+      homesAvailable: 'I-15 & 215',
+      amenities: ['Nellis AFB', 'VA Hospital', 'Shopping'],
     },
   ];
 

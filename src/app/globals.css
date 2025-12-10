@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Source+Sans+Pro:wght@300;400;500&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -68,8 +67,8 @@
   --color-link-blue: #007BFF;
   --color-success-green: #28A745;
 
-  --font-primary: 'Source Sans Pro';
-  --font-secondary: 'Open Sans';
+  --font-primary: var(--font-source-sans-pro);
+  --font-secondary: var(--font-open-sans);
 
   --text-h1: 48px; /* Large Headlines */
   --text-h2: 32px; /* Section Headers */

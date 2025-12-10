@@ -17,7 +17,9 @@ import {
   BarChart3,
 } from 'lucide-react';
 
-export const metadata = {
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: 'Craig Ranch Real Estate Market Data & Trends | Las Vegas',
   description:
     'Stay informed with the latest real estate market data, trends, and statistics for Craig Ranch, Las Vegas. Average prices, days on market, and more.',

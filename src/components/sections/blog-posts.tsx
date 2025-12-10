@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -86,6 +84,8 @@ const BlogPostCard = ({ post }: { post: BlogPost }) => {
           fill
           sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw'
           className='object-cover transition-transform duration-300 ease-in-out group-hover:scale-105'
+          loading='lazy'
+          quality={85}
         />
       </Link>
       <CardHeader>

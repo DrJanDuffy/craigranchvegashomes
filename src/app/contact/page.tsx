@@ -11,7 +11,9 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Clock, MessageSquare } from 'lucide-react';
 
-export const metadata = {
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: 'Contact Us - Craig Ranch Vegas Homes | Las Vegas Real Estate',
   description:
     'Get in touch with Craig Ranch Vegas Homes. Contact our expert real estate team for buying, selling, or investing in Craig Ranch, Las Vegas.',

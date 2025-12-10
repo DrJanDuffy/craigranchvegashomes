@@ -1,4 +1,4 @@
-'use client';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -19,36 +19,36 @@ export default function Footer() {
             <h4 className='text-lg font-semibold mb-4'>Quick Links</h4>
             <ul className='space-y-2 text-gray-300'>
               <li>
-                <a
-                  href='#'
+                <Link
+                  href='/homes'
                   className='hover:text-white transition-colors duration-200 hover:underline'
                 >
                   Available Homes
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href='#'
+                <Link
+                  href='/neighborhood'
                   className='hover:text-white transition-colors duration-200 hover:underline'
                 >
                   Neighborhood
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href='#'
+                <Link
+                  href='/community'
                   className='hover:text-white transition-colors duration-200 hover:underline'
                 >
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href='#'
+                <Link
+                  href='/contact'
                   className='hover:text-white transition-colors duration-200 hover:underline'
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

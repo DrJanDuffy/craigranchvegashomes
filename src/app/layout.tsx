@@ -1,6 +1,22 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { Source_Sans_Pro, Open_Sans } from 'next/font/google';
 import './globals.css';
+
+// Optimize fonts with next/font
+const sourceSansPro = Source_Sans_Pro({
+  weight: ['300', '400', '500'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-source-sans-pro',
+});
+
+const openSans = Open_Sans({
+  weight: ['400'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-open-sans',
+});
 
 export const metadata: Metadata = {
   title: 'Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas, NV',
@@ -91,7 +107,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' className={`${sourceSansPro.variable} ${openSans.variable}`}>
       <head>
         <style>{`
           realscout-office-listings {
