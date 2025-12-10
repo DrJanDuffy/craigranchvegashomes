@@ -1,10 +1,11 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Craig Ranch Vegas Homes',
     short_name: 'Craig Ranch Homes',
-    description: 'Luxury real estate services in Craig Ranch, Las Vegas, Nevada',
+    description:
+      'Luxury real estate services in Craig Ranch, Las Vegas, Nevada',
     start_url: '/',
     display: 'standalone',
     background_color: '#0A2540',
@@ -39,5 +40,5 @@ export default function manifest(): MetadataRoute.Manifest {
     orientation: 'portrait-primary',
     scope: '/',
     prefer_related_applications: false,
-  }
-} 
+  };
+}

@@ -23,7 +23,7 @@ export default function Navigation() {
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex justify-between items-center h-16'>
           {/* Logo/Brand */}
-          <Link href="/" className='flex items-center'>
+          <Link href='/' className='flex items-center'>
             <h1 className='text-2xl font-bold text-[#0A2540]'>
               Craig Ranch Vegas Homes
             </h1>
@@ -31,7 +31,7 @@ export default function Navigation() {
 
           {/* Desktop Navigation Links */}
           <div className='hidden md:flex space-x-8'>
-            {navLinks.map((link) => (
+            {navLinks.map(link => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -44,11 +44,11 @@ export default function Navigation() {
 
           {/* Desktop CTA Button */}
           <div className='hidden md:block'>
-            <Button 
+            <Button
               asChild
               className='bg-[#3A8DDE] hover:bg-[#2A7DCE] text-white'
             >
-              <Link href="http://drjanduffy.realscout.com/onboarding">
+              <Link href='http://drjanduffy.realscout.com/onboarding'>
                 Get Started
               </Link>
             </Button>
@@ -57,17 +57,15 @@ export default function Navigation() {
           {/* Mobile Menu */}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild className='md:hidden'>
-              <Button variant="ghost" size="icon">
+              <Button variant='ghost' size='icon'>
                 <Menu className='h-6 w-6 text-[#0A2540]' />
                 <span className='sr-only'>Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className='w-[300px] sm:w-[400px]'>
+            <SheetContent side='right' className='w-[300px] sm:w-[400px]'>
               <div className='flex flex-col space-y-4 mt-8'>
-                <h2 className='text-2xl font-bold text-[#0A2540] mb-4'>
-                  Menu
-                </h2>
-                {navLinks.map((link) => (
+                <h2 className='text-2xl font-bold text-[#0A2540] mb-4'>Menu</h2>
+                {navLinks.map(link => (
                   <Link
                     key={link.href}
                     href={link.href}
@@ -78,12 +76,12 @@ export default function Navigation() {
                   </Link>
                 ))}
                 <div className='pt-4'>
-                  <Button 
+                  <Button
                     asChild
                     className='w-full bg-[#3A8DDE] hover:bg-[#2A7DCE] text-white'
                   >
-                    <Link 
-                      href="http://drjanduffy.realscout.com/onboarding"
+                    <Link
+                      href='http://drjanduffy.realscout.com/onboarding'
                       onClick={() => setOpen(false)}
                     >
                       Get Started
@@ -97,4 +95,4 @@ export default function Navigation() {
       </div>
     </nav>
   );
-} 
+}

@@ -9,13 +9,10 @@ interface PageLayoutProps {
 
 export default function PageLayout({ children }: PageLayoutProps) {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className='flex min-h-screen flex-col'>
       <Navigation />
-      <main className="flex-grow">
-        {children}
-      </main>
+      <main className='flex-grow'>{children}</main>
       <Footer />
     </div>
   );
 }
-

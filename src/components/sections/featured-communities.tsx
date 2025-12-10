@@ -1,7 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -13,22 +20,22 @@ export default function FeaturedCommunities() {
       description: 'Family-friendly area with excellent schools',
       avgPrice: '$750K',
       homesAvailable: 15,
-      amenities: ['Top Schools', 'Parks', 'Shopping']
+      amenities: ['Top Schools', 'Parks', 'Shopping'],
     },
     {
       name: 'Craig Ranch Estates',
       description: 'Luxury homes with premium amenities',
       avgPrice: '$1.2M',
       homesAvailable: 8,
-      amenities: ['Golf Course', 'Clubhouse', 'Pool']
+      amenities: ['Golf Course', 'Clubhouse', 'Pool'],
     },
     {
       name: 'Craig Ranch Village',
       description: 'Convenient location near shopping and dining',
       avgPrice: '$650K',
       homesAvailable: 22,
-      amenities: ['Shopping Center', 'Restaurants', 'Transit']
-    }
+      amenities: ['Shopping Center', 'Restaurants', 'Transit'],
+    },
   ];
 
   return (
@@ -64,21 +71,24 @@ export default function FeaturedCommunities() {
                 <div className='space-y-3'>
                   <div className='flex justify-between items-center'>
                     <span className='text-gray-600'>Average Price:</span>
-                    <Badge variant="default" className='bg-[#16B286] text-white font-semibold text-base px-3 py-1'>
+                    <Badge
+                      variant='default'
+                      className='bg-[#16B286] text-white font-semibold text-base px-3 py-1'
+                    >
                       {community.avgPrice}
                     </Badge>
                   </div>
                   <Separator />
                   <div className='flex justify-between items-center'>
                     <span className='text-gray-600'>Homes Available:</span>
-                    <Badge variant="secondary" className='font-semibold'>
+                    <Badge variant='secondary' className='font-semibold'>
                       {community.homesAvailable}
                     </Badge>
                   </div>
                 </div>
-                
+
                 <Separator className='my-4' />
-                
+
                 <div>
                   <h4 className='text-sm font-semibold text-[#0A2540] mb-3'>
                     Key Amenities:
@@ -87,7 +97,7 @@ export default function FeaturedCommunities() {
                     {community.amenities.map((amenity, amenityIndex) => (
                       <Badge
                         key={amenityIndex}
-                        variant="outline"
+                        variant='outline'
                         className='bg-white text-[#0A2540] border-gray-200'
                       >
                         {amenity}
@@ -96,13 +106,13 @@ export default function FeaturedCommunities() {
                   </div>
                 </div>
               </CardContent>
-              
+
               <CardFooter>
-                <Button 
+                <Button
                   asChild
                   className='w-full bg-[#3A8DDE] hover:bg-[#2A7DCE] text-white'
                 >
-                  <Link href="http://drjanduffy.realscout.com/onboarding">
+                  <Link href='http://drjanduffy.realscout.com/onboarding'>
                     Explore {community.name}
                   </Link>
                 </Button>
@@ -113,4 +123,4 @@ export default function FeaturedCommunities() {
       </div>
     </section>
   );
-} 
+}

@@ -8,9 +8,7 @@ export default function Footer() {
         <div className='grid md:grid-cols-4 gap-8'>
           {/* Company Info */}
           <div>
-            <h3 className='text-2xl font-bold mb-4'>
-              Craig Ranch Vegas Homes
-            </h3>
+            <h3 className='text-2xl font-bold mb-4'>Craig Ranch Vegas Homes</h3>
             <p className='text-gray-300 leading-relaxed'>
               Your trusted partner in finding the perfect home in Craig Ranch.
             </p>
@@ -21,32 +19,32 @@ export default function Footer() {
             <h4 className='text-lg font-semibold mb-4'>Quick Links</h4>
             <ul className='space-y-2 text-gray-300'>
               <li>
-                <a 
-                  href='#' 
+                <a
+                  href='#'
                   className='hover:text-white transition-colors duration-200 hover:underline'
                 >
                   Available Homes
                 </a>
               </li>
               <li>
-                <a 
-                  href='#' 
+                <a
+                  href='#'
                   className='hover:text-white transition-colors duration-200 hover:underline'
                 >
                   Neighborhood
                 </a>
               </li>
               <li>
-                <a 
-                  href='#' 
+                <a
+                  href='#'
                   className='hover:text-white transition-colors duration-200 hover:underline'
                 >
                   About Us
                 </a>
               </li>
               <li>
-                <a 
-                  href='#' 
+                <a
+                  href='#'
                   className='hover:text-white transition-colors duration-200 hover:underline'
                 >
                   Contact
@@ -128,4 +126,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-} 
+}

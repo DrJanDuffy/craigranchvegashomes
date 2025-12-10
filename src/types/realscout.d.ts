@@ -8,7 +8,7 @@ declare namespace JSX {
       'property-types'?: string;
       'price-min'?: string;
       'price-max'?: string;
-      'layout'?: string;
+      layout?: string;
       'show-filters'?: string;
       'show-sort'?: string;
       'show-map'?: string;
@@ -19,7 +19,7 @@ declare namespace JSX {
     };
     'realscout-property-search': {
       'office-id'?: string;
-      'layout'?: string;
+      layout?: string;
       'show-filters'?: string;
       'show-sort'?: string;
       'show-map'?: string;
@@ -42,4 +42,4 @@ declare global {
     Homebot: (selector: string, token: string) => void;
     __hb_namespace: string;
   }
-} 
+}

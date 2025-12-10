@@ -47,17 +47,18 @@ export default function HomeEvaluationSection() {
             Get Your Home&apos;s Value
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
-            Discover what your Craig Ranch property is worth with our advanced evaluation tools
+            Discover what your Craig Ranch property is worth with our advanced
+            evaluation tools
           </p>
         </div>
 
         {/* Homebot Widget */}
         <div className='max-w-2xl mx-auto'>
           <div className='bg-[#F7F9FC] rounded-xl p-8 shadow-lg'>
-            <div id="homebot_homeowner"></div>
+            <div id='homebot_homeowner'></div>
           </div>
         </div>
       </div>
     </section>
   );
-} 
+}

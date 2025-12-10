@@ -11,27 +11,33 @@ export default function FAQSection() {
   const faqs = [
     {
       question: 'What makes Craig Ranch a desirable community?',
-      answer: 'Craig Ranch is one of Las Vegas\' most prestigious communities, offering luxury homes with modern amenities, excellent schools, and convenient access to shopping, dining, and entertainment. The area is known for its family-friendly atmosphere and high-quality real estate market.',
+      answer:
+        "Craig Ranch is one of Las Vegas' most prestigious communities, offering luxury homes with modern amenities, excellent schools, and convenient access to shopping, dining, and entertainment. The area is known for its family-friendly atmosphere and high-quality real estate market.",
     },
     {
       question: 'What is the average price range for homes in Craig Ranch?',
-      answer: 'Home prices in Craig Ranch typically range from $500K to $3M+, depending on the property type, size, and location. Single-family homes average around $875,000, while luxury estates can exceed $1.5M.',
+      answer:
+        'Home prices in Craig Ranch typically range from $500K to $3M+, depending on the property type, size, and location. Single-family homes average around $875,000, while luxury estates can exceed $1.5M.',
     },
     {
       question: 'How long do properties typically stay on the market?',
-      answer: 'Properties in Craig Ranch sell quickly, with an average of 23 days on market. The area\'s strong demand and desirable location contribute to faster sales compared to other Las Vegas neighborhoods.',
+      answer:
+        "Properties in Craig Ranch sell quickly, with an average of 23 days on market. The area's strong demand and desirable location contribute to faster sales compared to other Las Vegas neighborhoods.",
     },
     {
       question: 'What types of properties are available?',
-      answer: 'We offer a diverse selection including single-family homes, luxury estates, and new construction properties. Each category features different amenities and price points to suit various buyer needs and preferences.',
+      answer:
+        'We offer a diverse selection including single-family homes, luxury estates, and new construction properties. Each category features different amenities and price points to suit various buyer needs and preferences.',
     },
     {
       question: 'Do you help with financing and mortgage options?',
-      answer: 'Yes, we work with trusted mortgage partners to help you find the best financing options. We can connect you with lenders who specialize in luxury home financing and offer competitive rates.',
+      answer:
+        'Yes, we work with trusted mortgage partners to help you find the best financing options. We can connect you with lenders who specialize in luxury home financing and offer competitive rates.',
     },
     {
       question: 'Can I schedule a property tour?',
-      answer: 'Absolutely! You can schedule a tour through our website or by contacting us directly. We offer both in-person and virtual tours to accommodate your preferences and schedule.',
+      answer:
+        'Absolutely! You can schedule a tour through our website or by contacting us directly. We offer both in-person and virtual tours to accommodate your preferences and schedule.',
     },
   ];
 
@@ -44,12 +50,13 @@ export default function FAQSection() {
             Frequently Asked Questions
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
-            Find answers to common questions about buying and selling in Craig Ranch
+            Find answers to common questions about buying and selling in Craig
+            Ranch
           </p>
         </div>
 
         {/* FAQ Accordion */}
-        <Accordion type="single" collapsible className="w-full space-y-4">
+        <Accordion type='single' collapsible className='w-full space-y-4'>
           {faqs.map((faq, index) => (
             <AccordionItem
               key={index}
@@ -69,4 +76,3 @@ export default function FAQSection() {
     </section>
   );
 }
-
