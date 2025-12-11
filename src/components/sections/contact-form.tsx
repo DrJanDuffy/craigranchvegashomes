@@ -21,6 +21,9 @@ export default function ContactForm() {
     initialState
   );
 
+  // Type guard: fieldErrors only exists when success is false
+  const fieldErrors = !state.success ? state.fieldErrors : undefined;
+
   // Reset form on successful submission
   useEffect(() => {
     if (state.success) {
@@ -56,14 +59,14 @@ export default function ContactForm() {
             placeholder='John'
             required
             disabled={isPending}
-            aria-invalid={state.fieldErrors?.firstName ? 'true' : 'false'}
+            aria-invalid={fieldErrors?.firstName ? 'true' : 'false'}
             aria-describedby={
-              state.fieldErrors?.firstName ? 'firstName-error' : undefined
+              fieldErrors?.firstName ? 'firstName-error' : undefined
             }
           />
-          {state.fieldErrors?.firstName && (
+          {fieldErrors?.firstName && (
             <p id='firstName-error' className='text-sm text-red-600'>
-              {state.fieldErrors.firstName}
+              {fieldErrors.firstName}
             </p>
           )}
         </div>
@@ -75,14 +78,14 @@ export default function ContactForm() {
             placeholder='Doe'
             required
             disabled={isPending}
-            aria-invalid={state.fieldErrors?.lastName ? 'true' : 'false'}
+            aria-invalid={fieldErrors?.lastName ? 'true' : 'false'}
             aria-describedby={
-              state.fieldErrors?.lastName ? 'lastName-error' : undefined
+              fieldErrors?.lastName ? 'lastName-error' : undefined
             }
           />
-          {state.fieldErrors?.lastName && (
+          {fieldErrors?.lastName && (
             <p id='lastName-error' className='text-sm text-red-600'>
-              {state.fieldErrors.lastName}
+              {fieldErrors.lastName}
             </p>
           )}
         </div>
@@ -96,14 +99,12 @@ export default function ContactForm() {
           placeholder='john@example.com'
           required
           disabled={isPending}
-          aria-invalid={state.fieldErrors?.email ? 'true' : 'false'}
-          aria-describedby={
-            state.fieldErrors?.email ? 'email-error' : undefined
-          }
+          aria-invalid={fieldErrors?.email ? 'true' : 'false'}
+          aria-describedby={fieldErrors?.email ? 'email-error' : undefined}
         />
-        {state.fieldErrors?.email && (
+        {fieldErrors?.email && (
           <p id='email-error' className='text-sm text-red-600'>
-            {state.fieldErrors.email}
+            {fieldErrors.email}
           </p>
         )}
       </div>
@@ -115,14 +116,12 @@ export default function ContactForm() {
           type='tel'
           placeholder='(702) 555-0123'
           disabled={isPending}
-          aria-invalid={state.fieldErrors?.phone ? 'true' : 'false'}
-          aria-describedby={
-            state.fieldErrors?.phone ? 'phone-error' : undefined
-          }
+          aria-invalid={fieldErrors?.phone ? 'true' : 'false'}
+          aria-describedby={fieldErrors?.phone ? 'phone-error' : undefined}
         />
-        {state.fieldErrors?.phone && (
+        {fieldErrors?.phone && (
           <p id='phone-error' className='text-sm text-red-600'>
-            {state.fieldErrors.phone}
+            {fieldErrors.phone}
           </p>
         )}
       </div>
@@ -135,14 +134,12 @@ export default function ContactForm() {
           className='min-h-[120px]'
           required
           disabled={isPending}
-          aria-invalid={state.fieldErrors?.message ? 'true' : 'false'}
-          aria-describedby={
-            state.fieldErrors?.message ? 'message-error' : undefined
-          }
+          aria-invalid={fieldErrors?.message ? 'true' : 'false'}
+          aria-describedby={fieldErrors?.message ? 'message-error' : undefined}
         />
-        {state.fieldErrors?.message && (
+        {fieldErrors?.message && (
           <p id='message-error' className='text-sm text-red-600'>
-            {state.fieldErrors.message}
+            {fieldErrors.message}
           </p>
         )}
       </div>
