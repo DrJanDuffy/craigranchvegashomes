@@ -15,7 +15,9 @@ const initialState: ContactFormResult = {
 
 export default function ContactForm() {
   const [state, formAction, isPending] = useActionState(
-    submitContactForm,
+    async (prevState: ContactFormResult, formData: FormData) => {
+      return await submitContactForm(formData);
+    },
     initialState
   );
 
