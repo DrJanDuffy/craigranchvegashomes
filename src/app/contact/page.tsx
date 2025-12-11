@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import Image from 'next/image';
 import PageLayout from '@/components/layout/page-layout';
 import ContactForm from '@/components/sections/contact-form';
 import GoogleMap from '@/components/sections/google-map';
