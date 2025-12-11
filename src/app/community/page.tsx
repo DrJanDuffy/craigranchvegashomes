@@ -363,15 +363,15 @@ export default function CommunityPage() {
               name: 'Craig Ranch Community Guide: Schools, Amenities & Lifestyle',
               description:
                 'Discover schools, amenities, shopping, dining, and lifestyle in Craig Ranch, Las Vegas. Your complete guide to community living.',
-              url: 'https://craigranchvegas.com/community',
+              url: 'https://www.craigranchhomes.com/community',
               breadcrumb: [
-                { name: 'Home', url: 'https://craigranchvegas.com' },
-                { name: 'Community Guide', url: 'https://craigranchvegas.com/community' },
+                { name: 'Home', url: 'https://www.craigranchhomes.com' },
+                { name: 'Community Guide', url: 'https://www.craigranchhomes.com/community' },
               ],
             }),
             generateBreadcrumbSchema([
-              { name: 'Home', url: 'https://craigranchvegas.com' },
-              { name: 'Community Guide', url: 'https://craigranchvegas.com/community' },
+              { name: 'Home', url: 'https://www.craigranchhomes.com' },
+              { name: 'Community Guide', url: 'https://www.craigranchhomes.com/community' },
             ]),
           ]),
         }}

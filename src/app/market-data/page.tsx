@@ -248,15 +248,15 @@ export default function MarketDataPage() {
               name: 'Craig Ranch Real Estate Market Data & Trends',
               description:
                 'Stay informed with the latest real estate market data, trends, and statistics for Craig Ranch, Las Vegas. Average prices, days on market, and more.',
-              url: 'https://craigranchvegas.com/market-data',
+              url: 'https://www.craigranchhomes.com/market-data',
               breadcrumb: [
-                { name: 'Home', url: 'https://craigranchvegas.com' },
-                { name: 'Market Data', url: 'https://craigranchvegas.com/market-data' },
+                { name: 'Home', url: 'https://www.craigranchhomes.com' },
+                { name: 'Market Data', url: 'https://www.craigranchhomes.com/market-data' },
               ],
             }),
             generateBreadcrumbSchema([
-              { name: 'Home', url: 'https://craigranchvegas.com' },
-              { name: 'Market Data', url: 'https://craigranchvegas.com/market-data' },
+              { name: 'Home', url: 'https://www.craigranchhomes.com' },
+              { name: 'Market Data', url: 'https://www.craigranchhomes.com/market-data' },
             ]),
           ]),
         }}

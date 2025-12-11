@@ -215,9 +215,9 @@ export default function Home() {
               name: 'Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas, Nevada',
               description:
                 "Find your dream home in Craig Ranch, Las Vegas. Browse luxury homes, explore the neighborhood, and discover why Craig Ranch is one of Las Vegas' most prestigious communities.",
-              url: 'https://craigranchvegas.com',
+              url: 'https://www.craigranchhomes.com',
               breadcrumb: [
-                { name: 'Home', url: 'https://craigranchvegas.com' },
+                { name: 'Home', url: 'https://www.craigranchhomes.com' },
               ],
             }),
             generateRealEstateAgentSchema(),

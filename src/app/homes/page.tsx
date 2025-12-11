@@ -333,11 +333,11 @@ export default function HomesPage() {
               name: 'Homes for Sale in Craig Ranch, Las Vegas',
               description:
                 "Browse luxury homes for sale in Craig Ranch, Las Vegas. Find your dream home in one of Las Vegas' most prestigious communities.",
-              url: 'https://craigranchvegas.com/homes',
+              url: 'https://www.craigranchhomes.com/homes',
             }),
             generateBreadcrumbSchema([
-              { name: 'Home', url: 'https://craigranchvegas.com' },
-              { name: 'Homes for Sale', url: 'https://craigranchvegas.com/homes' },
+              { name: 'Home', url: 'https://www.craigranchhomes.com' },
+              { name: 'Homes for Sale', url: 'https://www.craigranchhomes.com/homes' },
             ]),
           ]),
         }}

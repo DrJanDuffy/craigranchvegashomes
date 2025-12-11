@@ -167,7 +167,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 - **Phone**: (702) 555-0123
-- **Email**: info@craigranchvegas.com
+- **Email**: DrDuffy@CraigRanchHomes.com
 - **Address**: Craig Ranch, Las Vegas, NV
 
 ## 🏘️ About Craig Ranch

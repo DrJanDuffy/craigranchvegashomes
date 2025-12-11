@@ -78,10 +78,10 @@ export default function Footer() {
               <li className='flex items-center'>
                 <span className='mr-2'>✉️</span>
                 <a
-                  href='mailto:info@craigranchvegas.com'
+                  href='mailto:DrDuffy@CraigRanchHomes.com'
                   className='hover:text-white transition-colors'
                 >
-                  info@craigranchvegas.com
+                  DrDuffy@CraigRanchHomes.com
                 </a>
               </li>
               <li className='flex items-center'>

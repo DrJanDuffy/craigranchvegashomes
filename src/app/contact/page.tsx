@@ -108,10 +108,10 @@ export default function ContactPage() {
                 </CardHeader>
                 <CardContent>
                   <a
-                    href='mailto:info@craigranchvegas.com'
+                    href='mailto:DrDuffy@CraigRanchHomes.com'
                     className='text-lg font-semibold text-[#0A2540] hover:text-[#16B286] transition-colors'
                   >
-                    info@craigranchvegas.com
+                    DrDuffy@CraigRanchHomes.com
                   </a>
                   <p className='text-gray-600 text-sm mt-1'>
                     We typically respond within 24 hours
@@ -283,15 +283,15 @@ export default function ContactPage() {
               name: 'Contact Dr. Jan Duffy - Craig Ranch Vegas Homes',
               description:
                 'Get in touch with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada. Contact our expert real estate team for buying, selling, or investing in Craig Ranch, Las Vegas.',
-              url: 'https://craigranchvegas.com/contact',
+              url: 'https://www.craigranchhomes.com/contact',
               breadcrumb: [
-                { name: 'Home', url: 'https://craigranchvegas.com' },
-                { name: 'Contact', url: 'https://craigranchvegas.com/contact' },
+                { name: 'Home', url: 'https://www.craigranchhomes.com' },
+                { name: 'Contact', url: 'https://www.craigranchhomes.com/contact' },
               ],
             }),
             generateBreadcrumbSchema([
-              { name: 'Home', url: 'https://craigranchvegas.com' },
-              { name: 'Contact', url: 'https://craigranchvegas.com/contact' },
+              { name: 'Home', url: 'https://www.craigranchhomes.com' },
+              { name: 'Contact', url: 'https://www.craigranchhomes.com/contact' },
             ]),
           ]),
         }}

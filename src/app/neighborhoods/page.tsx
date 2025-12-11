@@ -472,17 +472,17 @@ export default function NeighborhoodsPage() {
               ],
             },
             generateBreadcrumbSchema([
-              { name: 'Home', url: 'https://craigranchvegas.com' },
-              { name: 'Neighborhoods', url: 'https://craigranchvegas.com/neighborhoods' },
+              { name: 'Home', url: 'https://www.craigranchhomes.com' },
+              { name: 'Neighborhoods', url: 'https://www.craigranchhomes.com/neighborhoods' },
             ]),
             generateWebPageSchema({
               name: 'Craig Ranch Neighborhoods & Collections | North Las Vegas Communities',
               description:
                 'Explore the distinct neighborhoods in Craig Ranch: Jasmine Ranch, Centennial Crossing, Seabreeze, and Century Communities collections.',
-              url: 'https://craigranchvegas.com/neighborhoods',
+              url: 'https://www.craigranchhomes.com/neighborhoods',
               breadcrumb: [
-                { name: 'Home', url: 'https://craigranchvegas.com' },
-                { name: 'Neighborhoods', url: 'https://craigranchvegas.com/neighborhoods' },
+                { name: 'Home', url: 'https://www.craigranchhomes.com' },
+                { name: 'Neighborhoods', url: 'https://www.craigranchhomes.com/neighborhoods' },
               ],
             }),
           ]),

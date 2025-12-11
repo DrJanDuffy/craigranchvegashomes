@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 const siteConfig = {
   name: 'Craig Ranch Vegas Homes',
-  url: 'https://craigranchvegas.com',
+  url: 'https://www.craigranchhomes.com',
   description:
     'Luxury real estate services in Craig Ranch, Las Vegas, Nevada. Find your dream home with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada.',
   ogImage: '/og-image.jpg',
@@ -99,7 +99,7 @@ export function generateLocalBusinessSchema() {
     name: 'Craig Ranch Vegas Homes',
     description:
       'Luxury real estate services in Craig Ranch, Las Vegas, Nevada',
-    url: 'https://craigranchvegas.com',
+    url: 'https://www.craigranchhomes.com',
     telephone: '+1-702-500-1955',
     address: {
       '@type': 'PostalAddress',
@@ -148,9 +148,9 @@ export function generateRealEstateAgentSchema() {
       '@type': 'Organization',
       name: 'Berkshire Hathaway HomeServices Nevada',
     },
-    url: 'https://craigranchvegas.com',
-    logo: 'https://craigranchvegas.com/logo.png',
-    image: 'https://craigranchvegas.com/og-image.jpg',
+    url: 'https://www.craigranchhomes.com',
+    logo: 'https://www.craigranchhomes.com/logo.png',
+    image: 'https://www.craigranchhomes.com/og-image.jpg',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Las Vegas',

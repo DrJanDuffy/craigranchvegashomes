@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   keywords:
     'Craig Ranch, Las Vegas homes, luxury real estate, Nevada homes, Las Vegas real estate, Craig Ranch community, luxury homes Las Vegas, Craig Ranch properties, Las Vegas luxury real estate, Craig Ranch homes for sale, Las Vegas real estate agent, Craig Ranch neighborhood, luxury properties Las Vegas, Craig Ranch real estate market, Las Vegas home values',
   authors: [
-    { name: 'Craig Ranch Vegas Homes', url: 'https://craigranchvegas.com' },
+    { name: 'Craig Ranch Vegas Homes', url: 'https://www.craigranchhomes.com' },
   ],
   creator: 'Craig Ranch Vegas Homes',
   publisher: 'Craig Ranch Vegas Homes',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://craigranchvegas.com'),
+  metadataBase: new URL('https://www.craigranchhomes.com'),
   alternates: {
     canonical: '/',
   },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: 'Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas, NV',
     description:
       "Discover luxury homes in Craig Ranch, Las Vegas. Find your dream home in one of the city's most prestigious communities with premium amenities and excellent location.",
-    url: 'https://craigranchvegas.com',
+    url: 'https://www.craigranchhomes.com',
     siteName: 'Craig Ranch Vegas Homes',
     locale: 'en_US',
     type: 'website',
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     'DC.date': '2024',
     'DC.type': 'Text',
     'DC.format': 'text/html',
-    'DC.identifier': 'https://craigranchvegas.com',
+    'DC.identifier': 'https://www.craigranchhomes.com',
     'DC.language': 'en',
     'DC.coverage': 'Las Vegas, Nevada',
     'DC.rights': 'Copyright 2024 Craig Ranch Vegas Homes',
@@ -172,7 +172,7 @@ export default function RootLayout({
                 '@type': 'Organization',
                 name: 'Berkshire Hathaway HomeServices Nevada',
               },
-              url: 'https://craigranchvegas.com',
+              url: 'https://www.craigranchhomes.com',
               logo: 'https://craigranchvegas.com/logo.png',
               image: 'https://craigranchvegas.com/og-image.jpg',
               address: {
@@ -227,7 +227,7 @@ export default function RootLayout({
               name: 'Craig Ranch Vegas Homes',
               description:
                 'Luxury real estate services in Craig Ranch, Las Vegas',
-              url: 'https://craigranchvegas.com',
+              url: 'https://www.craigranchhomes.com',
               telephone: '+1-702-500-1955',
               address: {
                 '@type': 'PostalAddress',
@@ -270,7 +270,7 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'WebSite',
               name: 'Craig Ranch Vegas Homes',
-              url: 'https://craigranchvegas.com',
+              url: 'https://www.craigranchhomes.com',
               description:
                 'Luxury real estate services in Craig Ranch, Las Vegas, Nevada',
               potentialAction: {
