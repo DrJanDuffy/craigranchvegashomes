@@ -112,11 +112,7 @@ export default function Home() {
           </div>
         </section>
 
-        <DynamicHomeEvaluation />
-        <PropertyCategories />
-        <FeaturedCommunities />
-
-        {/* RealScout Office Widget Section */}
+        {/* RealScout Office Widget Section - Moved up for better conversion */}
         <section className='py-16 bg-white'>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='text-center mb-12'>
@@ -151,7 +147,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Market Data Preview */}
+        {/* Market Data Preview - Moved up to show market strength early */}
         <section className='py-16 bg-gradient-to-r from-[#0A2540] to-[#3A8DDE]'>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
             <h2 className='text-3xl font-bold text-white mb-4'>
@@ -189,6 +185,10 @@ export default function Home() {
             </Button>
           </div>
         </section>
+
+        <PropertyCategories />
+        <FeaturedCommunities />
+        <DynamicHomeEvaluation />
 
         <DynamicBlogPosts />
       </article>

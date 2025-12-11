@@ -41,78 +41,7 @@ export default function HomesPage() {
 
       <RealEstateListings />
 
-      <section className='py-16 bg-white'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <h2 className='text-3xl font-bold text-[#0A2540] mb-8 text-center'>
-            Why Buy in Craig Ranch?
-          </h2>
-          <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6'>
-            <Card className='border-0 shadow-lg'>
-              <CardHeader>
-                <div className='w-12 h-12 bg-[#3A8DDE]/10 rounded-lg flex items-center justify-center mb-4'>
-                  <Home className='h-6 w-6 text-[#3A8DDE]' />
-                </div>
-                <CardTitle>Premium Properties</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Luxury homes with modern amenities, high-end finishes, and
-                  exceptional craftsmanship
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className='border-0 shadow-lg'>
-              <CardHeader>
-                <div className='w-12 h-12 bg-[#16B286]/10 rounded-lg flex items-center justify-center mb-4'>
-                  <MapPin className='h-6 w-6 text-[#16B286]' />
-                </div>
-                <CardTitle>Prime Location</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Convenient access to shopping, dining, entertainment, and
-                  excellent schools
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className='border-0 shadow-lg'>
-              <CardHeader>
-                <div className='w-12 h-12 bg-[#0A2540]/10 rounded-lg flex items-center justify-center mb-4'>
-                  <TrendingUp className='h-6 w-6 text-[#0A2540]' />
-                </div>
-                <CardTitle>Strong Market</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Properties sell quickly with strong appreciation and growing
-                  demand
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className='border-0 shadow-lg'>
-              <CardHeader>
-                <div className='w-12 h-12 bg-[#3A8DDE]/10 rounded-lg flex items-center justify-center mb-4'>
-                  <DollarSign className='h-6 w-6 text-[#3A8DDE]' />
-                </div>
-                <CardTitle>Great Value</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Competitive pricing with excellent value for luxury living in
-                  Las Vegas
-                </CardDescription>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <PropertyCategories />
-
-      {/* Working with Dr. Jan Duffy Section */}
+      {/* Working with Dr. Jan Duffy Section - Moved up for trust building */}
       <section className='py-16 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='text-center mb-12'>
@@ -189,6 +118,77 @@ export default function HomesPage() {
           </div>
         </div>
       </section>
+
+      <section className='py-16 bg-[#F7F9FC]'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <h2 className='text-3xl font-bold text-[#0A2540] mb-8 text-center'>
+            Why Buy in Craig Ranch?
+          </h2>
+          <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6'>
+            <Card className='border-0 shadow-lg'>
+              <CardHeader>
+                <div className='w-12 h-12 bg-[#3A8DDE]/10 rounded-lg flex items-center justify-center mb-4'>
+                  <Home className='h-6 w-6 text-[#3A8DDE]' />
+                </div>
+                <CardTitle>Premium Properties</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Luxury homes with modern amenities, high-end finishes, and
+                  exceptional craftsmanship
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className='border-0 shadow-lg'>
+              <CardHeader>
+                <div className='w-12 h-12 bg-[#16B286]/10 rounded-lg flex items-center justify-center mb-4'>
+                  <MapPin className='h-6 w-6 text-[#16B286]' />
+                </div>
+                <CardTitle>Prime Location</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Convenient access to shopping, dining, entertainment, and
+                  excellent schools
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className='border-0 shadow-lg'>
+              <CardHeader>
+                <div className='w-12 h-12 bg-[#0A2540]/10 rounded-lg flex items-center justify-center mb-4'>
+                  <TrendingUp className='h-6 w-6 text-[#0A2540]' />
+                </div>
+                <CardTitle>Strong Market</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Properties sell quickly with strong appreciation and growing
+                  demand
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className='border-0 shadow-lg'>
+              <CardHeader>
+                <div className='w-12 h-12 bg-[#3A8DDE]/10 rounded-lg flex items-center justify-center mb-4'>
+                  <DollarSign className='h-6 w-6 text-[#3A8DDE]' />
+                </div>
+                <CardTitle>Great Value</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Competitive pricing with excellent value for luxury living in
+                  Las Vegas
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <PropertyCategories />
 
       {/* Price Range & Community Info */}
       <section className='py-16 bg-[#F7F9FC]'>
