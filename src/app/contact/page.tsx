@@ -146,7 +146,7 @@ export default function ContactPage() {
                 </CardHeader>
                 <CardContent className='space-y-4'>
                   <AgentPhoto
-                    src='/dr-jan-duffy.jpg'
+                    src='/Dr Duffy Blue_Headshot Enhanced 180 Size.jpg'
                     alt='Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada'
                     sizes='(max-width: 768px) 100vw, 50vw'
                   />

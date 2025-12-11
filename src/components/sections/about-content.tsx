@@ -134,7 +134,7 @@ export default function AboutContent() {
           <div className='space-y-8'>
             {/* Dr. Jan Duffy Photo */}
             <AgentPhoto
-              src='/dr-jan-duffy.jpg'
+              src='/Dr Duffy Blue_Headshot Enhanced 180 Size.jpg'
               alt='Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada'
               sizes='(max-width: 1024px) 100vw, 50vw'
               className='shadow-lg'
