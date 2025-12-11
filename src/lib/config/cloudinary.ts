@@ -49,7 +49,7 @@ export function getCloudinaryImageUrl(
     width?: number;
     height?: number;
     crop?: 'fill' | 'fit' | 'scale' | 'thumb';
-    quality?: number;
+    quality?: number | 'auto';
     format?: 'auto' | 'webp' | 'jpg' | 'png';
   }
 ): string {
