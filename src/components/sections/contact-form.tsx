@@ -1,105 +1,155 @@
 'use client';
 
-import { useState } from 'react';
+import { useActionState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
+import { submitContactForm } from '@/lib/actions/contact';
+import type { ContactFormResult } from '@/lib/actions/contact';
+
+const initialState: ContactFormResult = {
+  success: false,
+  error: '',
+};
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
+  const [state, formAction, isPending] = useActionState(
+    submitContactForm,
+    initialState
+  );
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    // You can add API call here
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      message: '',
-    });
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.id]: e.target.value,
-    });
-  };
+  // Reset form on successful submission
+  useEffect(() => {
+    if (state.success) {
+      const form = document.getElementById('contact-form') as HTMLFormElement;
+      if (form) {
+        form.reset();
+      }
+    }
+  }, [state.success]);
 
   return (
-    <form onSubmit={handleSubmit} className='space-y-6'>
+    <form id='contact-form' action={formAction} className='space-y-6'>
+      {/* Success Message */}
+      {state.success && (
+        <div className='p-4 bg-green-50 border border-green-200 rounded-lg text-green-800'>
+          {state.message}
+        </div>
+      )}
+
+      {/* Error Message */}
+      {!state.success && state.error && (
+        <div className='p-4 bg-red-50 border border-red-200 rounded-lg text-red-800'>
+          {state.error}
+        </div>
+      )}
+
       <div className='grid md:grid-cols-2 gap-6'>
         <div className='space-y-2'>
           <Label htmlFor='firstName'>First Name</Label>
           <Input
             id='firstName'
+            name='firstName'
             placeholder='John'
-            value={formData.firstName}
-            onChange={handleChange}
             required
+            disabled={isPending}
+            aria-invalid={state.fieldErrors?.firstName ? 'true' : 'false'}
+            aria-describedby={
+              state.fieldErrors?.firstName ? 'firstName-error' : undefined
+            }
           />
+          {state.fieldErrors?.firstName && (
+            <p id='firstName-error' className='text-sm text-red-600'>
+              {state.fieldErrors.firstName}
+            </p>
+          )}
         </div>
         <div className='space-y-2'>
           <Label htmlFor='lastName'>Last Name</Label>
           <Input
             id='lastName'
+            name='lastName'
             placeholder='Doe'
-            value={formData.lastName}
-            onChange={handleChange}
             required
+            disabled={isPending}
+            aria-invalid={state.fieldErrors?.lastName ? 'true' : 'false'}
+            aria-describedby={
+              state.fieldErrors?.lastName ? 'lastName-error' : undefined
+            }
           />
+          {state.fieldErrors?.lastName && (
+            <p id='lastName-error' className='text-sm text-red-600'>
+              {state.fieldErrors.lastName}
+            </p>
+          )}
         </div>
       </div>
       <div className='space-y-2'>
         <Label htmlFor='email'>Email</Label>
         <Input
           id='email'
+          name='email'
           type='email'
           placeholder='john@example.com'
-          value={formData.email}
-          onChange={handleChange}
           required
+          disabled={isPending}
+          aria-invalid={state.fieldErrors?.email ? 'true' : 'false'}
+          aria-describedby={
+            state.fieldErrors?.email ? 'email-error' : undefined
+          }
         />
+        {state.fieldErrors?.email && (
+          <p id='email-error' className='text-sm text-red-600'>
+            {state.fieldErrors.email}
+          </p>
+        )}
       </div>
       <div className='space-y-2'>
         <Label htmlFor='phone'>Phone</Label>
         <Input
           id='phone'
+          name='phone'
           type='tel'
           placeholder='(702) 555-0123'
-          value={formData.phone}
-          onChange={handleChange}
+          disabled={isPending}
+          aria-invalid={state.fieldErrors?.phone ? 'true' : 'false'}
+          aria-describedby={
+            state.fieldErrors?.phone ? 'phone-error' : undefined
+          }
         />
+        {state.fieldErrors?.phone && (
+          <p id='phone-error' className='text-sm text-red-600'>
+            {state.fieldErrors.phone}
+          </p>
+        )}
       </div>
       <div className='space-y-2'>
         <Label htmlFor='message'>Message</Label>
         <Textarea
           id='message'
+          name='message'
           placeholder='Tell us how we can help you...'
           className='min-h-[120px]'
-          value={formData.message}
-          onChange={handleChange}
           required
+          disabled={isPending}
+          aria-invalid={state.fieldErrors?.message ? 'true' : 'false'}
+          aria-describedby={
+            state.fieldErrors?.message ? 'message-error' : undefined
+          }
         />
+        {state.fieldErrors?.message && (
+          <p id='message-error' className='text-sm text-red-600'>
+            {state.fieldErrors.message}
+          </p>
+        )}
       </div>
       <Button
         type='submit'
-        className='w-full bg-[#3A8DDE] hover:bg-[#2A7DCE] text-white'
+        disabled={isPending}
+        className='w-full bg-[#3A8DDE] hover:bg-[#2A7DCE] text-white disabled:opacity-50 disabled:cursor-not-allowed'
       >
-        Send Message
+        {isPending ? 'Sending...' : 'Send Message'}
       </Button>
     </form>
   );

@@ -8,6 +8,7 @@ import CraigRanchPropertySearch from '@/components/sections/craig-ranch-property
 import GoogleMap from '@/components/sections/google-map';
 import ListingsSkeleton from '@/components/skeletons/listings-skeleton';
 import CommunitiesSkeleton from '@/components/skeletons/communities-skeleton';
+import MapSkeleton from '@/components/skeletons/map-skeleton';
 import { Skeleton } from '@/components/ui/skeleton';
 
 const DynamicFeaturedCommunities = dynamic(
