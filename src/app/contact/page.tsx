@@ -1,9 +1,9 @@
 import { Suspense } from 'react';
-import Image from 'next/image';
 import PageLayout from '@/components/layout/page-layout';
 import ContactForm from '@/components/sections/contact-form';
 import GoogleMap from '@/components/sections/google-map';
 import MapSkeleton from '@/components/skeletons/map-skeleton';
+import AgentPhoto from '@/components/ui/agent-photo';
 import {
   Card,
   CardContent,
@@ -145,15 +145,11 @@ export default function ContactPage() {
                   <CardTitle className='text-xl'>About Dr. Jan Duffy</CardTitle>
                 </CardHeader>
                 <CardContent className='space-y-4'>
-                  <div className='relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-100'>
-                    <Image
-                      src='/dr-jan-duffy.jpg'
-                      alt='Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada'
-                      fill
-                      className='object-cover'
-                      sizes='(max-width: 768px) 100vw, 50vw'
-                    />
-                  </div>
+                  <AgentPhoto
+                    src='/dr-jan-duffy.jpg'
+                    alt='Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada'
+                    sizes='(max-width: 768px) 100vw, 50vw'
+                  />
                   <p className='text-gray-700'>
                     Dr. Jan Duffy is a REALTOR® with{' '}
                     <strong>Berkshire Hathaway HomeServices® Nevada</strong>,

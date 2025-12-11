@@ -1,11 +1,11 @@
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
 import PageLayout from '@/components/layout/page-layout';
 import RealEstateListings from '@/components/sections/real-estate-listings';
 import PropertyCategories from '@/components/sections/property-categories';
 import ListingsSkeleton from '@/components/skeletons/listings-skeleton';
 import PropertyCategoriesSkeleton from '@/components/skeletons/property-categories-skeleton';
+import AgentPhoto from '@/components/ui/agent-photo';
 
 const DynamicPropertyCategories = dynamic(
   () => import('@/components/sections/property-categories'),
@@ -82,16 +82,13 @@ export default function HomesPage() {
                 Henderson. She offers expert, data-driven advice and personalized
                 consultations.
               </p>
-              <div className='relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-100 shadow-lg'>
-                <Image
-                  src='/dr-jan-duffy.jpg'
-                  alt='Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada'
-                  fill
-                  className='object-cover'
-                  sizes='(max-width: 1024px) 100vw, 50vw'
-                  priority
-                />
-              </div>
+              <AgentPhoto
+                src='/dr-jan-duffy.jpg'
+                alt='Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada'
+                sizes='(max-width: 1024px) 100vw, 50vw'
+                priority
+                className='shadow-lg'
+              />
             </div>
             <div className='grid md:grid-cols-2 gap-6'>
               <Card className='border-0 shadow-lg'>

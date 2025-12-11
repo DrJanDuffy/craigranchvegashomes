@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import AgentPhoto from '@/components/ui/agent-photo';
 
 export default function AboutContent() {
   return (
@@ -133,15 +133,12 @@ export default function AboutContent() {
           {/* Image and Stats */}
           <div className='space-y-8'>
             {/* Dr. Jan Duffy Photo */}
-            <div className='relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-100 shadow-lg'>
-              <Image
-                src='/dr-jan-duffy.jpg'
-                alt='Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada'
-                fill
-                className='object-cover'
-                sizes='(max-width: 1024px) 100vw, 50vw'
-              />
-            </div>
+            <AgentPhoto
+              src='/dr-jan-duffy.jpg'
+              alt='Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada'
+              sizes='(max-width: 1024px) 100vw, 50vw'
+              className='shadow-lg'
+            />
 
             {/* Stats */}
             <div className='bg-[#F7F9FC] rounded-xl p-8'>
