@@ -57,8 +57,8 @@ export default function HomesPage() {
             Discover homes for sale in the Craig Ranch community in North Las
             Vegas. Work with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway
             HomeServices® Nevada, to find your perfect property. Prices range
-            from $415,000 for 3-bedroom homes to $738,700+ for luxury 4+ bedroom
-            estates.
+            from $370,000 to $1.8 million, with 206 homes currently available.
+            Average home value: $427,967.
           </p>
         </div>
       </div>
@@ -234,10 +234,11 @@ export default function HomesPage() {
                   I-15.
                 </p>
                 <p>
-                  <strong>Price Range:</strong> Home prices vary, with new
-                  construction and resale options available. Recent examples
-                  range from around $415,000 for a 3-bedroom home to $738,700 for
-                  a larger 4-bedroom house.
+                  <strong>Price Range:</strong> Home prices range from $370,000
+                  to $1.8 million, with new construction and resale options
+                  available. The average home value is $427,967, with an average
+                  price per square foot of $242. The median sale price is
+                  $415,000.
                 </p>
                 <p>
                   <strong>Builders:</strong> Builders in the community have

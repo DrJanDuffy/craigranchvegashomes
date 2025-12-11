@@ -83,7 +83,7 @@ export default function NeighborhoodPage() {
       icon: TreePine,
       title: 'Parks & Trails',
       description:
-        '7 community parks, a 3.5-acre park, and miles of trails near Craig Ranch Regional Park',
+        '7 community parks, 170-acre Craig Ranch Regional Park, and 5 miles of interconnecting trails with exercise stations',
       color: 'text-[#0A2540]',
       bgColor: 'bg-[#0A2540]/10',
     },

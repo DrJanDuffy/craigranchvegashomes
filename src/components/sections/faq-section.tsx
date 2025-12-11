@@ -12,17 +12,17 @@ export default function FAQSection() {
     {
       question: 'What makes Craig Ranch a desirable community?',
       answer:
-        "Craig Ranch is one of Las Vegas' most prestigious communities, offering luxury homes with modern amenities, excellent schools, and convenient access to shopping, dining, and entertainment. The area is known for its family-friendly atmosphere and high-quality real estate market.",
+        "Craig Ranch is a master-planned community in North Las Vegas, winner of 'Best Planned Community' in 2020. It offers family-friendly homes, excellent schools, 170-acre Craig Ranch Regional Park, 5 miles of trails, and convenient access to shopping, dining, and major highways. The tight-knit community is united around the park, which hosts over 40 events per year.",
     },
     {
       question: 'What is the average price range for homes in Craig Ranch?',
       answer:
-        'Home prices in Craig Ranch typically range from $500K to $3M+, depending on the property type, size, and location. Single-family homes average around $875,000, while luxury estates can exceed $1.5M.',
+        'Home prices in Craig Ranch range from $370,000 to $1.8 million, depending on the property type, size, and location. The average home value is $427,967, with an average price per square foot of $242. The median sale price is $415,000.',
     },
     {
       question: 'How long do properties typically stay on the market?',
       answer:
-        "Properties in Craig Ranch sell quickly, with an average of 23 days on market. The area's strong demand and desirable location contribute to faster sales compared to other Las Vegas neighborhoods.",
+        "Properties in Craig Ranch sell after an average of 46 days on market, which is faster than the national average of 53 days. The area's strong demand, excellent schools, and desirable location contribute to steady sales.",
     },
     {
       question: 'What types of properties are available?',
