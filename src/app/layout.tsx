@@ -209,9 +209,13 @@ export default function RootLayout({
                 name: 'Berkshire Hathaway HomeServices Nevada',
               },
               sameAs: [
-                'https://www.facebook.com/craigranchvegas',
-                'https://www.instagram.com/craigranchvegas',
-                'https://www.linkedin.com/company/craigranchvegas',
+                'https://www.facebook.com/DrJanDuffyRealtorCentennialHills',
+                'https://www.instagram.com/drjanduffy',
+                'https://www.youtube.com/@DrDuffy',
+                'https://twitter.com/drjanduffy',
+                'https://www.linkedin.com/in/lvrmembers',
+                'https://www.tiktok.com/@dr.janduffy',
+                'https://www.pinterest.com/bhhsluxury',
               ],
             }),
           }}
