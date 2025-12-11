@@ -15,36 +15,25 @@ export default function HomeEvaluationSection() {
   const [isLoading, setIsLoading] = useState(true);
   const [isScriptReady, setIsScriptReady] = useState(false);
 
+  // Set up Homebot namespace and queue function (without loading script)
   useEffect(() => {
-    // Initialize Homebot widget loader
     if (typeof window !== 'undefined' && !window.__hb_namespace) {
-      (function (h: string, b: string) {
-        const w = window as any;
-        const d = document;
-        const s = 'script';
-        w['__hb_namespace'] = h;
-        w[h] =
-          w[h] ||
-          function (...args: any[]) {
-            (w[h].q = w[h].q || []).push(args);
-          };
-        const y = d.createElement(s) as HTMLScriptElement;
-        const x = d.getElementsByTagName(s)[0];
-        y.async = true;
-        y.src = b;
-        if (x && x.parentNode) {
-          x.parentNode.insertBefore(y, x);
-        }
-      })('Homebot', 'https://embed.homebotapp.com/lgw/v1/widget.js');
+      const w = window as any;
+      w['__hb_namespace'] = 'Homebot';
+      w['Homebot'] =
+        w['Homebot'] ||
+        function (...args: any[]) {
+          (w['Homebot'].q = w['Homebot'].q || []).push(args);
+        };
     }
   }, []);
 
+  // Initialize widget once script is loaded
   useEffect(() => {
-    // Initialize widget once script is ready
     if (isScriptReady) {
       const initWidget = () => {
         const w = window as any;
-        if (w.Homebot) {
+        if (w.Homebot && typeof w.Homebot === 'function') {
           try {
             w.Homebot(
               '#homebot_homeowner',
@@ -57,7 +46,7 @@ export default function HomeEvaluationSection() {
           }
         } else {
           // Retry after a short delay if Homebot isn't ready yet
-          setTimeout(initWidget, 500);
+          setTimeout(initWidget, 200);
         }
       };
 
@@ -100,11 +89,15 @@ export default function HomeEvaluationSection() {
         </div>
       </div>
 
-      {/* Load Homebot widget script */}
+      {/* Load Homebot widget script via Next.js Script component */}
       <Script
         src='https://embed.homebotapp.com/lgw/v1/widget.js'
         strategy='lazyOnload'
         onLoad={() => setIsScriptReady(true)}
+        onError={() => {
+          console.error('Failed to load Homebot script');
+          setIsLoading(false);
+        }}
       />
     </section>
   );
