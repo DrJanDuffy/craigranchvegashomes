@@ -80,7 +80,8 @@ function formatDate(pubDate: string): string {
  */
 export function parseRSSFeed(xmlString: string): RSSFeed {
   // Extract channel info
-  const channelMatch = xmlString.match(/<channel>(.*?)<\/channel>/s);
+  // Use [\s\S] instead of . with s flag for ES2017 compatibility
+  const channelMatch = xmlString.match(/<channel>([\s\S]*?)<\/channel>/);
   if (!channelMatch) {
     throw new Error('RSS feed missing channel element');
   }
@@ -93,7 +94,8 @@ export function parseRSSFeed(xmlString: string): RSSFeed {
   
   // Extract all items
   const items: RSSItem[] = [];
-  const itemMatches = channelContent.matchAll(/<item>(.*?)<\/item>/gs);
+  // Use [\s\S] instead of . with s flag for ES2017 compatibility
+  const itemMatches = channelContent.matchAll(/<item>([\s\S]*?)<\/item>/g);
   
   for (const itemMatch of itemMatches) {
     const itemContent = itemMatch[1];
