@@ -1,6 +1,18 @@
+import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import PageLayout from '@/components/layout/page-layout';
 import RealEstateListings from '@/components/sections/real-estate-listings';
 import PropertyCategories from '@/components/sections/property-categories';
+import ListingsSkeleton from '@/components/skeletons/listings-skeleton';
+import PropertyCategoriesSkeleton from '@/components/skeletons/property-categories-skeleton';
+
+const DynamicPropertyCategories = dynamic(
+  () => import('@/components/sections/property-categories'),
+  {
+    loading: () => <PropertyCategoriesSkeleton />,
+    ssr: true,
+  }
+);
 import {
   Card,
   CardContent,
@@ -42,7 +54,9 @@ export default function HomesPage() {
         </div>
       </div>
 
-      <RealEstateListings />
+      <Suspense fallback={<ListingsSkeleton />}>
+        <RealEstateListings />
+      </Suspense>
 
       {/* Working with Dr. Jan Duffy Section - Moved up for trust building */}
       <section className='py-16 bg-white'>
@@ -191,7 +205,9 @@ export default function HomesPage() {
         </div>
       </section>
 
-      <PropertyCategories />
+      <Suspense fallback={<PropertyCategoriesSkeleton />}>
+        <DynamicPropertyCategories />
+      </Suspense>
 
       {/* Price Range & Community Info */}
       <section className='py-16 bg-[#F7F9FC]'>

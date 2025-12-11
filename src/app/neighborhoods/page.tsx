@@ -1,5 +1,7 @@
+import { Suspense } from 'react';
 import PageLayout from '@/components/layout/page-layout';
 import GoogleMap from '@/components/sections/google-map';
+import MapSkeleton from '@/components/skeletons/map-skeleton';
 import {
   Card,
   CardContent,
@@ -363,14 +365,16 @@ export default function NeighborhoodsPage() {
             </p>
           </div>
           <div className='relative'>
-            <GoogleMap
-              address='Craig Ranch, North Las Vegas, NV 89031'
-              latitude={36.2831}
-              longitude={-115.1331}
-              zoom={13}
-              height='500px'
-              title='Craig Ranch Neighborhoods Location'
-            />
+            <Suspense fallback={<MapSkeleton />}>
+              <GoogleMap
+                address='Craig Ranch, North Las Vegas, NV 89031'
+                latitude={36.2831}
+                longitude={-115.1331}
+                zoom={13}
+                height='500px'
+                title='Craig Ranch Neighborhoods Location'
+              />
+            </Suspense>
           </div>
           <div className='mt-6 text-center'>
             <Link

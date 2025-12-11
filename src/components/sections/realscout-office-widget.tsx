@@ -1,7 +1,8 @@
 'use client';
 
 import { useIsMobile } from '@/hooks';
-import { useEffect, useRef, Suspense } from 'react';
+import { useEffect, useRef } from 'react';
+import ListingsSkeleton from '@/components/skeletons/listings-skeleton';
 
 type RealScoutOfficeWidgetProps = {
   agentEncodedId?: string;
@@ -98,19 +99,6 @@ function RealScoutOfficeWidgetContent({
 }
 
 export default function RealScoutOfficeWidget(props: RealScoutOfficeWidgetProps) {
-  return (
-    <Suspense
-      fallback={
-        <div className='min-h-[400px] flex items-center justify-center'>
-          <div className='text-center'>
-            <div className='animate-spin rounded-full h-12 w-12 border-b-2 border-[#3A8DDE] mx-auto mb-4'></div>
-            <p className='text-gray-500 text-sm'>Loading office listings...</p>
-          </div>
-        </div>
-      }
-    >
-      <RealScoutOfficeWidgetContent {...props} />
-    </Suspense>
-  );
+  return <RealScoutOfficeWidgetContent {...props} />;
 }
 

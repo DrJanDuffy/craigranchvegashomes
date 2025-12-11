@@ -1,9 +1,22 @@
+import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import PageLayout from '@/components/layout/page-layout';
 import FeaturedCommunities from '@/components/sections/featured-communities';
 import NorthLasVegasNeighborhoods from '@/components/sections/north-las-vegas-neighborhoods';
 import CraigRanchListings from '@/components/sections/craig-ranch-listings';
 import CraigRanchPropertySearch from '@/components/sections/craig-ranch-property-search';
 import GoogleMap from '@/components/sections/google-map';
+import ListingsSkeleton from '@/components/skeletons/listings-skeleton';
+import CommunitiesSkeleton from '@/components/skeletons/communities-skeleton';
+import { Skeleton } from '@/components/ui/skeleton';
+
+const DynamicFeaturedCommunities = dynamic(
+  () => import('@/components/sections/featured-communities'),
+  {
+    loading: () => <CommunitiesSkeleton />,
+    ssr: true,
+  }
+);
 import {
   Card,
   CardContent,
@@ -121,12 +134,14 @@ export default function NeighborhoodPage() {
           </div>
 
           <div className='bg-white rounded-xl p-8 shadow-lg'>
-            <CraigRanchListings
-              priceMin='400000'
-              priceMax='500000'
-              showMap={false}
-              listingsPerPage='6'
-            />
+            <Suspense fallback={<ListingsSkeleton />}>
+              <CraigRanchListings
+                priceMin='400000'
+                priceMax='500000'
+                showMap={false}
+                listingsPerPage='6'
+              />
+            </Suspense>
             <div className='mt-6 text-center'>
               <Button
                 asChild
@@ -384,14 +399,16 @@ export default function NeighborhoodPage() {
             </p>
           </div>
           <div className='relative'>
-            <GoogleMap
-              address='Craig Ranch, North Las Vegas, NV 89031'
-              latitude={36.2831}
-              longitude={-115.1331}
-              zoom={13}
-              height='500px'
-              title='Craig Ranch Community Location'
-            />
+            <Suspense fallback={<MapSkeleton />}>
+              <GoogleMap
+                address='Craig Ranch, North Las Vegas, NV 89031'
+                latitude={36.2831}
+                longitude={-115.1331}
+                zoom={13}
+                height='500px'
+                title='Craig Ranch Community Location'
+              />
+            </Suspense>
           </div>
           <div className='mt-6 text-center'>
             <Link
@@ -519,12 +536,14 @@ export default function NeighborhoodPage() {
               </p>
             </div>
 
-            <CraigRanchListings
-              priceMin='400000'
-              priceMax='500000'
-              showMap={true}
-              listingsPerPage='12'
-            />
+            <Suspense fallback={<ListingsSkeleton />}>
+              <CraigRanchListings
+                priceMin='400000'
+                priceMax='500000'
+                showMap={true}
+                listingsPerPage='12'
+              />
+            </Suspense>
 
             <div className='mt-6 text-center'>
               <p className='text-gray-400 text-xs mb-4'>
@@ -553,12 +572,27 @@ export default function NeighborhoodPage() {
               </p>
             </div>
 
-            <CraigRanchPropertySearch />
+            <Suspense
+              fallback={
+                <div className='min-h-[500px] flex items-center justify-center'>
+                  <div className='text-center'>
+                    <div className='animate-spin rounded-full h-12 w-12 border-b-2 border-[#3A8DDE] mx-auto mb-4'></div>
+                    <p className='text-gray-500 text-sm'>
+                      Loading property search...
+                    </p>
+                  </div>
+                </div>
+              }
+            >
+              <CraigRanchPropertySearch />
+            </Suspense>
           </div>
         </div>
       </section>
 
-      <FeaturedCommunities />
+      <Suspense fallback={<CommunitiesSkeleton />}>
+        <DynamicFeaturedCommunities />
+      </Suspense>
       <NorthLasVegasNeighborhoods />
 
       <section className='py-16 bg-[#F7F9FC]'>

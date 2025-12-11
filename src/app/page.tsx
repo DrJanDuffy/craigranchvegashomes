@@ -8,6 +8,10 @@ import PropertyCategories from '@/components/sections/property-categories';
 import FeaturedCommunities from '@/components/sections/featured-communities';
 import BlogPosts from '@/components/sections/blog-posts';
 import RealScoutOfficeWidget from '@/components/sections/realscout-office-widget';
+import ListingsSkeleton from '@/components/skeletons/listings-skeleton';
+import PropertyCategoriesSkeleton from '@/components/skeletons/property-categories-skeleton';
+import CommunitiesSkeleton from '@/components/skeletons/communities-skeleton';
+import BlogPostsSkeleton from '@/components/skeletons/blog-posts-skeleton';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight, Home as HomeIcon, MapPin, TrendingUp } from 'lucide-react';
@@ -33,21 +37,26 @@ const DynamicHomeEvaluation = dynamic(
   }
 );
 
+const DynamicPropertyCategories = dynamic(
+  () => import('@/components/sections/property-categories'),
+  {
+    loading: () => <PropertyCategoriesSkeleton />,
+    ssr: true,
+  }
+);
+
+const DynamicFeaturedCommunities = dynamic(
+  () => import('@/components/sections/featured-communities'),
+  {
+    loading: () => <CommunitiesSkeleton />,
+    ssr: true,
+  }
+);
+
 const DynamicBlogPosts = dynamic(
   () => import('@/components/sections/blog-posts'),
   {
-    loading: () => (
-      <section className='py-20 bg-[#F7F9FC]'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='h-10 w-64 bg-gray-200 animate-pulse rounded mx-auto mb-12'></div>
-          <div className='grid md:grid-cols-3 gap-6'>
-            {[1, 2, 3].map((i) => (
-              <div key={i} className='h-96 bg-gray-100 animate-pulse rounded-lg'></div>
-            ))}
-          </div>
-        </div>
-      </section>
-    ),
+    loading: () => <BlogPostsSkeleton />,
     ssr: true,
   }
 );
@@ -128,18 +137,7 @@ export default function Home() {
               </p>
             </div>
             <div className='bg-[#F7F9FC] rounded-xl p-8 shadow-lg border border-gray-200'>
-              <Suspense
-                fallback={
-                  <div className='min-h-[400px] flex items-center justify-center'>
-                    <div className='text-center'>
-                      <div className='animate-spin rounded-full h-12 w-12 border-b-2 border-[#3A8DDE] mx-auto mb-4'></div>
-                      <p className='text-gray-500 text-sm'>
-                        Loading office listings...
-                      </p>
-                    </div>
-                  </div>
-                }
-              >
+              <Suspense fallback={<ListingsSkeleton />}>
                 <RealScoutOfficeWidget
                   agentEncodedId='QWdlbnQtMjI1MDUw'
                   showMap={true}
@@ -189,11 +187,16 @@ export default function Home() {
           </div>
         </section>
 
-        <PropertyCategories />
-        <FeaturedCommunities />
+        <Suspense fallback={<PropertyCategoriesSkeleton />}>
+          <DynamicPropertyCategories />
+        </Suspense>
+        <Suspense fallback={<CommunitiesSkeleton />}>
+          <DynamicFeaturedCommunities />
+        </Suspense>
         <DynamicHomeEvaluation />
-
-        <DynamicBlogPosts />
+        <Suspense fallback={<BlogPostsSkeleton />}>
+          <DynamicBlogPosts />
+        </Suspense>
       </article>
     </PageLayout>
   );
