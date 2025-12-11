@@ -1,6 +1,6 @@
-import { Metadata } from 'next';
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
+import Script from 'next/script';
 import PageLayout from '@/components/layout/page-layout';
 import Hero from '@/components/sections/hero';
 import HomeEvaluationSection from '@/components/sections/home-evaluation';
@@ -15,6 +15,11 @@ import BlogPostsSkeleton from '@/components/skeletons/blog-posts-skeleton';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight, Home as HomeIcon, MapPin, TrendingUp } from 'lucide-react';
+import {
+  generateMetadata as genMetadata,
+  generateWebPageSchema,
+  generateRealEstateAgentSchema,
+} from '@/lib/metadata';
 
 // Dynamically import heavy components with loading states
 const DynamicHomeEvaluation = dynamic(
@@ -64,13 +69,14 @@ const DynamicBlogPosts = dynamic(
 // Incremental Static Regeneration - revalidate every hour for fresh market data
 export const revalidate = 3600; // 1 hour
 
-export const metadata: Metadata = {
+export const metadata = genMetadata({
   title: 'Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas, Nevada',
   description:
-    "Find your dream home in Craig Ranch, Las Vegas. Browse luxury homes, explore the neighborhood, and discover why Craig Ranch is one of Las Vegas' most prestigious communities.",
+    "Find your dream home in Craig Ranch, Las Vegas. Browse luxury homes, explore the neighborhood, and discover why Craig Ranch is one of Las Vegas' most prestigious communities. Work with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada.",
   keywords:
-    'Craig Ranch, Las Vegas real estate, luxury homes, Las Vegas homes for sale, North Las Vegas, Nevada real estate',
-};
+    'Craig Ranch, Las Vegas real estate, luxury homes, Las Vegas homes for sale, North Las Vegas, Nevada real estate, Craig Ranch community, luxury properties, real estate agent Las Vegas, Dr. Jan Duffy, Berkshire Hathaway',
+  path: '/',
+});
 
 export default function Home() {
   return (
@@ -198,6 +204,26 @@ export default function Home() {
           <DynamicBlogPosts />
         </Suspense>
       </article>
+
+      {/* Structured Data */}
+      <Script
+        id='homepage-schema'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            generateWebPageSchema({
+              name: 'Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas, Nevada',
+              description:
+                "Find your dream home in Craig Ranch, Las Vegas. Browse luxury homes, explore the neighborhood, and discover why Craig Ranch is one of Las Vegas' most prestigious communities.",
+              url: 'https://craigranchvegas.com',
+              breadcrumb: [
+                { name: 'Home', url: 'https://craigranchvegas.com' },
+              ],
+            }),
+            generateRealEstateAgentSchema(),
+          ]),
+        }}
+      />
     </PageLayout>
   );
 }

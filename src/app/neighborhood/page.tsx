@@ -43,17 +43,23 @@ import {
 } from 'lucide-react';
 import Script from 'next/script';
 import type { Metadata } from 'next';
+import {
+  generateMetadata as genMetadata,
+  generateBreadcrumbSchema,
+  generateWebPageSchema,
+} from '@/lib/metadata';
 
 // Static generation with ISR - revalidate weekly for community updates
 export const revalidate = 604800; // 1 week
 
-export const metadata: Metadata = {
+export const metadata = genMetadata({
   title: 'Craig Ranch Homes & Real Estate | North Las Vegas Community Guide',
   description:
     'Craig Ranch homes for sale in North Las Vegas features 13 floor plans by Century Communities. Sizes from 1,519 to 2,638-square feet, up to 5 bedrooms, 3 bathrooms and 2 bay garages. With close proximity to schools, parks and activity centers, Craig Ranch is the perfect family neighborhood.',
   keywords:
-    'Craig Ranch, North Las Vegas homes, Century Communities, Craig Ranch Regional Park, 89031 zip code, North Las Vegas real estate, family neighborhood, gated community',
-};
+    'Craig Ranch, North Las Vegas homes, Century Communities, Craig Ranch Regional Park, 89031 zip code, North Las Vegas real estate, family neighborhood, gated community, Craig Ranch schools, Craig Ranch amenities',
+  path: '/neighborhood',
+});
 
 export default function NeighborhoodPage() {
   const highlights = [
@@ -629,7 +635,8 @@ export default function NeighborhoodPage() {
         id='craig-ranch-schema'
         type='application/ld+json'
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: JSON.stringify([
+            {
             '@context': 'https://schema.org',
             '@type': 'ResidentialComplex',
             name: 'Craig Ranch',
@@ -693,7 +700,22 @@ export default function NeighborhoodPage() {
                   '170-acre park featuring amphitheater, skate park, sports fields, dog parks, and community gardens',
               },
             ],
-          }),
+            },
+            generateBreadcrumbSchema([
+              { name: 'Home', url: 'https://craigranchvegas.com' },
+              { name: 'Craig Ranch Neighborhood', url: 'https://craigranchvegas.com/neighborhood' },
+            ]),
+            generateWebPageSchema({
+              name: 'Craig Ranch Homes & Real Estate | North Las Vegas Community Guide',
+              description:
+                'Craig Ranch homes for sale in North Las Vegas features 13 floor plans by Century Communities. Sizes from 1,519 to 2,638-square feet, up to 5 bedrooms, 3 bathrooms and 2 bay garages.',
+              url: 'https://craigranchvegas.com/neighborhood',
+              breadcrumb: [
+                { name: 'Home', url: 'https://craigranchvegas.com' },
+                { name: 'Craig Ranch Neighborhood', url: 'https://craigranchvegas.com/neighborhood' },
+              ],
+            }),
+          ]),
         }}
       />
     </PageLayout>

@@ -14,17 +14,27 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Clock, MessageSquare } from 'lucide-react';
 
+import Script from 'next/script';
 import type { Metadata } from 'next';
+import {
+  generateMetadata as genMetadata,
+  generateLocalBusinessSchema,
+  generateBreadcrumbSchema,
+  generateWebPageSchema,
+} from '@/lib/metadata';
 
 // Static generation - contact info rarely changes
 export const dynamic = 'force-static';
 export const revalidate = false; // Static page, no revalidation needed
 
-export const metadata: Metadata = {
-  title: 'Contact Us - Craig Ranch Vegas Homes | Las Vegas Real Estate',
+export const metadata = genMetadata({
+  title: 'Contact Dr. Jan Duffy - Craig Ranch Vegas Homes | Las Vegas Real Estate',
   description:
-    'Get in touch with Craig Ranch Vegas Homes. Contact our expert real estate team for buying, selling, or investing in Craig Ranch, Las Vegas.',
-};
+    'Get in touch with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada. Contact our expert real estate team for buying, selling, or investing in Craig Ranch, Las Vegas. Call (702) 500-1955 or (702) 500-1530.',
+  keywords:
+    'contact real estate agent, Dr. Jan Duffy, Craig Ranch real estate agent, Las Vegas realtor, Berkshire Hathaway, contact form, real estate consultation',
+  path: '/contact',
+});
 
 export default function ContactPage() {
   return (
@@ -261,6 +271,31 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* Structured Data */}
+      <Script
+        id='contact-schema'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            generateLocalBusinessSchema(),
+            generateWebPageSchema({
+              name: 'Contact Dr. Jan Duffy - Craig Ranch Vegas Homes',
+              description:
+                'Get in touch with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada. Contact our expert real estate team for buying, selling, or investing in Craig Ranch, Las Vegas.',
+              url: 'https://craigranchvegas.com/contact',
+              breadcrumb: [
+                { name: 'Home', url: 'https://craigranchvegas.com' },
+                { name: 'Contact', url: 'https://craigranchvegas.com/contact' },
+              ],
+            }),
+            generateBreadcrumbSchema([
+              { name: 'Home', url: 'https://craigranchvegas.com' },
+              { name: 'Contact', url: 'https://craigranchvegas.com/contact' },
+            ]),
+          ]),
+        }}
+      />
     </PageLayout>
   );
 }

@@ -17,16 +17,25 @@ import {
   BarChart3,
 } from 'lucide-react';
 
+import Script from 'next/script';
 import type { Metadata } from 'next';
+import {
+  generateMetadata as genMetadata,
+  generateBreadcrumbSchema,
+  generateWebPageSchema,
+} from '@/lib/metadata';
 
 // Incremental Static Regeneration - revalidate every 15 minutes for fresh market data
 export const revalidate = 900; // 15 minutes
 
-export const metadata: Metadata = {
+export const metadata = genMetadata({
   title: 'Craig Ranch Real Estate Market Data & Trends | Las Vegas',
   description:
-    'Stay informed with the latest real estate market data, trends, and statistics for Craig Ranch, Las Vegas. Average prices, days on market, and more.',
-};
+    'Stay informed with the latest real estate market data, trends, and statistics for Craig Ranch, Las Vegas. Average prices, days on market, sales volume, and market insights.',
+  keywords:
+    'Craig Ranch market data, Las Vegas real estate trends, market statistics, home prices, days on market, real estate market analysis, Las Vegas housing market',
+  path: '/market-data',
+});
 
 export default function MarketDataPage() {
   const trends = [
@@ -223,6 +232,30 @@ export default function MarketDataPage() {
           </Card>
         </div>
       </section>
+
+      {/* Structured Data */}
+      <Script
+        id='market-data-schema'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            generateWebPageSchema({
+              name: 'Craig Ranch Real Estate Market Data & Trends',
+              description:
+                'Stay informed with the latest real estate market data, trends, and statistics for Craig Ranch, Las Vegas. Average prices, days on market, and more.',
+              url: 'https://craigranchvegas.com/market-data',
+              breadcrumb: [
+                { name: 'Home', url: 'https://craigranchvegas.com' },
+                { name: 'Market Data', url: 'https://craigranchvegas.com/market-data' },
+              ],
+            }),
+            generateBreadcrumbSchema([
+              { name: 'Home', url: 'https://craigranchvegas.com' },
+              { name: 'Market Data', url: 'https://craigranchvegas.com/market-data' },
+            ]),
+          ]),
+        }}
+      />
     </PageLayout>
   );
 }

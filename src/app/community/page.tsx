@@ -20,17 +20,26 @@ import {
   Building2,
 } from 'lucide-react';
 
+import Script from 'next/script';
 import type { Metadata } from 'next';
+import {
+  generateMetadata as genMetadata,
+  generateBreadcrumbSchema,
+  generateWebPageSchema,
+} from '@/lib/metadata';
 
 // Static generation with ISR - revalidate weekly for community updates
 export const revalidate = 604800; // 1 week
 
-export const metadata: Metadata = {
+export const metadata = genMetadata({
   title:
     'Craig Ranch Community Guide: Schools, Amenities & Lifestyle | Las Vegas',
   description:
-    'Discover schools, amenities, shopping, dining, and lifestyle in Craig Ranch, Las Vegas. Your complete guide to community living.',
-};
+    'Discover schools, amenities, shopping, dining, and lifestyle in Craig Ranch, Las Vegas. Your complete guide to community living. Learn about top-rated schools, parks, shopping centers, and recreational facilities.',
+  keywords:
+    'Craig Ranch community, Las Vegas schools, Craig Ranch amenities, community guide, Las Vegas lifestyle, North Las Vegas community, Craig Ranch parks, Craig Ranch shopping',
+  path: '/community',
+});
 
 export default function CommunityPage() {
   const schools = [
@@ -265,6 +274,30 @@ export default function CommunityPage() {
           </div>
         </div>
       </section>
+
+      {/* Structured Data */}
+      <Script
+        id='community-schema'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            generateWebPageSchema({
+              name: 'Craig Ranch Community Guide: Schools, Amenities & Lifestyle',
+              description:
+                'Discover schools, amenities, shopping, dining, and lifestyle in Craig Ranch, Las Vegas. Your complete guide to community living.',
+              url: 'https://craigranchvegas.com/community',
+              breadcrumb: [
+                { name: 'Home', url: 'https://craigranchvegas.com' },
+                { name: 'Community Guide', url: 'https://craigranchvegas.com/community' },
+              ],
+            }),
+            generateBreadcrumbSchema([
+              { name: 'Home', url: 'https://craigranchvegas.com' },
+              { name: 'Community Guide', url: 'https://craigranchvegas.com/community' },
+            ]),
+          ]),
+        }}
+      />
     </PageLayout>
   );
 }

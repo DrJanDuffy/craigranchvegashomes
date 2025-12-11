@@ -25,16 +25,25 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Home, MapPin, DollarSign, TrendingUp } from 'lucide-react';
 
+import Script from 'next/script';
 import type { Metadata } from 'next';
+import {
+  generateMetadata as genMetadata,
+  generateCollectionPageSchema,
+  generateBreadcrumbSchema,
+} from '@/lib/metadata';
 
 // Incremental Static Regeneration - revalidate every 30 minutes for fresh listings
 export const revalidate = 1800; // 30 minutes
 
-export const metadata: Metadata = {
+export const metadata = genMetadata({
   title: 'Homes for Sale in Craig Ranch, Las Vegas | Craig Ranch Vegas Homes',
   description:
-    "Browse luxury homes for sale in Craig Ranch, Las Vegas. Find your dream home in one of Las Vegas' most prestigious communities.",
-};
+    "Browse luxury homes for sale in Craig Ranch, Las Vegas. Find your dream home in one of Las Vegas' most prestigious communities. Work with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada.",
+  keywords:
+    'homes for sale Craig Ranch, Las Vegas homes, luxury homes for sale, Craig Ranch real estate, North Las Vegas homes, property listings, real estate agent Las Vegas',
+  path: '/homes',
+});
 
 export default function HomesPage() {
   return (
@@ -312,6 +321,26 @@ export default function HomesPage() {
           </div>
         </div>
       </section>
+
+      {/* Structured Data */}
+      <Script
+        id='homes-schema'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            generateCollectionPageSchema({
+              name: 'Homes for Sale in Craig Ranch, Las Vegas',
+              description:
+                "Browse luxury homes for sale in Craig Ranch, Las Vegas. Find your dream home in one of Las Vegas' most prestigious communities.",
+              url: 'https://craigranchvegas.com/homes',
+            }),
+            generateBreadcrumbSchema([
+              { name: 'Home', url: 'https://craigranchvegas.com' },
+              { name: 'Homes for Sale', url: 'https://craigranchvegas.com/homes' },
+            ]),
+          ]),
+        }}
+      />
     </PageLayout>
   );
 }
