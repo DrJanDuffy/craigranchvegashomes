@@ -1,13 +1,56 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import PageLayout from '@/components/layout/page-layout';
 import Hero from '@/components/sections/hero';
 import HomeEvaluationSection from '@/components/sections/home-evaluation';
 import PropertyCategories from '@/components/sections/property-categories';
 import FeaturedCommunities from '@/components/sections/featured-communities';
 import BlogPosts from '@/components/sections/blog-posts';
+import RealScoutOfficeWidget from '@/components/sections/realscout-office-widget';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight, Home as HomeIcon, MapPin, TrendingUp } from 'lucide-react';
+
+// Dynamically import heavy components with loading states
+const DynamicHomeEvaluation = dynamic(
+  () => import('@/components/sections/home-evaluation'),
+  {
+    loading: () => (
+      <section className='py-20 bg-white'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-16'>
+            <div className='h-10 w-64 bg-gray-200 animate-pulse rounded mx-auto mb-4'></div>
+            <div className='h-6 w-96 bg-gray-200 animate-pulse rounded mx-auto'></div>
+          </div>
+          <div className='max-w-2xl mx-auto'>
+            <div className='h-96 bg-gray-100 animate-pulse rounded-xl'></div>
+          </div>
+        </div>
+      </section>
+    ),
+    ssr: true,
+  }
+);
+
+const DynamicBlogPosts = dynamic(
+  () => import('@/components/sections/blog-posts'),
+  {
+    loading: () => (
+      <section className='py-20 bg-[#F7F9FC]'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='h-10 w-64 bg-gray-200 animate-pulse rounded mx-auto mb-12'></div>
+          <div className='grid md:grid-cols-3 gap-6'>
+            {[1, 2, 3].map((i) => (
+              <div key={i} className='h-96 bg-gray-100 animate-pulse rounded-lg'></div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ),
+    ssr: true,
+  }
+);
 
 export const metadata: Metadata = {
   title: 'Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas, Nevada',
@@ -69,9 +112,44 @@ export default function Home() {
           </div>
         </section>
 
-        <HomeEvaluationSection />
+        <DynamicHomeEvaluation />
         <PropertyCategories />
         <FeaturedCommunities />
+
+        {/* RealScout Office Widget Section */}
+        <section className='py-16 bg-white'>
+          <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+            <div className='text-center mb-12'>
+              <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
+                Featured Listings from Dr. Jan Duffy
+              </h2>
+              <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
+                Browse our current office listings. Dr. Jan Duffy specializes in
+                luxury homes and estates across Las Vegas and Henderson.
+              </p>
+            </div>
+            <div className='bg-[#F7F9FC] rounded-xl p-8 shadow-lg border border-gray-200'>
+              <Suspense
+                fallback={
+                  <div className='min-h-[400px] flex items-center justify-center'>
+                    <div className='text-center'>
+                      <div className='animate-spin rounded-full h-12 w-12 border-b-2 border-[#3A8DDE] mx-auto mb-4'></div>
+                      <p className='text-gray-500 text-sm'>
+                        Loading office listings...
+                      </p>
+                    </div>
+                  </div>
+                }
+              >
+                <RealScoutOfficeWidget
+                  agentEncodedId='QWdlbnQtMjI1MDUw'
+                  showMap={true}
+                  listingsPerPage='12'
+                />
+              </Suspense>
+            </div>
+          </div>
+        </section>
 
         {/* Market Data Preview */}
         <section className='py-16 bg-gradient-to-r from-[#0A2540] to-[#3A8DDE]'>
@@ -112,7 +190,7 @@ export default function Home() {
           </div>
         </section>
 
-        <BlogPosts />
+        <DynamicBlogPosts />
       </article>
     </PageLayout>
   );

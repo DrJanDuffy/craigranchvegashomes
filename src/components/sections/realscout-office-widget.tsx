@@ -1,21 +1,25 @@
 'use client';
 
 import { useIsMobile } from '@/hooks';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, Suspense } from 'react';
 
-type CraigRanchListingsProps = {
-  priceMin?: string;
-  priceMax?: string;
+type RealScoutOfficeWidgetProps = {
+  agentEncodedId?: string;
   showMap?: boolean;
   listingsPerPage?: string;
+  priceMin?: string;
+  priceMax?: string;
+  className?: string;
 };
 
-export default function CraigRanchListings({
-  priceMin = '400000',
-  priceMax = '500000',
+function RealScoutOfficeWidgetContent({
+  agentEncodedId = 'QWdlbnQtMjI1MDUw',
   showMap = true,
   listingsPerPage = '12',
-}: CraigRanchListingsProps) {
+  priceMin,
+  priceMax,
+  className = '',
+}: RealScoutOfficeWidgetProps) {
   const isMobile = useIsMobile();
   const widgetRef = useRef<HTMLDivElement>(null);
 
@@ -26,12 +30,16 @@ export default function CraigRanchListings({
         // Check if RealScout is available
         if (typeof customElements !== 'undefined' && customElements.get('realscout-office-listings')) {
           const widget = document.createElement('realscout-office-listings');
-          widget.setAttribute('agent-encoded-id', 'QWdlbnQtMjI1MDUw');
+          widget.setAttribute('agent-encoded-id', agentEncodedId);
           widget.setAttribute('sort-order', 'STATUS_AND_SIGNIFICANT_CHANGE');
           widget.setAttribute('listing-status', 'For Sale');
           widget.setAttribute('property-types', 'SFR,MF,TC');
-          widget.setAttribute('price-min', priceMin);
-          widget.setAttribute('price-max', priceMax);
+          if (priceMin) {
+            widget.setAttribute('price-min', priceMin);
+          }
+          if (priceMax) {
+            widget.setAttribute('price-max', priceMax);
+          }
           widget.setAttribute('layout', isMobile ? 'mobile' : 'desktop');
           widget.setAttribute('show-filters', 'true');
           widget.setAttribute('show-sort', 'true');
@@ -74,21 +82,35 @@ export default function CraigRanchListings({
         window.removeEventListener('realscout-loaded', initWidget);
       }
     };
-  }, [isMobile, priceMin, priceMax, showMap, listingsPerPage]);
+  }, [isMobile, agentEncodedId, showMap, listingsPerPage, priceMin, priceMax]);
 
   return (
     <div
       ref={widgetRef}
-      className='real-estate-listings-container min-h-[400px] flex items-center justify-center'
+      className={`real-estate-office-widget-container min-h-[400px] ${className}`}
     >
-      <div className='text-center'>
+      <div className='text-center py-8'>
         <div className='animate-spin rounded-full h-12 w-12 border-b-2 border-[#3A8DDE] mx-auto mb-4'></div>
-        <p className='text-gray-500 text-sm'>
-          Loading Craig Ranch properties...
-        </p>
+        <p className='text-gray-500 text-sm'>Loading office listings...</p>
       </div>
     </div>
   );
 }
 
+export default function RealScoutOfficeWidget(props: RealScoutOfficeWidgetProps) {
+  return (
+    <Suspense
+      fallback={
+        <div className='min-h-[400px] flex items-center justify-center'>
+          <div className='text-center'>
+            <div className='animate-spin rounded-full h-12 w-12 border-b-2 border-[#3A8DDE] mx-auto mb-4'></div>
+            <p className='text-gray-500 text-sm'>Loading office listings...</p>
+          </div>
+        </div>
+      }
+    >
+      <RealScoutOfficeWidgetContent {...props} />
+    </Suspense>
+  );
+}
 

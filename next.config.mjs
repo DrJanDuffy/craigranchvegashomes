@@ -20,6 +20,18 @@ const nextConfig = {
       },
     ],
   },
+  // Optimize rendering performance
+  experimental: {
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
+  },
+  // Enable React compiler optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
+  // Optimize bundle size
+  swcMinify: true,
 };
 
 export default nextConfig;
