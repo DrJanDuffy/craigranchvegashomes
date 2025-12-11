@@ -30,8 +30,6 @@ const nextConfig = {
       exclude: ['error', 'warn'],
     } : false,
   },
-  // Optimize bundle size
-  swcMinify: true,
 };
 
 export default nextConfig;

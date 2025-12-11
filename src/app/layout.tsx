@@ -300,12 +300,6 @@ export default function RootLayout({
           src='https://em.realscout.com/widgets/realscout-web-components.umd.js'
           type='module'
           strategy='afterInteractive'
-          onLoad={() => {
-            // Dispatch custom event when RealScout is loaded
-            if (typeof window !== 'undefined') {
-              window.dispatchEvent(new Event('realscout-loaded'));
-            }
-          }}
         />
         {children}
       </body>
