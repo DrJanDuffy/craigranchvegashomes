@@ -1,3 +1,9 @@
+/**
+ * Blog Posts Component
+ * Fetches blog posts from RSS feed API
+ * Server component by default (Next.js 16)
+ */
+
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -18,68 +24,63 @@ type BlogPost = {
   postLink: string;
   author: string;
   date: string;
+  description?: string;
 };
 
-const blogPosts: BlogPost[] = [
-  {
-    imageUrl:
-      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&crop=center',
-    category: 'Mortgage Rates',
-    categoryLink:
-      'https://www.simplifyingthemarket.com/en/category/mortgage-rates/',
-    title: "The Latest Mortgage Rate Forecasts: Don't Delay Your Move",
-    postLink:
-      'https://www.simplifyingthemarket.com/en/2025/07/22/the-latest-mortgage-rate-forecasts-infographic',
-    author: 'Simplifying the Market',
-    date: 'July 22, 2025',
-  },
-  {
-    imageUrl:
-      'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop&crop=center',
-    category: 'Selling Tips',
-    categoryLink:
-      'https://www.simplifyingthemarket.com/en/category/selling-tips/',
-    title: "Don't Make These Mistakes When Selling Your House",
-    postLink:
-      'https://www.simplifyingthemarket.com/en/2025/07/21/dont-make-these-mistakes-when-selling-your-house',
-    author: 'Simplifying the Market',
-    date: 'July 21, 2025',
-  },
-  {
-    imageUrl:
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop&crop=center',
-    category: 'New Construction',
-    categoryLink:
-      'https://www.simplifyingthemarket.com/en/category/new-construction/',
-    title: 'Why a Newly Built Home Might Be the Move Right Now',
-    postLink:
-      'https://www.simplifyingthemarket.com/en/2025/07/17/why-a-newly-built-home-might-be-the-move-right-now',
-    author: 'Simplifying the Market',
-    date: 'July 17, 2025',
-  },
-  {
-    imageUrl:
-      'https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&h=600&fit=crop&crop=center',
-    category: 'Buying & Selling',
-    categoryLink:
-      'https://www.simplifyingthemarket.com/en/category/buying-selling/',
-    title: "Selling and Buying at the Same Time: Here's What You Need to Know",
-    postLink:
-      'https://www.simplifyingthemarket.com/en/2025/07/09/selling-and-buying-at-the-same-time-heres-what-you-need-to-know',
-    author: 'Simplifying the Market',
-    date: 'July 9, 2025',
-  },
-];
+/**
+ * Fetch blog posts from API
+ */
+async function getBlogPosts(): Promise<BlogPost[]> {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+    const response = await fetch(`${baseUrl}/api/blog-posts`, {
+      next: { revalidate: 3600 }, // Revalidate every hour
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch blog posts');
+    }
+
+    const data = await response.json();
+    return data.blogPosts || [];
+  } catch (error) {
+    console.error('Error fetching blog posts:', error);
+    // Return fallback data
+    return [
+      {
+        imageUrl: '/placeholder-blog.jpg',
+        category: 'Market Insights',
+        categoryLink:
+          'https://www.simplifyingthemarket.com/?a=956758-ef2edda2f940e018328655620ea05f18',
+        title: 'Latest Market Insights',
+        postLink:
+          'https://www.simplifyingthemarket.com/?a=956758-ef2edda2f940e018328655620ea05f18',
+        author: 'Simplifying the Market',
+        date: new Date().toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        }),
+        description: 'Stay informed with the latest real estate market insights',
+      },
+    ];
+  }
+}
 
 const BlogPostCard = ({ post }: { post: BlogPost }) => {
   return (
-    <Card className='group overflow-hidden h-full hover:shadow-xl transition-all duration-300'>
+    <Card
+      className='group overflow-hidden h-full hover:shadow-xl transition-all duration-300'
+      role='article'
+      aria-label={`Blog post: ${post.title}`}
+    >
       <Link
         href={post.postLink}
         target='_blank'
         rel='noopener noreferrer'
         prefetch={false}
         className='block relative w-full h-[190px] overflow-hidden'
+        aria-label={`Read article: ${post.title}`}
       >
         <Image
           src={post.imageUrl}
@@ -94,7 +95,7 @@ const BlogPostCard = ({ post }: { post: BlogPost }) => {
       <CardHeader>
         <Badge
           variant='outline'
-          className='w-fit mb-2 text-[#007BFF] border-[#007BFF]/30'
+          className='w-fit mb-2 text-[#3A8DDE] border-[#3A8DDE]/30'
         >
           <Link
             href={post.categoryLink}
@@ -102,20 +103,27 @@ const BlogPostCard = ({ post }: { post: BlogPost }) => {
             rel='noopener noreferrer'
             prefetch={false}
             className='hover:underline'
+            aria-label={`View ${post.category} category`}
           >
             {post.category}
           </Link>
         </Badge>
-        <CardTitle className='group-hover:text-[#007BFF] transition-colors duration-300'>
+        <CardTitle className='group-hover:text-[#3A8DDE] transition-colors duration-300'>
           <Link
             href={post.postLink}
             target='_blank'
             rel='noopener noreferrer'
             prefetch={false}
+            className='line-clamp-2'
           >
             {post.title}
           </Link>
         </CardTitle>
+        {post.description && (
+          <CardDescription className='line-clamp-2 mt-2'>
+            {post.description}
+          </CardDescription>
+        )}
       </CardHeader>
       <CardFooter className='flex-col items-start gap-2 pt-0'>
         <CardDescription className='text-xs uppercase'>
@@ -127,16 +135,24 @@ const BlogPostCard = ({ post }: { post: BlogPost }) => {
   );
 };
 
-const BlogPosts = () => {
+const BlogPosts = async () => {
+  const blogPosts = await getBlogPosts();
+
   return (
-    <section className='bg-[#F8F9FA] py-20'>
+    <section
+      className='bg-[#F8F9FA] py-20'
+      aria-labelledby='blog-posts-heading'
+    >
       <div className='max-w-[1200px] mx-auto px-5'>
-        <h2 className='text-[32px] font-primary font-regular text-[#333333] text-center mb-12'>
+        <h2
+          id='blog-posts-heading'
+          className='text-[32px] font-primary font-regular text-[#333333] text-center mb-12'
+        >
           Latest Market Insights
         </h2>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[30px]'>
           {blogPosts.map((post, index) => (
-            <BlogPostCard key={index} post={post} />
+            <BlogPostCard key={`${post.postLink}-${index}`} post={post} />
           ))}
         </div>
         <div className='text-center mt-12'>
@@ -145,7 +161,8 @@ const BlogPosts = () => {
             target='_blank'
             rel='noopener noreferrer'
             prefetch={false}
-            className='inline-block bg-[#2C3E50] text-white font-primary font-medium text-sm py-[10px] px-6 rounded-lg hover:bg-[#333333] transition-colors duration-300'
+            className='inline-block bg-[#3A8DDE] text-white font-primary font-medium text-sm py-[10px] px-6 rounded-lg hover:bg-[#2A7DCE] transition-colors duration-300'
+            aria-label='View all market insights'
           >
             View All Market Insights
           </Link>
