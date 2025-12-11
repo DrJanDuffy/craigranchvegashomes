@@ -1,6 +1,6 @@
 'use client';
 
-import { useActionState, useEffect } from 'react';
+import { useActionState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -24,16 +24,27 @@ export default function ContactForm() {
   // Type guard: fieldErrors only exists when success is false
   const fieldErrors = !state.success ? state.fieldErrors : undefined;
 
+  // Track previous success message to detect new successful submissions
+  const prevMessageRef = useRef<string | undefined>(undefined);
+
   // Reset form on successful submission
-  // Depend on entire state object to ensure form resets on each successful submission
+  // Track the success message to ensure form resets on each successful submission,
+  // even if state.success remains true across multiple submissions
   useEffect(() => {
     if (state.success) {
-      const form = document.getElementById('contact-form') as HTMLFormElement;
-      if (form) {
-        form.reset();
+      // Type guard: message exists when success is true
+      const currentMessage = 'message' in state ? state.message : undefined;
+      
+      if (currentMessage && currentMessage !== prevMessageRef.current) {
+        const form = document.getElementById('contact-form') as HTMLFormElement;
+        if (form) {
+          form.reset();
+        }
+        // Update ref to track this submission's message
+        prevMessageRef.current = currentMessage;
       }
     }
-  }, [state]); // Depend on entire state object, not just state.success
+  }, [state]); // Depend on entire state object to catch all state changes
 
   return (
     <form id='contact-form' action={formAction} className='space-y-6'>
