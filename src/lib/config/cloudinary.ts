@@ -61,7 +61,7 @@ export function getCloudinaryImageUrl(
       width,
       height,
       crop = 'fill',
-      quality = 'auto',
+      quality = 'auto' as number | 'auto',
       format = 'auto',
     } = transformations;
 
