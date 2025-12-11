@@ -21,6 +21,9 @@ import {
 import Script from 'next/script';
 import type { Metadata } from 'next';
 
+// Static generation with ISR - revalidate weekly for neighborhood updates
+export const revalidate = 604800; // 1 week
+
 export const metadata: Metadata = {
   title:
     'Craig Ranch Neighborhoods & Collections | North Las Vegas Communities',

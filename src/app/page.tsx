@@ -52,6 +52,9 @@ const DynamicBlogPosts = dynamic(
   }
 );
 
+// Incremental Static Regeneration - revalidate every hour for fresh market data
+export const revalidate = 3600; // 1 hour
+
 export const metadata: Metadata = {
   title: 'Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas, Nevada',
   description:

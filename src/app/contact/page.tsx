@@ -14,6 +14,10 @@ import { Phone, Mail, MapPin, Clock, MessageSquare } from 'lucide-react';
 
 import type { Metadata } from 'next';
 
+// Static generation - contact info rarely changes
+export const dynamic = 'force-static';
+export const revalidate = false; // Static page, no revalidation needed
+
 export const metadata: Metadata = {
   title: 'Contact Us - Craig Ranch Vegas Homes | Las Vegas Real Estate',
   description:

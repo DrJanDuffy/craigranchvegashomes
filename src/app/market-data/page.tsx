@@ -19,6 +19,9 @@ import {
 
 import type { Metadata } from 'next';
 
+// Incremental Static Regeneration - revalidate every 15 minutes for fresh market data
+export const revalidate = 900; // 15 minutes
+
 export const metadata: Metadata = {
   title: 'Craig Ranch Real Estate Market Data & Trends | Las Vegas',
   description:

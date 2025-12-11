@@ -15,6 +15,9 @@ import { Home, MapPin, DollarSign, TrendingUp } from 'lucide-react';
 
 import type { Metadata } from 'next';
 
+// Incremental Static Regeneration - revalidate every 30 minutes for fresh listings
+export const revalidate = 1800; // 30 minutes
+
 export const metadata: Metadata = {
   title: 'Homes for Sale in Craig Ranch, Las Vegas | Craig Ranch Vegas Homes',
   description:

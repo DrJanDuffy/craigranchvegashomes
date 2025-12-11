@@ -22,6 +22,9 @@ import {
 
 import type { Metadata } from 'next';
 
+// Static generation with ISR - revalidate weekly for community updates
+export const revalidate = 604800; // 1 week
+
 export const metadata: Metadata = {
   title:
     'Craig Ranch Community Guide: Schools, Amenities & Lifestyle | Las Vegas',
