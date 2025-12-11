@@ -173,8 +173,8 @@ export default function RootLayout({
                 name: 'Berkshire Hathaway HomeServices Nevada',
               },
               url: 'https://www.craigranchhomes.com',
-              logo: 'https://craigranchvegas.com/logo.png',
-              image: 'https://craigranchvegas.com/og-image.jpg',
+              logo: 'https://www.craigranchhomes.com/logo.png',
+              image: 'https://www.craigranchhomes.com/og-image.jpg',
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Las Vegas',
@@ -276,7 +276,7 @@ export default function RootLayout({
               potentialAction: {
                 '@type': 'SearchAction',
                 target:
-                  'https://craigranchvegas.com/search?q={search_term_string}',
+                  'https://www.craigranchhomes.com/search?q={search_term_string}',
                 'query-input': 'required name=search_term_string',
               },
             }),
