@@ -25,6 +25,7 @@ export default function ContactForm() {
   const fieldErrors = !state.success ? state.fieldErrors : undefined;
 
   // Reset form on successful submission
+  // Depend on entire state object to ensure form resets on each successful submission
   useEffect(() => {
     if (state.success) {
       const form = document.getElementById('contact-form') as HTMLFormElement;
@@ -32,7 +33,7 @@ export default function ContactForm() {
         form.reset();
       }
     }
-  }, [state.success]);
+  }, [state]); // Depend on entire state object, not just state.success
 
   return (
     <form id='contact-form' action={formAction} className='space-y-6'>
