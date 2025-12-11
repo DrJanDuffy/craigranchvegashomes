@@ -166,19 +166,19 @@ export default function Home() {
             </p>
             <div className='grid md:grid-cols-4 gap-6 mb-8'>
               <div className='bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20'>
-                <div className='text-3xl font-bold text-white mb-1'>$875K</div>
-                <div className='text-gray-300 text-sm'>Avg Home Price</div>
+                <div className='text-3xl font-bold text-white mb-1'>$428K</div>
+                <div className='text-gray-300 text-sm'>Average Value</div>
               </div>
               <div className='bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20'>
-                <div className='text-3xl font-bold text-white mb-1'>23</div>
+                <div className='text-3xl font-bold text-white mb-1'>46</div>
                 <div className='text-gray-300 text-sm'>Days on Market</div>
               </div>
               <div className='bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20'>
-                <div className='text-3xl font-bold text-white mb-1'>156</div>
-                <div className='text-gray-300 text-sm'>Active Listings</div>
+                <div className='text-3xl font-bold text-white mb-1'>206</div>
+                <div className='text-gray-300 text-sm'>Homes For Sale</div>
               </div>
               <div className='bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20'>
-                <div className='text-3xl font-bold text-white mb-1'>+5.2%</div>
+                <div className='text-3xl font-bold text-white mb-1'>+1%</div>
                 <div className='text-gray-300 text-sm'>Price Growth</div>
               </div>
             </div>

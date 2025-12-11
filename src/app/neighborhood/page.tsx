@@ -105,10 +105,10 @@ export default function NeighborhoodPage() {
   ];
 
   const realEstateStats = [
-    { label: 'Total Listings', value: '2', icon: Home },
-    { label: 'Average Price', value: '$419,950', icon: DollarSign },
-    { label: 'Highest Price', value: '$429,900', icon: TrendingUp },
-    { label: 'Lowest Price', value: '$410,000', icon: DollarSign },
+    { label: 'Homes For Sale', value: '206', icon: Home },
+    { label: 'Average Value', value: '$427,967', icon: DollarSign },
+    { label: 'Price per Sq Ft', value: '$242', icon: TrendingUp },
+    { label: 'Median Sale Price', value: '$415,000', icon: DollarSign },
   ];
 
   return (
@@ -119,11 +119,11 @@ export default function NeighborhoodPage() {
             Welcome to Craig Ranch
           </h1>
           <p className='text-xl text-gray-200 max-w-3xl'>
-            Craig Ranch homes for sale in North Las Vegas features 13 floor
-            plans by Century Communities. Sizes from 1,519 to 2,638-square
-            feet, up to 5 bedrooms, 3 bathrooms and 2 bay garages. With close
-            proximity to schools, parks and activity centers, Craig Ranch is the
-            perfect family neighborhood.
+            A tight-knit, vibrant master-planned community in North Las Vegas.
+            Centrally located near shopping and dining, Nellis Air Force Base,
+            and highways. Winner of "Best Planned Community" in 2020. Home to
+            5 miles of trails, 7 parks, and the 170-acre Craig Ranch Regional
+            Park.
           </p>
         </div>
       </div>
@@ -173,26 +173,30 @@ export default function NeighborhoodPage() {
               </h2>
               <div className='space-y-4 text-gray-600 leading-relaxed'>
                 <p>
-                  Craig Ranch is a well-designed master-planned community in
-                  North Las Vegas, Nevada. Built to accommodate a growing
-                  population, Craig Ranch is gated, and consists of 6 different
-                  neighborhoods, where homes for sale are economically priced
-                  and geared towards families.
+                  In the heart of the Mojave Desert, away from the neon glow of
+                  the Las Vegas Strip, lies Craig Ranch. Part of North Las Vegas,
+                  Craig Ranch is a master-planned community centrally located
+                  near shopping and dining, the Nellis Air Force Base and
+                  highways. The area has had quite a bit of expansion; new
+                  hospitals, new parks and new homes, all making it a super
+                  convenient place to live.
                 </p>
                 <p>
-                  Homes in Craig Ranch are close to several community parks,
-                  including Craig Ranch Regional Park and interconnecting walking
-                  trails. Situated in the 89031 zip code, Craig Ranch is close
-                  to local schools, box stores, the VA Hospital, Nellis Air
-                  Force Base, the 215 Beltway and I-15.
+                  Winning "Best Planned Community" in 2020 in the Las Vegas
+                  Review-Journal's Best of Las Vegas annual contest, Craig
+                  Ranch's appeal extends beyond its strategic location and luxury
+                  modern homes. It's also home to 5 miles of trails, is a short
+                  drive to Lake Las Vegas and the Frenchman Mountains and its
+                  tight-knit community is united around Craig Ranch Regional
+                  Park, the beating heart of activity and celebrations for the
+                  area.
                 </p>
                 <p>
-                  The community features 13 floor plans by Century Communities,
-                  with home sizes ranging from 1,519 to 2,638 square feet, up to
-                  5 bedrooms, 3 bathrooms, and 2 bay garages. With its prime
-                  location, excellent amenities, and family-friendly atmosphere,
-                  Craig Ranch offers the perfect blend of modern living and
-                  community connection.
+                  Developed by homebuilder Century Communities, Craig Ranch
+                  consists of six subdivisions. Most homes were built in the
+                  early 2000s and are priced between $370,000 and $1.8 million.
+                  The gated neighborhood offers primarily Spanish and
+                  Mediterranean-style single-family homes, along with condos.
                 </p>
               </div>
             </div>
@@ -316,8 +320,13 @@ export default function NeighborhoodPage() {
             </h2>
             <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
               A true asset to the community, Craig Ranch Regional Park measures
-              170 acres in size. Located at the site of the former Craig Ranch
-              Golf Course, this park offers an abundance of features.
+              170 acres in size. The community's crown jewel, within walking
+              distance of residents' front doors. The expansive space offers
+              three dog parks, a 65,000-square-foot skate park, an amphitheater
+              with seating for over 10,000, two basketball courts, a community
+              garden and plenty of open green space. The park hosts over 40
+              events a year, including concerts, 5K runs, movie nights, and
+              festivals.
             </p>
           </div>
 
@@ -328,8 +337,8 @@ export default function NeighborhoodPage() {
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  Seating for over 8,000 people for concerts and community
-                  events
+                  Seating for over 10,000 people for concerts, outdoor movies,
+                  and community events. A hot spot for summer entertainment.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -381,6 +390,29 @@ export default function NeighborhoodPage() {
               <CardContent>
                 <CardDescription>
                   Four civic plazas and eight reservable ramadas for gatherings
+                </CardDescription>
+              </CardContent>
+            </Card>
+            <Card className='border-0 shadow-lg'>
+              <CardHeader>
+                <CardTitle className='text-lg'>Playgrounds</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Two playgrounds with unique features including giant rabbit,
+                  fiberglass tarantula, rattlesnake slide, and treehouse with
+                  forest sounds
+                </CardDescription>
+              </CardContent>
+            </Card>
+            <Card className='border-0 shadow-lg'>
+              <CardHeader>
+                <CardTitle className='text-lg'>Nature Discovery</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Nature discovery area at the edge of the park's pond for
+                  children to explore
                 </CardDescription>
               </CardContent>
             </Card>
@@ -459,7 +491,11 @@ export default function NeighborhoodPage() {
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  <strong>Raul P. Elizondo Elementary School</strong>
+                  <strong>Eva G. Simmons Elementary School</strong>
+                  <br />
+                  <span className='text-sm text-gray-500 mt-2 block'>
+                    B ranking on Niche • Family picnics • Book bus
+                  </span>
                 </CardDescription>
               </CardContent>
             </Card>
@@ -472,7 +508,11 @@ export default function NeighborhoodPage() {
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  <strong>Theron L. Swainston Middle School</strong>
+                  <strong>Clifford O. Pete Findlay Middle School</strong>
+                  <br />
+                  <span className='text-sm text-gray-500 mt-2 block'>
+                    C ranking on Niche • Loved by alumni
+                  </span>
                 </CardDescription>
               </CardContent>
             </Card>
@@ -486,6 +526,11 @@ export default function NeighborhoodPage() {
               <CardContent>
                 <CardDescription>
                   <strong>Mojave High School</strong>
+                  <br />
+                  <span className='text-sm text-gray-500 mt-2 block'>
+                    C ranking on Niche • Guitar club • Bowling team • Boys'
+                    basketball back-to-back state championships (2022, 2023)
+                  </span>
                 </CardDescription>
               </CardContent>
             </Card>
@@ -513,19 +558,27 @@ export default function NeighborhoodPage() {
           <div className='mb-8 bg-gradient-to-r from-[#F7F9FC] to-white rounded-xl p-6 border border-gray-200'>
             <div className='flex flex-wrap items-center justify-center gap-6'>
               <div className='text-center'>
-                <div className='text-2xl font-bold text-[#0A2540]'>2</div>
-                <div className='text-sm text-gray-600'>Total Listings</div>
+                <div className='text-2xl font-bold text-[#0A2540]'>206</div>
+                <div className='text-sm text-gray-600'>Homes For Sale</div>
               </div>
               <div className='text-center'>
-                <div className='text-2xl font-bold text-[#3A8DDE]'>$419,950</div>
-                <div className='text-sm text-gray-600'>Average Price</div>
+                <div className='text-2xl font-bold text-[#3A8DDE]'>$427,967</div>
+                <div className='text-sm text-gray-600'>Average Value</div>
               </div>
-              <div className='flex flex-wrap gap-2 justify-center'>
+              <div className='text-center'>
+                <div className='text-2xl font-bold text-[#16B286]'>$242</div>
+                <div className='text-sm text-gray-600'>Price per Sq Ft</div>
+              </div>
+              <div className='text-center'>
+                <div className='text-2xl font-bold text-[#0A2540]'>$415,000</div>
+                <div className='text-sm text-gray-600'>Median Sale Price</div>
+              </div>
+              <div className='flex flex-wrap gap-2 justify-center w-full mt-4'>
                 <Badge variant='outline' className='text-sm'>
-                  All Listings
+                  Price Range: $370K - $1.8M
                 </Badge>
                 <Badge variant='outline' className='text-sm'>
-                  $400,000 - $500,000
+                  46 Days on Market
                 </Badge>
               </div>
             </div>
@@ -539,14 +592,14 @@ export default function NeighborhoodPage() {
               </h3>
               <p className='text-gray-600'>
                 Properties in Craig Ranch, North Las Vegas (89031) - Price range:
-                $400,000 - $500,000
+                $370,000 - $1,800,000
               </p>
             </div>
 
             <Suspense fallback={<ListingsSkeleton />}>
               <CraigRanchListings
-                priceMin='400000'
-                priceMax='500000'
+                priceMin='370000'
+                priceMax='1800000'
                 showMap={true}
                 listingsPerPage='12'
               />

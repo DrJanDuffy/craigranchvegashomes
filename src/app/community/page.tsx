@@ -44,55 +44,58 @@ export const metadata = genMetadata({
 export default function CommunityPage() {
   const schools = [
     {
-      name: 'Craig Ranch Elementary',
+      name: 'Eva G. Simmons Elementary School',
       type: 'Public Elementary',
-      rating: '9/10',
-      distance: '0.5 miles',
+      rating: 'B (Niche)',
+      distance: 'Nearby',
+      features: 'Family picnics, book bus',
     },
     {
-      name: 'North Las Vegas High School',
+      name: 'Clifford O. Pete Findlay Middle School',
+      type: 'Public Middle School',
+      rating: 'C (Niche)',
+      distance: 'Nearby',
+      features: 'Loved by alumni',
+    },
+    {
+      name: 'Mojave High School',
       type: 'Public High School',
-      rating: '8/10',
-      distance: '2 miles',
-    },
-    {
-      name: 'Legacy Traditional School',
-      type: 'Charter School',
-      rating: '9/10',
-      distance: '1 mile',
+      rating: 'C (Niche)',
+      distance: 'Nearby',
+      features: 'Guitar club, bowling team, boys basketball state champions (2022, 2023)',
     },
   ];
 
   const amenities = [
     {
-      name: 'Community Parks',
+      name: 'Craig Ranch Regional Park',
       icon: TreePine,
-      description: 'Multiple parks with playgrounds and walking trails',
+      description: '170-acre park with amphitheater (10,000+ seats), 65,000 sq ft skate park, 3 dog parks, sports fields, and community gardens',
     },
     {
-      name: 'Shopping Centers',
+      name: 'Shopping & Dining',
       icon: ShoppingCart,
-      description: 'Premium shopping within 5 minutes',
+      description: 'Restaurant Row on West Craig Road with 25+ restaurants, North Mesa Plaza, Simmons Center, and more',
     },
     {
-      name: 'Restaurants',
-      icon: UtensilsCrossed,
-      description: 'Diverse dining options nearby',
-    },
-    {
-      name: 'Recreation Centers',
+      name: 'Trails & Recreation',
       icon: Heart,
-      description: 'Fitness and community centers',
+      description: '5 miles of interconnecting trails with exercise stations, 7 community parks, and 14-acre Sandstone Ridge Park',
     },
     {
-      name: 'Golf Courses',
+      name: 'Entertainment',
+      icon: UtensilsCrossed,
+      description: 'Cannery Casino Hotel, outdoor concerts, 40+ annual events including Color Run, San Gennaro Feast (50,000+ attendees)',
+    },
+    {
+      name: 'Outdoor Activities',
       icon: TreePine,
-      description: 'Championship golf courses nearby',
+      description: '11 miles to Frenchman Mountain Trailhead, 18 miles to Lake Mead National Recreation Area, short drive to Lake Las Vegas',
     },
     {
-      name: 'Medical Facilities',
-      icon: Building2,
-      description: 'Top-rated hospitals and clinics',
+      name: 'Convenient Access',
+      icon: Car,
+      description: 'Easy access to Route 95, I-15, Las Vegas Strip (11 miles), North Las Vegas Airport (6 miles), Harry Reid International (15 miles)',
     },
   ];
 
@@ -125,9 +128,10 @@ export default function CommunityPage() {
             Craig Ranch Community Guide
           </h1>
           <p className='text-xl text-gray-200 max-w-3xl'>
-            A gated master planned community in North Las Vegas featuring 6
-            neighborhoods, 7 parks, 17 floor plans, and miles of trails near
-            Craig Ranch Regional Park.
+            A tight-knit, vibrant master-planned community in North Las Vegas.
+            Winner of "Best Planned Community" in 2020. Home to 5 miles of
+            trails, 7 parks, and the 170-acre Craig Ranch Regional Park. Centrally
+            located near shopping, dining, Nellis Air Force Base, and highways.
           </p>
         </div>
       </div>
@@ -169,6 +173,13 @@ export default function CommunityPage() {
                       <span className='text-gray-600'>Distance:</span>
                       <span className='font-semibold'>{school.distance}</span>
                     </div>
+                    {school.features && (
+                      <div className='pt-2 border-t'>
+                        <span className='text-sm text-gray-600'>
+                          {school.features}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -210,8 +221,75 @@ export default function CommunityPage() {
         </div>
       </section>
 
-      {/* Lifestyle Section */}
+      {/* Shopping & Dining Section */}
       <section className='py-16 bg-white'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-12'>
+            <div className='w-16 h-16 bg-[#16B286]/10 rounded-lg flex items-center justify-center mx-auto mb-4'>
+              <ShoppingCart className='h-8 w-8 text-[#16B286]' />
+            </div>
+            <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
+              Shopping & Dining
+            </h2>
+            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
+              Most shopping and dining options are along West Craig Road, now
+              known as "Restaurant Row" in North Las Vegas, with more than 25
+              restaurants opening in just the last two years.
+            </p>
+          </div>
+
+          <div className='grid md:grid-cols-2 gap-6 mb-8'>
+            <Card className='border-0 shadow-lg'>
+              <CardHeader>
+                <CardTitle>Restaurant Row on West Craig Road</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className='space-y-2'>
+                  <p>
+                    <strong>Lumberjack Restaurant</strong> - Log cabin-themed
+                    restaurant serving sandwiches and burgers
+                  </p>
+                  <p>
+                    <strong>El Nopal</strong> - Authentic Mexican specialties
+                  </p>
+                  <p>
+                    <strong>Cupbop</strong> - Korean BBQ in a cup
+                  </p>
+                  <p>
+                    <strong>Pinkbox Doughnuts</strong> - Sweet treats and
+                    specialty doughnuts
+                  </p>
+                </CardDescription>
+              </CardContent>
+            </Card>
+            <Card className='border-0 shadow-lg'>
+              <CardHeader>
+                <CardTitle>Shopping Centers</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className='space-y-2'>
+                  <p>
+                    <strong>North Mesa Plaza</strong> - PetSmart, Walmart, and
+                    more
+                  </p>
+                  <p>
+                    <strong>Simmons Center</strong> - Albertson&apos;s, Walmart,
+                    Amazing Thai, Sean Patrick&apos;s Pub & Grill (24-hour Irish
+                    bar with Dublin-style fish and chips)
+                  </p>
+                  <p>
+                    <strong>Cannery Casino Hotel</strong> - Entertainment,
+                    dining, and gaming without the Strip crowds
+                  </p>
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Lifestyle Section */}
+      <section className='py-16 bg-[#F7F9FC]'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='text-center mb-12'>
             <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>

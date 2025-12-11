@@ -16,6 +16,8 @@ export default function HomeEvaluationSection() {
   const [isScriptReady, setIsScriptReady] = useState(false);
 
   // Set up Homebot namespace and queue function (without loading script)
+  // IMPORTANT: This only sets up the namespace/queue - it does NOT load the script
+  // The script is loaded ONLY via the Next.js Script component below
   useEffect(() => {
     if (typeof window !== 'undefined' && !window.__hb_namespace) {
       const w = window as any;
@@ -26,6 +28,7 @@ export default function HomeEvaluationSection() {
           (w['Homebot'].q = w['Homebot'].q || []).push(args);
         };
     }
+    // No script loading here - that's handled by the Script component below
   }, []);
 
   // Initialize widget once script is loaded
