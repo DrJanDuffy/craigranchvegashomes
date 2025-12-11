@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import PageLayout from '@/components/layout/page-layout';
 import RealEstateListings from '@/components/sections/real-estate-listings';
 import PropertyCategories from '@/components/sections/property-categories';
@@ -70,77 +71,88 @@ export default function HomesPage() {
       {/* Working with Dr. Jan Duffy Section - Moved up for trust building */}
       <section className='py-16 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='text-center mb-12'>
-            <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
-              Working with Dr. Jan Duffy
-            </h2>
-            <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
-              Dr. Jan Duffy is a REALTOR® with Berkshire Hathaway HomeServices®
-              Nevada, specializing in various communities across Las Vegas and
-              Henderson. She offers expert, data-driven advice and personalized
-              consultations.
-            </p>
-          </div>
+          <div className='grid lg:grid-cols-2 gap-12 items-center mb-12'>
+            <div>
+              <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
+                Working with Dr. Jan Duffy
+              </h2>
+              <p className='text-lg text-gray-600 mb-6'>
+                Dr. Jan Duffy is a REALTOR® with Berkshire Hathaway HomeServices®
+                Nevada, specializing in various communities across Las Vegas and
+                Henderson. She offers expert, data-driven advice and personalized
+                consultations.
+              </p>
+              <div className='relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-100 shadow-lg'>
+                <Image
+                  src='/dr-jan-duffy.jpg'
+                  alt='Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada'
+                  fill
+                  className='object-cover'
+                  sizes='(max-width: 1024px) 100vw, 50vw'
+                  priority
+                />
+              </div>
+            </div>
+            <div className='grid md:grid-cols-2 gap-6'>
+              <Card className='border-0 shadow-lg'>
+                <CardHeader>
+                  <CardTitle>Contact Information</CardTitle>
+                </CardHeader>
+                <CardContent className='space-y-2'>
+                  <p className='text-gray-700'>
+                    <strong>Phone:</strong>{' '}
+                    <a
+                      href='tel:7025001955'
+                      className='text-[#3A8DDE] hover:underline'
+                    >
+                      (702) 500-1955
+                    </a>
+                  </p>
+                  <p className='text-gray-700'>
+                    <strong>Alternate:</strong>{' '}
+                    <a
+                      href='tel:7025001530'
+                      className='text-[#3A8DDE] hover:underline'
+                    >
+                      (702) 500-1530
+                    </a>
+                  </p>
+                </CardContent>
+              </Card>
 
-          <div className='grid md:grid-cols-3 gap-6'>
-            <Card className='border-0 shadow-lg'>
-              <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
-              </CardHeader>
-              <CardContent className='space-y-2'>
-                <p className='text-gray-700'>
-                  <strong>Phone:</strong>{' '}
-                  <a
-                    href='tel:7025001955'
-                    className='text-[#3A8DDE] hover:underline'
+              <Card className='border-0 shadow-lg'>
+                <CardHeader>
+                  <CardTitle>Website Listings</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className='text-gray-700 mb-3'>
+                    Explore current property listings through her website:
+                  </p>
+                  <Link
+                    href='http://drjanduffy.realscout.com/'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    prefetch={false}
+                    className='text-[#3A8DDE] hover:underline font-semibold'
                   >
-                    (702) 500-1955
-                  </a>
-                </p>
-                <p className='text-gray-700'>
-                  <strong>Alternate:</strong>{' '}
-                  <a
-                    href='tel:7025001530'
-                    className='text-[#3A8DDE] hover:underline'
-                  >
-                    (702) 500-1530
-                  </a>
-                </p>
-              </CardContent>
-            </Card>
+                    drjanduffy.realscout.com →
+                  </Link>
+                </CardContent>
+              </Card>
 
-            <Card className='border-0 shadow-lg'>
-              <CardHeader>
-                <CardTitle>Website Listings</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className='text-gray-700 mb-3'>
-                  Explore current property listings through her website:
-                </p>
-                <Link
-                  href='http://drjanduffy.realscout.com/'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  prefetch={false}
-                  className='text-[#3A8DDE] hover:underline font-semibold'
-                >
-                  drjanduffy.realscout.com →
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className='border-0 shadow-lg'>
-              <CardHeader>
-                <CardTitle>Expertise</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className='text-gray-700'>
-                  Specializes in luxury homes and estates in Las Vegas and
-                  Henderson. Offers expert, data-driven advice and personalized
-                  consultations for buyers and sellers.
-                </p>
-              </CardContent>
-            </Card>
+              <Card className='border-0 shadow-lg md:col-span-2'>
+                <CardHeader>
+                  <CardTitle>Expertise</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className='text-gray-700'>
+                    Specializes in luxury homes and estates in Las Vegas and
+                    Henderson. Offers expert, data-driven advice and personalized
+                    consultations for buyers and sellers.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>

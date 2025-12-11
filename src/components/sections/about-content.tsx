@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function AboutContent() {
@@ -129,44 +130,46 @@ export default function AboutContent() {
             </div>
           </div>
 
-          {/* Stats/Image Placeholder */}
-          <div className='bg-[#F7F9FC] rounded-xl p-8'>
-            <div className='text-center'>
-              <div className='grid grid-cols-2 gap-8 mb-8'>
-                <div>
+          {/* Image and Stats */}
+          <div className='space-y-8'>
+            {/* Dr. Jan Duffy Photo */}
+            <div className='relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-100 shadow-lg'>
+              <Image
+                src='/dr-jan-duffy.jpg'
+                alt='Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada'
+                fill
+                className='object-cover'
+                sizes='(max-width: 1024px) 100vw, 50vw'
+              />
+            </div>
+
+            {/* Stats */}
+            <div className='bg-[#F7F9FC] rounded-xl p-8'>
+              <div className='grid grid-cols-2 gap-8'>
+                <div className='text-center'>
                   <div className='text-3xl font-bold text-[#0A2540] mb-2'>
                     500+
                   </div>
                   <div className='text-gray-600'>Homes Sold</div>
                 </div>
-                <div>
+                <div className='text-center'>
                   <div className='text-3xl font-bold text-[#0A2540] mb-2'>
                     15+
                   </div>
                   <div className='text-gray-600'>Years Experience</div>
                 </div>
-                <div>
+                <div className='text-center'>
                   <div className='text-3xl font-bold text-[#0A2540] mb-2'>
                     98%
                   </div>
                   <div className='text-gray-600'>Client Satisfaction</div>
                 </div>
-                <div>
+                <div className='text-center'>
                   <div className='text-3xl font-bold text-[#0A2540] mb-2'>
                     24/7
                   </div>
                   <div className='text-gray-600'>Support Available</div>
                 </div>
-              </div>
-
-              {/* Placeholder for team image */}
-              <div className='bg-gradient-to-br from-[#0A2540] to-[#3A8DDE] rounded-lg p-8 text-white text-center'>
-                <div className='text-4xl mb-4'>👥</div>
-                <h3 className='text-xl font-semibold mb-2'>Our Team</h3>
-                <p className='text-gray-200'>
-                  Meet our experienced real estate professionals dedicated to
-                  serving Craig Ranch
-                </p>
               </div>
             </div>
           </div>
