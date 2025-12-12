@@ -38,6 +38,32 @@ const nextConfig = {
         hostname: 'simplifyingthemarket.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: '*.simplifyingthemarket.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'http',
+        hostname: '*.simplifyingthemarket.com',
+        pathname: '/**',
+      },
+      // Allow common CDN patterns that might host images
+      {
+        protocol: 'https',
+        hostname: '**.wp.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.wordpress.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.cloudinary.com',
+        pathname: '/**',
+      },
     ],
     // Allow unoptimized images for external sources that might have issues
     unoptimized: false,

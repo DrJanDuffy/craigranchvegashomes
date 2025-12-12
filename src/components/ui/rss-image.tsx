@@ -57,7 +57,7 @@ export function RSSImage({
       className={className}
       priority={priority}
       onError={handleError}
-      unoptimized={imageSrc.startsWith('http') && !imageSrc.includes('simplifyingthemarket.com')}
+      unoptimized={false}
     />
   );
 }
