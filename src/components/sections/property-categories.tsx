@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Card,
   CardContent,
@@ -16,7 +17,7 @@ export default function PropertyCategories() {
       title: 'Single Story Homes',
       description: 'Spacious single-story homes perfect for families',
       price: '1,519 - 2,947 sq.ft.',
-      image: '/images/single-family.jpg',
+      image: '/single-story-home.jpg',
       count: '17 Floor Plans',
       features: ['Up to 5 Bedrooms', 'Up to 3 Bathrooms', '2 Bay Garage'],
     },
@@ -24,7 +25,7 @@ export default function PropertyCategories() {
       title: 'Two Story Homes',
       description: 'Elegant two-story homes with modern layouts',
       price: '1,519 - 2,947 sq.ft.',
-      image: '/images/luxury-estates.jpg',
+      image: '/two-story-home.jpg',
       count: '17 Floor Plans',
       features: ['Up to 5 Bedrooms', 'Up to 3 Bathrooms', '2 Bay Garage'],
     },
@@ -32,7 +33,7 @@ export default function PropertyCategories() {
       title: 'Gated Community',
       description: 'Master planned community with incredible amenities',
       price: '6 Neighborhoods',
-      image: '/images/new-construction.jpg',
+      image: '/gated-community.jpg',
       count: '7 Parks + Trails',
       features: ['Gated Entry', 'Regional Park', 'Miles of Trails'],
     },
@@ -58,12 +59,16 @@ export default function PropertyCategories() {
               key={index}
               className='overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg'
             >
-              {/* Placeholder for image */}
-              <div className='h-48 bg-gradient-to-br from-[#0A2540] to-[#3A8DDE] flex items-center justify-center'>
-                <div className='text-white text-center'>
-                  <div className='text-4xl mb-2'>🏠</div>
-                  <div className='text-sm opacity-80'>Property Image</div>
-                </div>
+              {/* Property Image */}
+              <div className='relative h-48 w-full overflow-hidden'>
+                <Image
+                  src={category.image}
+                  alt={category.title}
+                  fill
+                  className='object-cover'
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                  priority={index === 0}
+                />
               </div>
 
               <CardHeader>
