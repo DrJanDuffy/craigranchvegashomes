@@ -9,7 +9,9 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <h3 className='text-2xl font-bold mb-4'>
-              Craig Ranch Vegas | Homes By Dr. Jan Duffy
+              <a href='tel:7025001955' className='text-white hover:text-[#3A8DDE] transition-colors'>
+                (702) 500-1955
+              </a>
             </h3>
             <p className='text-gray-300 leading-relaxed'>
               Your trusted partner in finding the perfect home in Craig Ranch.
@@ -236,7 +238,7 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className='border-t border-gray-700 mt-8 pt-8 text-center text-gray-300 space-y-2 text-sm'>
           <p>
-            &copy; 2024 Craig Ranch Vegas | Homes By Dr. Jan Duffy. All rights
+            &copy; 2024 (702) 500-1955. All rights
             reserved.
           </p>
           <p>&copy; 2025 BHH Affiliates, LLC.</p>
