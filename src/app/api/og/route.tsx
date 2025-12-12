@@ -7,17 +7,16 @@ import { ImageResponse } from 'next/og';
 import { NextRequest } from 'next/server';
 
 export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
-
-    // Get parameters from URL
+    // Get parameters from URL using NextRequest's nextUrl
     const title =
-      searchParams.get('title') || 'Craig Ranch Vegas | Homes By Dr. Jan Duffy';
-    const subtitle = searchParams.get('subtitle') || 'Luxury Real Estate in Las Vegas';
-    const price = searchParams.get('price');
-    const address = searchParams.get('address');
+      request.nextUrl.searchParams.get('title') || 'Craig Ranch Vegas | Homes By Dr. Jan Duffy';
+    const subtitle = request.nextUrl.searchParams.get('subtitle') || 'Luxury Real Estate in Las Vegas';
+    const price = request.nextUrl.searchParams.get('price');
+    const address = request.nextUrl.searchParams.get('address');
 
     // Generate OG image
     return new ImageResponse(
