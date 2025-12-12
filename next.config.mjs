@@ -18,7 +18,29 @@ const nextConfig = {
         hostname: 'www.simplifyingthemarket.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'simplifyingthemarket.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.simplifyingthemarket.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'www.simplifyingthemarket.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'simplifyingthemarket.com',
+        pathname: '/**',
+      },
     ],
+    // Allow unoptimized images for external sources that might have issues
+    unoptimized: false,
   },
   // Optimize rendering performance
   experimental: {

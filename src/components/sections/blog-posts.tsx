@@ -90,6 +90,11 @@ const BlogPostCard = ({ post }: { post: BlogPost }) => {
           className='object-cover transition-transform duration-300 ease-in-out group-hover:scale-105'
           loading='lazy'
           quality={85}
+          onError={(e) => {
+            // Fallback to placeholder if image fails to load
+            const target = e.target as HTMLImageElement;
+            target.src = '/placeholder-blog.jpg';
+          }}
         />
       </Link>
       <CardHeader>

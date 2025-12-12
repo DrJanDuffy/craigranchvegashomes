@@ -25,16 +25,43 @@ export interface RSSFeed {
  * Extract image URL from HTML content
  */
 function extractImageUrl(html: string): string | undefined {
-  // Try to find img tag with src attribute
-  const imgMatch = html.match(/<img[^>]+src=["']([^"']+)["']/i);
-  if (imgMatch && imgMatch[1]) {
-    return imgMatch[1];
+  if (!html) return undefined;
+  
+  // Try multiple patterns to find image URLs
+  // Pattern 1: Standard img tag with src
+  const imgMatch1 = html.match(/<img[^>]+src=["']([^"']+)["']/i);
+  if (imgMatch1 && imgMatch1[1]) {
+    let url = imgMatch1[1];
+    // Decode HTML entities
+    url = url.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
+    return url;
   }
   
-  // Try to find img tag with width attribute (from RSS feed)
+  // Pattern 2: img tag with width attribute
   const imgMatch2 = html.match(/<img[^>]+width[^>]+src=["']([^"']+)["']/i);
   if (imgMatch2 && imgMatch2[1]) {
-    return imgMatch2[1];
+    let url = imgMatch2[1];
+    url = url.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
+    return url;
+  }
+  
+  // Pattern 3: Look for any img tag and extract src
+  const imgMatch3 = html.match(/<img[^>]*>/i);
+  if (imgMatch3) {
+    const srcMatch = imgMatch3[0].match(/src=["']([^"']+)["']/i);
+    if (srcMatch && srcMatch[1]) {
+      let url = srcMatch[1];
+      url = url.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
+      return url;
+    }
+  }
+  
+  // Pattern 4: Look for enclosure tag (common in RSS feeds)
+  const enclosureMatch = html.match(/<enclosure[^>]+url=["']([^"']+)["']/i);
+  if (enclosureMatch && enclosureMatch[1]) {
+    let url = enclosureMatch[1];
+    url = url.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
+    return url;
   }
   
   return undefined;
@@ -117,8 +144,36 @@ export function parseRSSFeed(xmlString: string): RSSFeed {
       }
     }
     
-    // Extract image from content
-    const imageUrl = extractImageUrl(itemContentEncoded) || extractImageUrl(itemDescription);
+    // Extract image from multiple sources
+    // Try media:content first (common in RSS feeds)
+    const mediaContent = extractTagContent(itemContent, 'media:content') || extractTagContent(itemContent, 'media\\:content');
+    const mediaThumbnail = extractTagContent(itemContent, 'media:thumbnail') || extractTagContent(itemContent, 'media\\:thumbnail');
+    const enclosureUrl = extractTagContent(itemContent, 'enclosure');
+    
+    // Extract URL attribute from media:content or media:thumbnail
+    let imageUrl: string | undefined;
+    if (mediaContent) {
+      const urlMatch = mediaContent.match(/url=["']([^"']+)["']/i);
+      if (urlMatch && urlMatch[1]) {
+        imageUrl = urlMatch[1].replace(/&amp;/g, '&');
+      }
+    }
+    if (!imageUrl && mediaThumbnail) {
+      const urlMatch = mediaThumbnail.match(/url=["']([^"']+)["']/i);
+      if (urlMatch && urlMatch[1]) {
+        imageUrl = urlMatch[1].replace(/&amp;/g, '&');
+      }
+    }
+    if (!imageUrl && enclosureUrl) {
+      const urlMatch = enclosureUrl.match(/url=["']([^"']+)["']/i);
+      if (urlMatch && urlMatch[1]) {
+        imageUrl = urlMatch[1].replace(/&amp;/g, '&');
+      }
+    }
+    // Fallback to extracting from HTML content
+    if (!imageUrl) {
+      imageUrl = extractImageUrl(itemContentEncoded) || extractImageUrl(itemDescription);
+    }
     
     items.push({
       title: itemTitle,
