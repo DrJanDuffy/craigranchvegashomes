@@ -28,7 +28,7 @@ export default function PageLayout({ children }: PageLayoutProps) {
   return (
     <div className='flex min-h-screen flex-col'>
       <Suspense fallback={<NavigationFallback />}>
-        <Navigation />
+      <Navigation />
       </Suspense>
       <main className='flex-grow'>{children}</main>
       <Footer />

@@ -27,7 +27,7 @@ export default function Navigation() {
           {/* Logo/Brand */}
           <Link href='/' className='flex items-center'>
             <h1 className='text-2xl font-bold text-[#0A2540]'>
-              (702) 500-1955
+              (702) 820-5408
             </h1>
           </Link>
 

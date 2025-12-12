@@ -87,15 +87,15 @@ export default function ContactPage() {
                       href='tel:7025001955'
                       className='text-lg font-semibold text-[#0A2540] hover:text-[#3A8DDE] transition-colors'
                     >
-                      (702) 500-1955
+                      (702) 820-5408
                     </a>
                   </div>
                   <div>
                     <a
-                      href='tel:7025001530'
+                      href='tel:7028205408'
                       className='text-lg font-semibold text-[#0A2540] hover:text-[#3A8DDE] transition-colors'
                     >
-                      (702) 500-1530
+                      (702) 820-5408
                     </a>
                   </div>
                   <p className='text-gray-600 text-sm mt-2'>
