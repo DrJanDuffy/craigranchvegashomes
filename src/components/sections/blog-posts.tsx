@@ -15,6 +15,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { parseRSSFeed } from '@/lib/utils/rss-parser';
 
 type BlogPost = {
   imageUrl: string;
@@ -28,21 +29,61 @@ type BlogPost = {
 };
 
 /**
- * Fetch blog posts from API
+ * Format date from RSS pubDate
  */
-async function getBlogPosts(): Promise<BlogPost[]> {
+function formatDate(pubDate: string): string {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-    const response = await fetch(`${baseUrl}/api/blog-posts?limit=3`, {
-      next: { revalidate: 3600 }, // Revalidate every hour
+    const date = new Date(pubDate);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  } catch {
+    return pubDate;
+  }
+}
+
+/**
+ * Fetch blog posts directly from RSS feed
+ */
+async function getBlogPosts(limit: number = 3): Promise<BlogPost[]> {
+  try {
+    // Fetch directly from RSS feed instead of API route to avoid build-time issues
+    const RSS_FEED_URL =
+      'https://www.simplifyingthemarket.com/en/feed?a=956758-ef2edda2f940e018328655620ea05f18';
+    
+    const response = await fetch(RSS_FEED_URL, {
+      next: { revalidate: 3600 },
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; RSS Reader)',
+      },
     });
 
     if (!response.ok) {
-      throw new Error('Failed to fetch blog posts');
+      console.error('Failed to fetch RSS feed:', response.statusText);
+      return [];
     }
 
-    const data = await response.json();
-    return data.blogPosts || [];
+    const xmlString = await response.text();
+    const feed = parseRSSFeed(xmlString);
+
+    // Return first N items
+    return feed.items.slice(0, limit).map((item) => {
+      const categorySlug = item.categories[0]?.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') || 'market-insights';
+      const categoryLink = `https://www.simplifyingthemarket.com/en/category/${categorySlug}/?a=956758-ef2edda2f940e018328655620ea05f18`;
+      
+      return {
+        title: item.title,
+        postLink: item.link,
+        description: item.description,
+        category: item.categories[0] || 'Market Insights',
+        categoryLink,
+        author: item.creator,
+        date: formatDate(item.pubDate),
+        imageUrl: item.imageUrl || '/placeholder-blog.jpg',
+      };
+    });
   } catch (error) {
     console.error('Error fetching blog posts:', error);
     // Return fallback data
@@ -90,11 +131,6 @@ const BlogPostCard = ({ post }: { post: BlogPost }) => {
           className='object-cover transition-transform duration-300 ease-in-out group-hover:scale-105'
           loading='lazy'
           quality={85}
-          onError={(e) => {
-            // Fallback to placeholder if image fails to load
-            const target = e.target as HTMLImageElement;
-            target.src = '/placeholder-blog.jpg';
-          }}
         />
       </Link>
       <CardHeader>
@@ -141,8 +177,8 @@ const BlogPostCard = ({ post }: { post: BlogPost }) => {
 };
 
 const BlogPosts = async () => {
-  const blogPosts = await getBlogPosts();
-  const latestPosts = blogPosts.slice(0, 3);
+  const blogPosts = await getBlogPosts(3);
+  const latestPosts = blogPosts;
 
   return (
     <section
