@@ -236,7 +236,7 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className='border-t border-gray-700 mt-8 pt-8 text-center text-gray-300 space-y-2 text-sm'>
           <p>
-            &copy; 2024 Craig Ranch Vegas | Homes By Dr. Jan Duffy. All rights
+            &copy; 2007-2025 Craig Ranch Vegas | Homes By Dr. Jan Duffy. All rights
             reserved.
           </p>
           <p>&copy; 2025 BHH Affiliates, LLC.</p>

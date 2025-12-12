@@ -106,7 +106,7 @@ export const metadata: Metadata = {
     'DC.identifier': siteUrl,
     'DC.language': 'en',
     'DC.coverage': 'Las Vegas, Nevada',
-    'DC.rights': 'Copyright 2024 Craig Ranch Vegas | Homes By Dr. Jan Duffy',
+    'DC.rights': 'Copyright 2007-2025 Craig Ranch Vegas | Homes By Dr. Jan Duffy',
   },
 };
 
