@@ -17,6 +17,9 @@ export async function GET(request: NextRequest) {
     const subtitle = request.nextUrl.searchParams.get('subtitle') || 'Luxury Real Estate in Las Vegas';
     const price = request.nextUrl.searchParams.get('price');
     const address = request.nextUrl.searchParams.get('address');
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com';
+    const imageUrl = request.nextUrl.searchParams.get('image') || 
+      `${baseUrl}/54-DJI_20250707171528_0828_D.jpg`;
 
     // Generate OG image
     return new ImageResponse(
@@ -29,14 +32,28 @@ export async function GET(request: NextRequest) {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: '#0A2540',
-            backgroundImage: 'linear-gradient(to bottom, #0A2540, #3A8DDE)',
+            position: 'relative',
             fontSize: 60,
             fontWeight: 700,
             color: 'white',
             padding: '80px',
+            backgroundImage: `url(${imageUrl})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
           }}
         >
+          {/* Dark Overlay for Text Readability */}
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              backgroundColor: 'rgba(10, 37, 64, 0.75)',
+              backgroundImage: 'linear-gradient(to bottom, rgba(10, 37, 64, 0.85), rgba(58, 141, 222, 0.65))',
+            }}
+          />
           <div
             style={{
               display: 'flex',
@@ -46,6 +63,8 @@ export async function GET(request: NextRequest) {
               textAlign: 'center',
               width: '100%',
               maxWidth: '1000px',
+              position: 'relative',
+              zIndex: 1,
             }}
           >
             <h1
