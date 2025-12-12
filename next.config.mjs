@@ -1,5 +1,47 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async headers() {
+    /**
+     * Baseline security headers for Lighthouse/Edge "Trust & Safety" audits.
+     * Note: A fully strict CSP (nonces + Trusted Types) requires deeper refactors and testing.
+     */
+    const contentSecurityPolicy = [
+      "default-src 'self'",
+      "base-uri 'self'",
+      "object-src 'none'",
+      "frame-ancestors 'none'",
+      "form-action 'self'",
+      // Next.js + next/script inline blocks require unsafe-inline unless using nonces.
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://em.realscout.com",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob: https:",
+      "font-src 'self' data: https:",
+      "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://connect.facebook.net https://graph.facebook.com https://em.realscout.com https://*.realscout.com",
+      "frame-src 'self' https://www.google.com https://www.google.com/maps",
+      'upgrade-insecure-requests',
+    ].join('; ');
+
+    const securityHeaders = [
+      { key: 'Content-Security-Policy', value: contentSecurityPolicy },
+      // HSTS: required to pass includeSubDomains/preload audits. Ensure ALL subdomains are HTTPS before enabling.
+      {
+        key: 'Strict-Transport-Security',
+        value: 'max-age=63072000; includeSubDomains; preload',
+      },
+      { key: 'X-Content-Type-Options', value: 'nosniff' },
+      { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+      { key: 'X-Frame-Options', value: 'DENY' },
+      { key: 'Cross-Origin-Opener-Policy', value: 'same-origin' },
+      { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+    ];
+
+    return [
+      {
+        source: '/:path*',
+        headers: securityHeaders,
+      },
+    ];
+  },
   images: {
     // Optimize image loading
     formats: ['image/avif', 'image/webp'],
