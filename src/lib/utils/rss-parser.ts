@@ -43,7 +43,7 @@ function extractImageUrl(html: string): string | undefined {
   if (!html) return undefined;
   
   // Remove CDATA wrapper if present
-  let cleanHtml = html.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1');
+  const cleanHtml = html.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1');
   
   // Pattern 1: Standard img tag with src (most common)
   const imgPatterns = [
