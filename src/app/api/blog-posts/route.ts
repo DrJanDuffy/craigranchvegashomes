@@ -9,13 +9,12 @@ import { parseRSSFeed } from '@/lib/utils/rss-parser';
 const RSS_FEED_URL =
   'https://www.simplifyingthemarket.com/en/feed?a=956758-ef2edda2f940e018328655620ea05f18';
 
-// Revalidate every hour
-export const revalidate = 3600;
+// Mark as dynamic route since we use request parameters
+export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
-    const limitParam = searchParams.get('limit');
+    const limitParam = request.nextUrl.searchParams.get('limit');
     const parsedLimit = limitParam ? Number.parseInt(limitParam, 10) : 3;
     const limit = Number.isFinite(parsedLimit)
       ? Math.min(Math.max(parsedLimit, 1), 20)

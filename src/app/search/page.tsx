@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   },
 };
 
+// Mark as dynamic since it uses searchParams
+export const dynamic = 'force-dynamic';
+
 type SearchPageProps = {
   searchParams?: Promise<{ q?: string }>;
 };
@@ -57,4 +60,5 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
     </PageLayout>
   );
 }
+
 

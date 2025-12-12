@@ -16,6 +16,7 @@ import {
   generateBreadcrumbSchema,
   generateWebPageSchema,
 } from '@/lib/metadata';
+import { parseRSSFeed } from '@/lib/utils/rss-parser';
 
 const baseUrl = (
   process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'
@@ -41,16 +42,67 @@ type BlogPost = {
   description?: string;
 };
 
+// Mark page as dynamic since it fetches from external API
+export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // Revalidate every hour
+
 async function getBlogPosts(limit: number): Promise<BlogPost[]> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  const response = await fetch(`${baseUrl}/api/blog-posts?limit=${limit}`, {
-    next: { revalidate: 3600 },
-  });
+  try {
+    // Fetch directly from RSS feed instead of API route to avoid build-time issues
+    const RSS_FEED_URL =
+      'https://www.simplifyingthemarket.com/en/feed?a=956758-ef2edda2f940e018328655620ea05f18';
+    
+    const response = await fetch(RSS_FEED_URL, {
+      next: { revalidate: 3600 },
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; RSS Reader)',
+      },
+    });
 
-  if (!response.ok) return [];
+    if (!response.ok) {
+      console.error('Failed to fetch RSS feed:', response.statusText);
+      return [];
+    }
 
-  const data = (await response.json()) as { blogPosts?: BlogPost[] };
-  return data.blogPosts ?? [];
+    const xmlString = await response.text();
+    const feed = parseRSSFeed(xmlString);
+
+    // Return first N items
+    return feed.items.slice(0, limit).map((item) => {
+      const categorySlug = item.categories[0]?.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') || 'market-insights';
+      const categoryLink = `https://www.simplifyingthemarket.com/en/category/${categorySlug}/?a=956758-ef2edda2f940e018328655620ea05f18`;
+      
+      return {
+        title: item.title,
+        postLink: item.link,
+        description: item.description,
+        category: item.categories[0] || 'Market Insights',
+        categoryLink,
+        author: item.creator,
+        date: formatDate(item.pubDate),
+        imageUrl: item.imageUrl || '/placeholder-blog.jpg',
+      };
+    });
+  } catch (error) {
+    console.error('Error fetching blog posts:', error);
+    return [];
+  }
+}
+
+/**
+ * Format date from RSS pubDate
+ */
+function formatDate(pubDate: string): string {
+  try {
+    const date = new Date(pubDate);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  } catch {
+    return pubDate;
+  }
 }
 
 export default async function MarketInsightsPage() {
@@ -176,4 +228,5 @@ export default async function MarketInsightsPage() {
     </PageLayout>
   );
 }
+
 
