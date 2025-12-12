@@ -105,11 +105,12 @@ export async function GET(request: NextRequest) {
                 position: 'absolute',
                 bottom: 40,
                 right: 40,
-                fontSize: 24,
-                opacity: 0.7,
+                fontSize: 32,
+                fontWeight: 600,
+                opacity: 0.9,
               }}
             >
-              www.craigranchhomes.com
+              (702) 500-1955
             </div>
           </div>
         </div>
