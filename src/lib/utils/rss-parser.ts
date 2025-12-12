@@ -86,11 +86,23 @@ function extractImageUrl(html: string): string | undefined {
 }
 
 /**
+ * Remove CDATA wrapper from text
+ */
+function removeCDATA(text: string): string {
+  if (!text) return text;
+  // Remove CDATA wrapper: <![CDATA[...]]>
+  return text.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1');
+}
+
+/**
  * Clean HTML description to plain text
  */
 function cleanDescription(html: string): string {
+  if (!html) return '';
+  // Remove CDATA wrapper first
+  let text = removeCDATA(html);
   // Remove HTML tags
-  let text = html.replace(/<[^>]*>/g, '');
+  text = text.replace(/<[^>]*>/g, '');
   // Decode HTML entities
   text = text
     .replace(/&amp;/g, '&')
@@ -156,7 +168,9 @@ export function parseRSSFeed(xmlString: string): RSSFeed {
     const categories: string[] = [];
     const categoryMatches = itemContent.matchAll(/<category>(.*?)<\/category>/g);
     for (const catMatch of categoryMatches) {
-      const categoryText = catMatch[1].trim();
+      let categoryText = catMatch[1].trim();
+      // Remove CDATA wrapper if present
+      categoryText = removeCDATA(categoryText);
       if (categoryText) {
         categories.push(categoryText);
       }
@@ -287,7 +301,8 @@ function extractTagContent(xml: string, tagName: string): string | null {
   const regex = new RegExp(`<${escapedTagName}[^>]*>(.*?)<\/${escapedTagName}>`, 's');
   const match = xml.match(regex);
   if (match && match[1]) {
-    return match[1].trim();
+    // Remove CDATA wrapper if present
+    return removeCDATA(match[1].trim());
   }
   return null;
 }
