@@ -6,11 +6,14 @@ export default function robots(): MetadataRoute.Robots {
   ).replace(/\/$/, '');
 
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: ['/private/', '/admin/'],
-    },
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        // Keep crawlers out of non-content routes.
+        disallow: ['/api/', '/_next/', '/private/', '/admin/'],
+      },
+    ],
     sitemap: `${baseUrl}/sitemap.xml`,
   };
 }

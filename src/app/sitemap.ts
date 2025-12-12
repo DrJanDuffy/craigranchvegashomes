@@ -5,60 +5,98 @@ export default function sitemap(): MetadataRoute.Sitemap {
     process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'
   ).replace(/\/$/, '');
 
+  // Cache this metadata route so Google doesn't see "changes"
+  // on every request just because of runtime timestamps.
+  //
+  // Next.js will revalidate this route based on the exported constant below.
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 1,
     },
     {
       url: `${baseUrl}/homes`,
-      lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/neighborhood`,
-      lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/neighborhoods`,
-      lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/community`,
-      lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/market-data`,
-      lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/market-insights`,
-      lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/search`,
-      lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.6,
     },
+    {
+      url: `${baseUrl}/craig-ranch-realtor`,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/sell-craig-ranch`,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/home-valuation-craig-ranch`,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/craig-ranch-market-report`,
+      changeFrequency: 'daily',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/craig-ranch-schools`,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/craig-ranch-regional-park`,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/craig-ranch-hoa`,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/new-construction-craig-ranch`,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
   ];
 }
+
+// Revalidate once per day (safe for a mostly-static marketing site).
+export const revalidate = 60 * 60 * 24;

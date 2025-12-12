@@ -104,19 +104,10 @@ export default function HomesPage() {
                   <p className='text-gray-700'>
                     <strong>Phone:</strong>{' '}
                     <a
-                      href='tel:7025001955'
+                      href='tel:7028205408'
                       className='text-[#3A8DDE] hover:underline'
                     >
-                      (702) 500-1955
-                    </a>
-                  </p>
-                  <p className='text-gray-700'>
-                    <strong>Alternate:</strong>{' '}
-                    <a
-                      href='tel:7025001530'
-                      className='text-[#3A8DDE] hover:underline'
-                    >
-                      (702) 500-1530
+                      (702) 820-5408
                     </a>
                   </p>
                 </CardContent>

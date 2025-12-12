@@ -54,10 +54,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href='/location'
+                  href='/neighborhoods'
                   className='hover:text-white transition-colors duration-200 hover:underline'
                 >
-                  Location
+                  Areas We Serve
                 </Link>
               </li>
               <li>
@@ -75,15 +75,6 @@ export default function Footer() {
           <div>
             <h4 className='text-lg font-semibold mb-4'>Contact Info</h4>
             <ul className='space-y-2 text-gray-300'>
-              <li className='flex items-center'>
-                <span className='mr-2'>📞</span>
-                <a
-                  href='tel:7028205408'
-                  className='hover:text-white transition-colors'
-                >
-                  (702) 820-5408
-                </a>
-              </li>
               <li className='flex items-center'>
                 <span className='mr-2'>📞</span>
                 <a

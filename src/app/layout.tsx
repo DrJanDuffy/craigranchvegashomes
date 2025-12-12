@@ -11,8 +11,39 @@ const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'
 ).replace(/\/$/, '');
 
-const ogImageUrl = `${siteUrl}/og-image.jpg`;
-const logoUrl = `${siteUrl}/logo.png`;
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+const gaMeasurementId = process.env.NEXT_PUBLIC_GA_ID ?? 'G-MPLYNTN4V7';
+const facebookPixelId = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
+
+function isNonPlaceholderId(value: string | undefined): value is string {
+  if (!value) return false;
+  const normalized = value.trim();
+  if (!normalized) return false;
+  if (normalized.includes('XXXX')) return false;
+  if (normalized.includes('YOUR_')) return false;
+  return true;
+}
+
+function isValidGtmId(value: string | undefined): value is string {
+  if (!isNonPlaceholderId(value)) return false;
+  return /^GTM-[A-Z0-9]+$/i.test(value);
+}
+
+function isValidGaId(value: string | undefined): value is string {
+  if (!isNonPlaceholderId(value)) return false;
+  // GA4 measurement ID format (most common): G-XXXXXXXXXX
+  return /^G-[A-Z0-9]+$/i.test(value);
+}
+
+function isValidFacebookPixelId(value: string | undefined): value is string {
+  if (!isNonPlaceholderId(value)) return false;
+  // Pixel IDs are numeric.
+  return /^\d{8,20}$/.test(value.trim());
+}
+
+// Ensure these assets exist in /public to avoid 404s for crawlers.
+const ogImageUrl = `${siteUrl}/54-DJI_20250707171528_0828_D.jpg`;
+const logoUrl = `${siteUrl}/globe.svg`;
 
 // Optimize fonts with next/font
 const sourceSansPro = Source_Sans_3({
@@ -59,7 +90,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/54-DJI_20250707171528_0828_D.jpg',
         width: 1200,
         height: 630,
         alt: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
@@ -71,7 +102,7 @@ export const metadata: Metadata = {
     title: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
     description:
       "Discover luxury homes in Craig Ranch, Las Vegas. Find your dream home in one of the city's most prestigious communities.",
-    images: ['/og-image.jpg'],
+    images: ['/54-DJI_20250707171528_0828_D.jpg'],
   },
   robots: {
     index: true,
@@ -125,51 +156,58 @@ export default function RootLayout({
           }
         `}</style>
 
-        {/* Google Analytics */}
-        <Script
-          src='https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID'
-          strategy='afterInteractive'
-        />
-        {/* Google Analytics (gtag.js) */}
-        <Script
-          src='https://www.googletagmanager.com/gtag/js?id=G-MPLYNTN4V7'
-          strategy='afterInteractive'
-        />
-        <Script id='google-analytics' strategy='afterInteractive'>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-MPLYNTN4V7');
-          `}
-        </Script>
+        {/* Google Analytics (GA4) - only load when configured */}
+        {isValidGaId(gaMeasurementId) ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(
+                gaMeasurementId
+              )}`}
+              strategy='afterInteractive'
+            />
+            <Script id='google-analytics' strategy='afterInteractive'>
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaMeasurementId}');
+              `}
+            </Script>
+          </>
+        ) : null}
 
-        {/* Google Tag Manager */}
-        <Script id='google-tag-manager' strategy='afterInteractive'>
-          {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-XXXXXXX');
-          `}
-        </Script>
+        {/* Google Tag Manager - only load when configured (prevents gtm.js 404) */}
+        {isValidGtmId(gtmId) ? (
+          <Script id='google-tag-manager' strategy='afterInteractive'>
+            {`
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','${gtmId}');
+            `}
+          </Script>
+        ) : null}
 
-        {/* Facebook Pixel */}
-        <Script id='facebook-pixel' strategy='afterInteractive'>
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', 'YOUR_FACEBOOK_PIXEL_ID');
-            fbq('track', 'PageView');
-          `}
-        </Script>
+        {/* Facebook Pixel - only load when configured
+            Note: Meta's script currently triggers a browser deprecation warning (unload listeners).
+            The only way to remove that warning is to not load the script. */}
+        {isValidFacebookPixelId(facebookPixelId) ? (
+          <Script id='facebook-pixel' strategy='afterInteractive'>
+            {`
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '${facebookPixelId}');
+              fbq('track', 'PageView');
+            `}
+          </Script>
+        ) : null}
 
         {/* Structured Data for Real Estate Business */}
         <script
@@ -230,7 +268,7 @@ export default function RootLayout({
               },
               contactPoint: {
                 '@type': 'ContactPoint',
-                telephone: '+1-702-500-1955',
+                telephone: '+1-702-820-5408',
                 contactType: 'customer service',
                 areaServed: 'US',
                 availableLanguage: 'English',
@@ -264,7 +302,7 @@ export default function RootLayout({
               description:
                 'Luxury real estate services in Craig Ranch, North Las Vegas, Las Vegas, Nevada. Expert real estate agent specializing in Craig Ranch homes and properties.',
               url: siteUrl,
-              telephone: '+1-702-500-1955',
+              telephone: '+1-702-820-5408',
               email: 'DrDuffy@CraigRanchHomes.com',
               image: ogImageUrl,
               logo: logoUrl,
@@ -333,14 +371,18 @@ export default function RootLayout({
       </head>
       <body className='antialiased'>
         {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src='https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX'
-            height='0'
-            width='0'
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript>
+        {isValidGtmId(gtmId) ? (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${encodeURIComponent(
+                gtmId
+              )}`}
+              height='0'
+              width='0'
+              className='hidden'
+            />
+          </noscript>
+        ) : null}
 
         {/* RealScout Web Components Script - Load with high priority for better performance */}
         <Script

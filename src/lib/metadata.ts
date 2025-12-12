@@ -20,7 +20,7 @@ const businessGeo = {
 } as const;
 
 const businessName = 'Craig Ranch Vegas | Homes By Dr. Jan Duffy';
-const businessPhone = '+1-702-500-1955';
+const businessPhone = '+1-702-820-5408';
 const businessEmail = 'DrDuffy@CraigRanchHomes.com';
 
 export const CRAIG_RANCH_FAQS = [
@@ -61,7 +61,7 @@ const siteConfig = {
   url: siteUrl,
   description:
     'Luxury real estate services in Craig Ranch, North Las Vegas, Las Vegas, Nevada. Find your dream home with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada specializing in Craig Ranch properties.',
-  ogImage: '/og-image.jpg',
+  ogImage: '/54-DJI_20250707171528_0828_D.jpg',
   twitterHandle: '@craigranchvegas',
   locale: 'en_US',
   type: 'website',
@@ -159,8 +159,8 @@ export function generateLocalBusinessSchema() {
     url: siteUrl,
     telephone: businessPhone,
     email: businessEmail,
-    image: `${siteUrl}/og-image.jpg`,
-    logo: `${siteUrl}/logo.png`,
+    image: `${siteUrl}/54-DJI_20250707171528_0828_D.jpg`,
+    logo: `${siteUrl}/globe.svg`,
     address: {
       '@type': 'PostalAddress',
       ...businessAddress,
@@ -213,8 +213,8 @@ export function generateRealEstateAgentSchema() {
       name: 'Berkshire Hathaway HomeServices Nevada',
     },
     url: siteUrl,
-    logo: `${siteUrl}/logo.png`,
-    image: `${siteUrl}/og-image.jpg`,
+    logo: `${siteUrl}/globe.svg`,
+    image: `${siteUrl}/54-DJI_20250707171528_0828_D.jpg`,
     address: {
       '@type': 'PostalAddress',
       ...businessAddress,

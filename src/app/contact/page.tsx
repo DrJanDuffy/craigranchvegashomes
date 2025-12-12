@@ -35,7 +35,7 @@ export const revalidate = false; // Static page, no revalidation needed
 export const metadata = genMetadata({
   title: 'Contact Dr. Jan Duffy - Craig Ranch Vegas | Homes By Dr. Jan Duffy | Las Vegas Real Estate',
   description:
-    'Get in touch with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada. Contact our expert real estate team for buying, selling, or investing in Craig Ranch, Las Vegas. Call (702) 500-1955 or (702) 500-1530.',
+    'Get in touch with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada. Contact our expert real estate team for buying, selling, or investing in Craig Ranch, Las Vegas. Call (702) 820-5408.',
   keywords:
     'contact real estate agent, Dr. Jan Duffy, Craig Ranch real estate agent, Las Vegas realtor, Berkshire Hathaway, contact form, real estate consultation',
   path: '/contact',
@@ -82,14 +82,6 @@ export default function ContactPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className='space-y-3'>
-                  <div>
-                    <a
-                      href='tel:7028205408'
-                      className='text-lg font-semibold text-[#0A2540] hover:text-[#3A8DDE] transition-colors'
-                    >
-                      (702) 820-5408
-                    </a>
-                  </div>
                   <div>
                     <a
                       href='tel:7028205408'
