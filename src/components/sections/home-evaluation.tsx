@@ -34,27 +34,51 @@ export default function HomeEvaluationSection() {
   // Initialize widget once script is loaded
   useEffect(() => {
     if (isScriptReady) {
+      let retryCount = 0;
+      const maxRetries = 10;
+      
       const initWidget = () => {
         const w = window as any;
+        const container = document.getElementById('homebot_homeowner');
+        
+        if (!container) {
+          console.error('Homebot container not found');
+          setIsLoading(false);
+          return;
+        }
+        
         if (w.Homebot && typeof w.Homebot === 'function') {
           try {
+            // Make sure container is visible
+            container.style.display = 'block';
+            
             w.Homebot(
               '#homebot_homeowner',
               '35de8cf0a487cf0fec06278f2023805ea02eba0b58960a43'
             );
-            setIsLoading(false);
+            
+            // Wait a bit to see if widget renders
+            setTimeout(() => {
+              setIsLoading(false);
+            }, 500);
           } catch (error) {
             console.error('Error initializing Homebot widget:', error);
             setIsLoading(false);
           }
         } else {
-          // Retry after a short delay if Homebot isn't ready yet
-          setTimeout(initWidget, 200);
+          retryCount++;
+          if (retryCount < maxRetries) {
+            // Retry after a short delay if Homebot isn't ready yet
+            setTimeout(initWidget, 300);
+          } else {
+            console.error('Homebot widget failed to load after multiple retries');
+            setIsLoading(false);
+          }
         }
       };
 
       // Small delay to ensure script is fully loaded
-      const timer = setTimeout(initWidget, 100);
+      const timer = setTimeout(initWidget, 200);
       return () => clearTimeout(timer);
     }
   }, [isScriptReady]);
@@ -86,7 +110,7 @@ export default function HomeEvaluationSection() {
             )}
             <div
               id='homebot_homeowner'
-              className={isLoading ? 'hidden' : ''}
+              style={{ display: isLoading ? 'none' : 'block', minHeight: '400px' }}
             ></div>
           </div>
         </div>
@@ -95,10 +119,13 @@ export default function HomeEvaluationSection() {
       {/* Load Homebot widget script via Next.js Script component */}
       <Script
         src='https://embed.homebotapp.com/lgw/v1/widget.js'
-        strategy='lazyOnload'
-        onLoad={() => setIsScriptReady(true)}
-        onError={() => {
-          console.error('Failed to load Homebot script');
+        strategy='afterInteractive'
+        onLoad={() => {
+          console.log('Homebot script loaded');
+          setIsScriptReady(true);
+        }}
+        onError={(e) => {
+          console.error('Failed to load Homebot script:', e);
           setIsLoading(false);
         }}
       />
