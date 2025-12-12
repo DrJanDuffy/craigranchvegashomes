@@ -84,7 +84,7 @@ export default function ContactPage() {
                 <CardContent className='space-y-3'>
                   <div>
                     <a
-                      href='tel:7025001955'
+                      href='tel:7028205408'
                       className='text-lg font-semibold text-[#0A2540] hover:text-[#3A8DDE] transition-colors'
                     >
                       (702) 820-5408
@@ -235,7 +235,7 @@ export default function ContactPage() {
           </div>
           <div className='mt-6 flex flex-col sm:flex-row gap-3 justify-center'>
             <Button asChild className='bg-[#16B286] hover:bg-[#15A276] text-white'>
-              <a href='tel:7025001955'>Call Now</a>
+              <a href='tel:7028205408'>Call Now</a>
             </Button>
             <Button asChild variant='outline'>
               <Link

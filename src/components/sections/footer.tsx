@@ -78,19 +78,19 @@ export default function Footer() {
               <li className='flex items-center'>
                 <span className='mr-2'>📞</span>
                 <a
-                  href='tel:7025001955'
+                  href='tel:7028205408'
                   className='hover:text-white transition-colors'
                 >
-                  (702) 500-1955
+                  (702) 820-5408
                 </a>
               </li>
               <li className='flex items-center'>
                 <span className='mr-2'>📞</span>
                 <a
-                  href='tel:7025001530'
+                  href='tel:7028205408'
                   className='hover:text-white transition-colors'
                 >
-                  (702) 500-1530
+                  (702) 820-5408
                 </a>
               </li>
               <li className='flex items-center'>
