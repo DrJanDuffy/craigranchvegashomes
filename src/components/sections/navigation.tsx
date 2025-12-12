@@ -28,7 +28,7 @@ export default function Navigation() {
           {/* Logo/Brand */}
           <Link href='/' className='flex items-center'>
             <h1 className='text-2xl font-bold text-[#0A2540]'>
-              (702) 500-1955
+              Craig Ranch Vegas | Homes By Dr. Jan Duffy
             </h1>
           </Link>
 
