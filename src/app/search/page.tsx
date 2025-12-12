@@ -1,8 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Script from 'next/script';
 import PageLayout from '@/components/layout/page-layout';
 import { Button } from '@/components/ui/button';
-import { generateMetadata as genMetadata } from '@/lib/metadata';
+import {
+  generateMetadata as genMetadata,
+  generateWebPageSchema,
+  generateBreadcrumbSchema,
+} from '@/lib/metadata';
 
 export const metadata: Metadata = {
   ...genMetadata({
@@ -57,6 +62,30 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           </div>
         </div>
       </section>
+
+      {/* Structured Data */}
+      <Script
+        id='search-schema'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            generateWebPageSchema({
+              name: 'Search Craig Ranch Homes',
+              description:
+                'Search Craig Ranch homes and explore real estate listings, market data, and neighborhood information in Craig Ranch, North Las Vegas, Nevada.',
+              url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'}/search`,
+              breadcrumb: [
+                { name: 'Home', url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com' },
+                { name: 'Search', url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'}/search` },
+              ],
+            }),
+            generateBreadcrumbSchema([
+              { name: 'Home', url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com' },
+              { name: 'Search', url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'}/search` },
+            ]),
+          ]),
+        }}
+      />
     </PageLayout>
   );
 }

@@ -15,6 +15,7 @@ import {
   generateMetadata as genMetadata,
   generateBreadcrumbSchema,
   generateWebPageSchema,
+  generateBlogSchema,
 } from '@/lib/metadata';
 import { parseRSSFeed } from '@/lib/utils/rss-parser';
 
@@ -217,6 +218,14 @@ export default async function MarketInsightsPage() {
                 { name: 'Home', url: baseUrl },
                 { name: 'Market Insights', url: `${baseUrl}/market-insights` },
               ],
+            }),
+            generateBlogSchema({
+              name: 'Craig Ranch Las Vegas Homes Market Insights',
+              description:
+                'Real estate market insights and trends for Craig Ranch, North Las Vegas and Las Vegas, Nevada.',
+              url: `${baseUrl}/market-insights`,
+              author: 'Simplifying the Market',
+              publisher: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
             }),
             generateBreadcrumbSchema([
               { name: 'Home', url: baseUrl },

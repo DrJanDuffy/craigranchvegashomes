@@ -357,3 +357,66 @@ export function generateFAQPageSchema(
   };
 }
 
+/**
+ * Generate Blog schema for blog/insights pages
+ */
+export function generateBlogSchema({
+  name,
+  description,
+  url,
+  author,
+  publisher,
+}: {
+  name: string;
+  description: string;
+  url: string;
+  author?: string;
+  publisher?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name,
+    description,
+    url,
+    ...(author && {
+      author: {
+        '@type': 'Person',
+        name: author,
+      },
+    }),
+    ...(publisher && {
+      publisher: {
+        '@type': 'Organization',
+        name: publisher,
+      },
+    }),
+  };
+}
+
+/**
+ * Generate Dataset schema for market data pages
+ */
+export function generateDatasetSchema({
+  name,
+  description,
+  url,
+}: {
+  name: string;
+  description: string;
+  url: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name,
+    description,
+    url,
+    license: `${siteUrl}`,
+    creator: {
+      '@type': 'Organization',
+      name: businessName,
+    },
+  };
+}
+

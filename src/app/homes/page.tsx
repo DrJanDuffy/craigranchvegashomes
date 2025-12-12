@@ -32,6 +32,7 @@ import {
   generateMetadata as genMetadata,
   generateCollectionPageSchema,
   generateBreadcrumbSchema,
+  generateWebPageSchema,
 } from '@/lib/metadata';
 
 const baseUrl = (
@@ -348,6 +349,32 @@ export default function HomesPage() {
                 "Browse luxury homes for sale in Craig Ranch, Las Vegas. Find your dream home in one of Las Vegas' most prestigious communities.",
               url: `${baseUrl}/homes`,
             }),
+            {
+              '@context': 'https://schema.org',
+              '@type': 'ItemList',
+              name: 'Craig Ranch Homes for Sale',
+              description: 'Luxury homes for sale in Craig Ranch, Las Vegas',
+              url: `${baseUrl}/homes`,
+              numberOfItems: 206,
+              itemListElement: {
+                '@type': 'ListItem',
+                position: 1,
+                item: {
+                  '@type': 'Product',
+                  '@id': `${baseUrl}/homes`,
+                  name: 'Craig Ranch Homes',
+                  description: 'Luxury homes in Craig Ranch ranging from $370,000 to $1.8 million',
+                  category: 'Real Estate',
+                  offers: {
+                    '@type': 'AggregateOffer',
+                    priceCurrency: 'USD',
+                    lowPrice: '370000',
+                    highPrice: '1800000',
+                    offerCount: '206',
+                  },
+                },
+              },
+            },
             generateBreadcrumbSchema([
               { name: 'Home', url: baseUrl },
               { name: 'Homes for Sale', url: `${baseUrl}/homes` },

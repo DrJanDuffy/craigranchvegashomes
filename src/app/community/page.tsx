@@ -373,6 +373,25 @@ export default function CommunityPage() {
                 { name: 'Community Guide', url: `${baseUrl}/community` },
               ],
             }),
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Place',
+              name: 'Craig Ranch Community',
+              description:
+                'Master-planned community in North Las Vegas with excellent schools, parks, shopping, and dining',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'North Las Vegas',
+                addressRegion: 'NV',
+                postalCode: '89031',
+                addressCountry: 'US',
+              },
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: 36.2831,
+                longitude: -115.1331,
+              },
+            },
             generateBreadcrumbSchema([
               { name: 'Home', url: baseUrl },
               { name: 'Community Guide', url: `${baseUrl}/community` },

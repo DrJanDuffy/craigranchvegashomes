@@ -23,6 +23,7 @@ import {
   generateMetadata as genMetadata,
   generateBreadcrumbSchema,
   generateWebPageSchema,
+  generateDatasetSchema,
 } from '@/lib/metadata';
 
 const baseUrl = (
@@ -257,6 +258,12 @@ export default function MarketDataPage() {
                 { name: 'Home', url: baseUrl },
                 { name: 'Market Data', url: `${baseUrl}/market-data` },
               ],
+            }),
+            generateDatasetSchema({
+              name: 'Craig Ranch Real Estate Market Data',
+              description:
+                'Comprehensive real estate market data and statistics for Craig Ranch, Las Vegas including average prices, days on market, inventory levels, and market trends.',
+              url: `${baseUrl}/market-data`,
             }),
             generateBreadcrumbSchema([
               { name: 'Home', url: baseUrl },
