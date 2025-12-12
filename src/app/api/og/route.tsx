@@ -13,7 +13,8 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
 
     // Get parameters from URL
-    const title = searchParams.get('title') || 'Craig Ranch Vegas Homes';
+    const title =
+      searchParams.get('title') || 'Craig Ranch Vegas | Homes By Dr. Jan Duffy';
     const subtitle = searchParams.get('subtitle') || 'Luxury Real Estate in Las Vegas';
     const price = searchParams.get('price');
     const address = searchParams.get('address');
@@ -126,4 +127,7 @@ export async function GET(request: NextRequest) {
     });
   }
 }
+
+
+
 

@@ -366,3 +366,6 @@ function calculateRemainingLoanBalance(
   return Math.max(0, remainingBalance);
 }
 
+
+
+

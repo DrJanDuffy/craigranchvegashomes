@@ -16,6 +16,8 @@ export default function Navigation() {
     { href: '/neighborhoods', label: 'Neighborhoods' },
     { href: '/community', label: 'Community' },
     { href: '/market-data', label: 'Market Data' },
+    { href: '/market-insights', label: 'Market Insights' },
+    { href: '/location', label: 'Location' },
     { href: '/contact', label: 'Contact' },
   ];
 
@@ -26,7 +28,7 @@ export default function Navigation() {
           {/* Logo/Brand */}
           <Link href='/' className='flex items-center'>
             <h1 className='text-2xl font-bold text-[#0A2540]'>
-              Craig Ranch Vegas Homes
+              Craig Ranch Vegas | Homes By Dr. Jan Duffy
             </h1>
           </Link>
 

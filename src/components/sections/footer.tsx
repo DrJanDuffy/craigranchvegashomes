@@ -8,7 +8,9 @@ export default function Footer() {
         <div className='grid md:grid-cols-4 gap-8'>
           {/* Company Info */}
           <div>
-            <h3 className='text-2xl font-bold mb-4'>Craig Ranch Vegas Homes</h3>
+            <h3 className='text-2xl font-bold mb-4'>
+              Craig Ranch Vegas | Homes By Dr. Jan Duffy
+            </h3>
             <p className='text-gray-300 leading-relaxed'>
               Your trusted partner in finding the perfect home in Craig Ranch.
             </p>
@@ -40,6 +42,22 @@ export default function Footer() {
                   className='hover:text-white transition-colors duration-200 hover:underline'
                 >
                   About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href='/market-insights'
+                  className='hover:text-white transition-colors duration-200 hover:underline'
+                >
+                  Market Insights
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href='/location'
+                  className='hover:text-white transition-colors duration-200 hover:underline'
+                >
+                  Location
                 </Link>
               </li>
               <li>
@@ -86,7 +104,7 @@ export default function Footer() {
               </li>
               <li className='flex items-center'>
                 <span className='mr-2'>📍</span>
-                Craig Ranch, North Las Vegas, NV 89031
+                851 W Lone Mountain Rd, North Las Vegas, NV 89032
               </li>
             </ul>
           </div>
@@ -217,7 +235,10 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className='border-t border-gray-700 mt-8 pt-8 text-center text-gray-300 space-y-2 text-sm'>
-          <p>&copy; 2024 Craig Ranch Vegas Homes. All rights reserved.</p>
+          <p>
+            &copy; 2024 Craig Ranch Vegas | Homes By Dr. Jan Duffy. All rights
+            reserved.
+          </p>
           <p>&copy; 2025 BHH Affiliates, LLC.</p>
           <p className='text-xs text-gray-400 max-w-4xl mx-auto'>
             Real Estate Brokerage Services are offered through the network member

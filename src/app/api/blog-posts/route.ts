@@ -3,7 +3,7 @@
  * Fetches and parses RSS feed from Simplifying the Market
  */
 
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { parseRSSFeed } from '@/lib/utils/rss-parser';
 
 const RSS_FEED_URL =
@@ -12,8 +12,15 @@ const RSS_FEED_URL =
 // Revalidate every hour
 export const revalidate = 3600;
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
+    const { searchParams } = new URL(request.url);
+    const limitParam = searchParams.get('limit');
+    const parsedLimit = limitParam ? Number.parseInt(limitParam, 10) : 3;
+    const limit = Number.isFinite(parsedLimit)
+      ? Math.min(Math.max(parsedLimit, 1), 20)
+      : 3;
+
     // Fetch RSS feed
     const response = await fetch(RSS_FEED_URL, {
       next: { revalidate: 3600 },
@@ -31,8 +38,8 @@ export async function GET() {
     // Parse RSS feed
     const feed = parseRSSFeed(xmlString);
 
-    // Return first 4 items (or limit as needed)
-    const blogPosts = feed.items.slice(0, 4).map((item) => {
+    // Return first N items
+    const blogPosts = feed.items.slice(0, limit).map((item) => {
       // Generate category link
       const categorySlug = item.categories[0]?.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') || 'market-insights';
       const categoryLink = `https://www.simplifyingthemarket.com/en/category/${categorySlug}/?a=956758-ef2edda2f940e018328655620ea05f18`;
@@ -58,10 +65,10 @@ export async function GET() {
       {
         blogPosts: [
           {
-            title: 'Latest Market Insights',
+            title: 'Understanding Today\'s Real Estate Market',
             postLink: 'https://www.simplifyingthemarket.com/?a=956758-ef2edda2f940e018328655620ea05f18',
-            description: 'Stay informed with the latest real estate market insights',
-            category: 'Market Insights',
+            description: 'Expert analysis and trends to help you make informed real estate decisions',
+            category: 'Real Estate News',
             categoryLink: 'https://www.simplifyingthemarket.com/?a=956758-ef2edda2f940e018328655620ea05f18',
             author: 'Simplifying the Market',
             date: new Date().toLocaleDateString('en-US', {

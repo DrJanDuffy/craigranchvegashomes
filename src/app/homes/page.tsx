@@ -34,11 +34,15 @@ import {
   generateBreadcrumbSchema,
 } from '@/lib/metadata';
 
+const baseUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'
+).replace(/\/$/, '');
+
 // Incremental Static Regeneration - revalidate every 30 minutes for fresh listings
 export const revalidate = 1800; // 30 minutes
 
 export const metadata = genMetadata({
-  title: 'Homes for Sale in Craig Ranch, Las Vegas | Craig Ranch Vegas Homes',
+  title: 'Homes for Sale in Craig Ranch, Las Vegas | Craig Ranch Vegas | Homes By Dr. Jan Duffy',
   description:
     "Browse luxury homes for sale in Craig Ranch, Las Vegas. Find your dream home in one of Las Vegas' most prestigious communities. Work with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada.",
   keywords:
@@ -74,7 +78,7 @@ export default function HomesPage() {
           <div className='grid lg:grid-cols-2 gap-12 items-center mb-12'>
             <div>
               <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
-                Working with Dr. Jan Duffy
+                Working with Dr. Jan Duffy for Craig Ranch Homes
               </h2>
               <p className='text-lg text-gray-600 mb-6'>
                 Dr. Jan Duffy is a REALTOR® with Berkshire Hathaway HomeServices®
@@ -264,7 +268,7 @@ export default function HomesPage() {
 
             <div>
               <h2 className='text-3xl font-bold text-[#0A2540] mb-6'>
-                Community Amenities
+                Craig Ranch Community Amenities
               </h2>
               <div className='space-y-4'>
                 <p className='text-gray-700'>
@@ -342,11 +346,11 @@ export default function HomesPage() {
               name: 'Homes for Sale in Craig Ranch, Las Vegas',
               description:
                 "Browse luxury homes for sale in Craig Ranch, Las Vegas. Find your dream home in one of Las Vegas' most prestigious communities.",
-              url: 'https://www.craigranchhomes.com/homes',
+              url: `${baseUrl}/homes`,
             }),
             generateBreadcrumbSchema([
-              { name: 'Home', url: 'https://www.craigranchhomes.com' },
-              { name: 'Homes for Sale', url: 'https://www.craigranchhomes.com/homes' },
+              { name: 'Home', url: baseUrl },
+              { name: 'Homes for Sale', url: `${baseUrl}/homes` },
             ]),
           ]),
         }}

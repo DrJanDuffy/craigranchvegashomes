@@ -25,6 +25,10 @@ import {
   generateWebPageSchema,
 } from '@/lib/metadata';
 
+const baseUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'
+).replace(/\/$/, '');
+
 // Incremental Static Regeneration - revalidate every 15 minutes for fresh market data
 export const revalidate = 900; // 15 minutes
 
@@ -110,7 +114,7 @@ export default function MarketDataPage() {
               <BarChart3 className='h-8 w-8 text-[#3A8DDE]' />
             </div>
             <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
-              Market Trends Over Time
+              Craig Ranch Market Trends Over Time
             </h2>
             <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
               Track how the Craig Ranch market has evolved
@@ -206,7 +210,7 @@ export default function MarketDataPage() {
               <div className='w-16 h-16 bg-[#0A2540]/10 rounded-lg flex items-center justify-center mx-auto mb-4'>
                 <Calendar className='h-8 w-8 text-[#0A2540]' />
               </div>
-              <CardTitle className='text-2xl'>Market Outlook</CardTitle>
+              <CardTitle className='text-2xl'>Craig Ranch Market Outlook</CardTitle>
             </CardHeader>
             <CardContent className='space-y-4 text-gray-600 leading-relaxed'>
               <p>
@@ -248,15 +252,15 @@ export default function MarketDataPage() {
               name: 'Craig Ranch Real Estate Market Data & Trends',
               description:
                 'Stay informed with the latest real estate market data, trends, and statistics for Craig Ranch, Las Vegas. Average prices, days on market, and more.',
-              url: 'https://www.craigranchhomes.com/market-data',
+              url: `${baseUrl}/market-data`,
               breadcrumb: [
-                { name: 'Home', url: 'https://www.craigranchhomes.com' },
-                { name: 'Market Data', url: 'https://www.craigranchhomes.com/market-data' },
+                { name: 'Home', url: baseUrl },
+                { name: 'Market Data', url: `${baseUrl}/market-data` },
               ],
             }),
             generateBreadcrumbSchema([
-              { name: 'Home', url: 'https://www.craigranchhomes.com' },
-              { name: 'Market Data', url: 'https://www.craigranchhomes.com/market-data' },
+              { name: 'Home', url: baseUrl },
+              { name: 'Market Data', url: `${baseUrl}/market-data` },
             ]),
           ]),
         }}

@@ -9,7 +9,7 @@ export default function AboutContent() {
           {/* Content */}
           <div>
             <h2 className='text-4xl font-bold text-[#0A2540] mb-6'>
-              About Dr. Jan Duffy
+              About Dr. Jan Duffy - Your Craig Ranch Real Estate Expert
             </h2>
             <p className='text-lg text-gray-600 mb-6 leading-relaxed'>
               Dr. Jan Duffy is a REALTOR® with{' '}

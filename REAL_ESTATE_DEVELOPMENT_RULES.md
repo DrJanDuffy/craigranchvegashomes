@@ -277,3 +277,6 @@ const metrics = calculateInvestmentMetrics({
    - Integrate new components into existing pages
    - Update existing components to use server components where possible
 
+
+
+

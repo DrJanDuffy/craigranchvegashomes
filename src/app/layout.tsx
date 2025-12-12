@@ -3,6 +3,17 @@ import Script from 'next/script';
 import { Source_Sans_3, Open_Sans } from 'next/font/google';
 import './globals.css';
 
+const googleSiteVerification =
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ??
+  process.env.GOOGLE_SITE_VERIFICATION;
+
+const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'
+).replace(/\/$/, '');
+
+const ogImageUrl = `${siteUrl}/og-image.jpg`;
+const logoUrl = `${siteUrl}/logo.png`;
+
 // Optimize fonts with next/font
 const sourceSansPro = Source_Sans_3({
   weight: ['300', '400', '500'],
@@ -19,31 +30,31 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas, NV',
+  title: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
   description:
     "Discover luxury homes in Craig Ranch, Las Vegas. Find your dream home in one of the city's most prestigious communities with premium amenities, excellent schools, and convenient location. View current listings from $600K to $1.2M.",
   keywords:
     'Craig Ranch, Las Vegas homes, luxury real estate, Nevada homes, Las Vegas real estate, Craig Ranch community, luxury homes Las Vegas, Craig Ranch properties, Las Vegas luxury real estate, Craig Ranch homes for sale, Las Vegas real estate agent, Craig Ranch neighborhood, luxury properties Las Vegas, Craig Ranch real estate market, Las Vegas home values',
   authors: [
-    { name: 'Craig Ranch Vegas Homes', url: 'https://www.craigranchhomes.com' },
+    { name: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy', url: siteUrl },
   ],
-  creator: 'Craig Ranch Vegas Homes',
-  publisher: 'Craig Ranch Vegas Homes',
+  creator: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
+  publisher: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://www.craigranchhomes.com'),
+  metadataBase: new URL(siteUrl),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas, NV',
+    title: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
     description:
       "Discover luxury homes in Craig Ranch, Las Vegas. Find your dream home in one of the city's most prestigious communities with premium amenities and excellent location.",
-    url: 'https://www.craigranchhomes.com',
-    siteName: 'Craig Ranch Vegas Homes',
+    url: siteUrl,
+    siteName: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
     locale: 'en_US',
     type: 'website',
     images: [
@@ -51,13 +62,13 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Craig Ranch Vegas Homes - Luxury Real Estate in Las Vegas',
+        alt: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas, NV',
+    title: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
     description:
       "Discover luxury homes in Craig Ranch, Las Vegas. Find your dream home in one of the city's most prestigious communities.",
     images: ['/og-image.jpg'],
@@ -73,31 +84,29 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-    yahoo: 'your-yahoo-verification-code',
-  },
+  ...(googleSiteVerification
+    ? { verification: { google: googleSiteVerification } }
+    : {}),
   category: 'Real Estate',
   classification: 'Luxury Real Estate',
   other: {
     'geo.region': 'US-NV',
-    'geo.placename': 'Las Vegas',
-    'geo.position': '36.1699;-115.1398',
-    ICBM: '36.1699, -115.1398',
-    'DC.title': 'Craig Ranch Vegas Homes',
-    'DC.creator': 'Craig Ranch Vegas Homes',
+    'geo.placename': 'North Las Vegas, Las Vegas',
+    'geo.position': '36.2465;-115.1475',
+    ICBM: '36.2465, -115.1475',
+    'DC.title': 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
+    'DC.creator': 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
     'DC.subject': 'Luxury Real Estate, Las Vegas, Craig Ranch',
     'DC.description': 'Luxury homes in Craig Ranch, Las Vegas',
-    'DC.publisher': 'Craig Ranch Vegas Homes',
-    'DC.contributor': 'Craig Ranch Vegas Homes',
+    'DC.publisher': 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
+    'DC.contributor': 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
     'DC.date': '2024',
     'DC.type': 'Text',
     'DC.format': 'text/html',
-    'DC.identifier': 'https://www.craigranchhomes.com',
+    'DC.identifier': siteUrl,
     'DC.language': 'en',
     'DC.coverage': 'Las Vegas, Nevada',
-    'DC.rights': 'Copyright 2024 Craig Ranch Vegas Homes',
+    'DC.rights': 'Copyright 2024 Craig Ranch Vegas | Homes By Dr. Jan Duffy',
   },
 };
 
@@ -164,29 +173,46 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'RealEstateAgent',
+              '@id': `${siteUrl}#realestateagent`,
               name: 'Dr. Jan Duffy',
               description:
-                'REALTOR® with Berkshire Hathaway HomeServices® Nevada, specializing in luxury homes and estates in Las Vegas and Henderson',
+                'REALTOR® with Berkshire Hathaway HomeServices® Nevada, specializing in luxury homes and estates in Craig Ranch, Las Vegas, North Las Vegas, and Henderson',
               jobTitle: 'REALTOR®',
               worksFor: {
                 '@type': 'Organization',
                 name: 'Berkshire Hathaway HomeServices Nevada',
               },
-              url: 'https://www.craigranchhomes.com',
-              logo: 'https://www.craigranchhomes.com/logo.png',
-              image: 'https://www.craigranchhomes.com/og-image.jpg',
+              url: siteUrl,
+              logo: logoUrl,
+              image: ogImageUrl,
               address: {
                 '@type': 'PostalAddress',
-                addressLocality: 'Las Vegas',
+                streetAddress: '851 W Lone Mountain Rd',
+                addressLocality: 'North Las Vegas',
                 addressRegion: 'NV',
+                postalCode: '89032',
                 addressCountry: 'US',
               },
-              areaServed: {
-                '@type': 'City',
-                name: 'Las Vegas',
-                addressRegion: 'NV',
-                addressCountry: 'US',
-              },
+              areaServed: [
+                {
+                  '@type': 'City',
+                  name: 'North Las Vegas',
+                  addressRegion: 'NV',
+                  addressCountry: 'US',
+                },
+                {
+                  '@type': 'City',
+                  name: 'Las Vegas',
+                  addressRegion: 'NV',
+                  addressCountry: 'US',
+                },
+                {
+                  '@type': 'City',
+                  name: 'Henderson',
+                  addressRegion: 'NV',
+                  addressCountry: 'US',
+                },
+              ],
               serviceArea: {
                 '@type': 'Place',
                 name: 'Craig Ranch',
@@ -228,38 +254,51 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'LocalBusiness',
-              name: 'Craig Ranch Vegas Homes',
+              '@id': `${siteUrl}#localbusiness`,
+              name: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
               description:
-                'Luxury real estate services in Craig Ranch, Las Vegas',
-              url: 'https://www.craigranchhomes.com',
+                'Luxury real estate services in Craig Ranch, North Las Vegas, Las Vegas, Nevada. Expert real estate agent specializing in Craig Ranch homes and properties.',
+              url: siteUrl,
               telephone: '+1-702-500-1955',
+              email: 'DrDuffy@CraigRanchHomes.com',
+              image: ogImageUrl,
+              logo: logoUrl,
               address: {
                 '@type': 'PostalAddress',
-                streetAddress: 'Craig Ranch',
-                addressLocality: 'Las Vegas',
+                streetAddress: '851 W Lone Mountain Rd',
+                addressLocality: 'North Las Vegas',
                 addressRegion: 'NV',
-                postalCode: '89129',
+                postalCode: '89032',
                 addressCountry: 'US',
               },
               geo: {
                 '@type': 'GeoCoordinates',
-                latitude: 36.1699,
-                longitude: -115.1398,
+                latitude: 36.2465,
+                longitude: -115.1475,
               },
-              openingHoursSpecification: {
-                '@type': 'OpeningHoursSpecification',
-                dayOfWeek: [
-                  'Monday',
-                  'Tuesday',
-                  'Wednesday',
-                  'Thursday',
-                  'Friday',
-                  'Saturday',
-                  'Sunday',
-                ],
-                opens: '09:00',
-                closes: '18:00',
-              },
+              hasMap:
+                'https://www.google.com/maps/search/?api=1&query=851+W+Lone+Mountain+Rd+North+Las+Vegas+NV+89032',
+              openingHoursSpecification: [
+                {
+                  '@type': 'OpeningHoursSpecification',
+                  dayOfWeek: [
+                    'Monday',
+                    'Tuesday',
+                    'Wednesday',
+                    'Thursday',
+                    'Friday',
+                  ],
+                  opens: '09:00',
+                  closes: '18:00',
+                },
+                {
+                  '@type': 'OpeningHoursSpecification',
+                  dayOfWeek: ['Saturday'],
+                  opens: '10:00',
+                  closes: '16:00',
+                },
+                // Sunday: By appointment (omit hours rather than guessing)
+              ],
               priceRange: '$$$',
               currenciesAccepted: 'USD',
             }),
@@ -273,14 +312,14 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'WebSite',
-              name: 'Craig Ranch Vegas Homes',
-              url: 'https://www.craigranchhomes.com',
+              name: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
+              url: siteUrl,
               description:
-                'Luxury real estate services in Craig Ranch, Las Vegas, Nevada',
+                'Luxury real estate services in Craig Ranch, North Las Vegas, Las Vegas, Nevada. Find your dream home with Dr. Jan Duffy, REALTOR® specializing in Craig Ranch properties.',
               potentialAction: {
                 '@type': 'SearchAction',
                 target:
-                  'https://www.craigranchhomes.com/search?q={search_term_string}',
+                  `${siteUrl}/search?q={search_term_string}`,
                 'query-input': 'required name=search_term_string',
               },
             }),

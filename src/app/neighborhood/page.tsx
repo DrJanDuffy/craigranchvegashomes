@@ -49,6 +49,10 @@ import {
   generateWebPageSchema,
 } from '@/lib/metadata';
 
+const baseUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'
+).replace(/\/$/, '');
+
 // Static generation with ISR - revalidate weekly for community updates
 export const revalidate = 604800; // 1 week
 
@@ -202,7 +206,7 @@ export default function NeighborhoodPage() {
             </div>
             <div className='bg-[#F7F9FC] rounded-xl p-8'>
               <h3 className='text-2xl font-bold text-[#0A2540] mb-6'>
-                Community Stats
+                Craig Ranch Community Stats
               </h3>
               <div className='grid grid-cols-2 gap-6'>
                 {stats.map((stat, index) => {
@@ -249,7 +253,7 @@ export default function NeighborhoodPage() {
           {/* Home Specifications */}
           <div className='mb-16 bg-gradient-to-r from-[#F7F9FC] to-white rounded-xl p-8 border border-gray-200'>
             <h3 className='text-2xl font-bold text-[#0A2540] mb-6 text-center'>
-              Home Specifications
+              Craig Ranch Home Specifications
             </h3>
             <div className='grid md:grid-cols-4 gap-6'>
               <div className='text-center'>
@@ -624,7 +628,7 @@ export default function NeighborhoodPage() {
           <div className='bg-white rounded-xl p-8 shadow-lg border border-gray-200'>
             <div className='mb-6'>
               <h3 className='text-2xl font-semibold text-[#0A2540] mb-2'>
-                Advanced Property Search
+                Advanced Craig Ranch Property Search
               </h3>
               <p className='text-gray-600'>
                 Use our advanced search tool to find properties matching your
@@ -755,17 +759,17 @@ export default function NeighborhoodPage() {
             ],
             },
             generateBreadcrumbSchema([
-              { name: 'Home', url: 'https://www.craigranchhomes.com' },
-              { name: 'Craig Ranch Neighborhood', url: 'https://www.craigranchhomes.com/neighborhood' },
+              { name: 'Home', url: baseUrl },
+              { name: 'Craig Ranch Neighborhood', url: `${baseUrl}/neighborhood` },
             ]),
             generateWebPageSchema({
               name: 'Craig Ranch Homes & Real Estate | North Las Vegas Community Guide',
               description:
                 'Craig Ranch homes for sale in North Las Vegas features 13 floor plans by Century Communities. Sizes from 1,519 to 2,638-square feet, up to 5 bedrooms, 3 bathrooms and 2 bay garages.',
-              url: 'https://www.craigranchhomes.com/neighborhood',
+              url: `${baseUrl}/neighborhood`,
               breadcrumb: [
-                { name: 'Home', url: 'https://www.craigranchhomes.com' },
-                { name: 'Craig Ranch Neighborhood', url: 'https://www.craigranchhomes.com/neighborhood' },
+                { name: 'Home', url: baseUrl },
+                { name: 'Craig Ranch Neighborhood', url: `${baseUrl}/neighborhood` },
               ],
             }),
           ]),

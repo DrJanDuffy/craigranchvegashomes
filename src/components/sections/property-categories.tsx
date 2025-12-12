@@ -44,7 +44,7 @@ export default function PropertyCategories() {
         {/* Section Header */}
         <div className='text-center mb-16'>
           <h2 className='text-4xl font-bold text-[#0A2540] mb-4'>
-            Property Categories
+            Craig Ranch Property Categories
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
             Explore our diverse selection of premium properties in Craig Ranch

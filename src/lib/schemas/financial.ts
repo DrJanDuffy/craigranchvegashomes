@@ -123,3 +123,6 @@ export type PropertyFinancialsInput = z.infer<
 >;
 export type ProFormaInputsInput = z.infer<typeof proFormaInputsSchema>;
 
+
+
+

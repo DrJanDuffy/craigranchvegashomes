@@ -28,6 +28,10 @@ import {
   generateWebPageSchema,
 } from '@/lib/metadata';
 
+const baseUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'
+).replace(/\/$/, '');
+
 // Static generation with ISR - revalidate weekly for neighborhood updates
 export const revalidate = 604800; // 1 week
 
@@ -118,7 +122,7 @@ export default function NeighborhoodsPage() {
               <MapPin className='h-8 w-8 text-[#3A8DDE]' />
             </div>
             <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
-              Key Neighborhoods & Subdivisions
+              Key Craig Ranch Neighborhoods & Subdivisions
             </h2>
             <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
               Craig Ranch features a mix of single-family homes and condos across
@@ -176,7 +180,7 @@ export default function NeighborhoodsPage() {
               <Building2 className='h-8 w-8 text-[#16B286]' />
             </div>
             <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
-              Century Communities Collections
+              Century Communities Collections in Craig Ranch
             </h2>
             <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
               A significant portion of Craig Ranch was built by Century
@@ -211,14 +215,14 @@ export default function NeighborhoodsPage() {
               <TreePine className='h-8 w-8 text-[#0A2540]' />
             </div>
             <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
-              Housing Styles & Community Amenities
+              Craig Ranch Housing Styles & Community Amenities
             </h2>
           </div>
 
           <div className='grid lg:grid-cols-2 gap-12'>
             <div>
               <h3 className='text-2xl font-bold text-[#0A2540] mb-6'>
-                Housing Styles
+                Craig Ranch Housing Styles
               </h3>
               <div className='space-y-4 text-gray-700'>
                 <p>
@@ -250,7 +254,7 @@ export default function NeighborhoodsPage() {
 
             <div>
               <h3 className='text-2xl font-bold text-[#0A2540] mb-6'>
-                Community Amenities
+                Craig Ranch Community Amenities
               </h3>
               <div className='space-y-4 text-gray-700'>
                 <p>
@@ -401,7 +405,7 @@ export default function NeighborhoodsPage() {
       <section className='py-16 bg-[#F7F9FC]'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
           <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
-            Find Your Perfect Neighborhood
+            Find Your Perfect Craig Ranch Neighborhood
           </h2>
           <p className='text-lg text-gray-600 mb-8'>
             Dr. Jan Duffy can provide you with the most current and specific
@@ -472,17 +476,17 @@ export default function NeighborhoodsPage() {
               ],
             },
             generateBreadcrumbSchema([
-              { name: 'Home', url: 'https://www.craigranchhomes.com' },
-              { name: 'Neighborhoods', url: 'https://www.craigranchhomes.com/neighborhoods' },
+              { name: 'Home', url: baseUrl },
+              { name: 'Neighborhoods', url: `${baseUrl}/neighborhoods` },
             ]),
             generateWebPageSchema({
               name: 'Craig Ranch Neighborhoods & Collections | North Las Vegas Communities',
               description:
                 'Explore the distinct neighborhoods in Craig Ranch: Jasmine Ranch, Centennial Crossing, Seabreeze, and Century Communities collections.',
-              url: 'https://www.craigranchhomes.com/neighborhoods',
+              url: `${baseUrl}/neighborhoods`,
               breadcrumb: [
-                { name: 'Home', url: 'https://www.craigranchhomes.com' },
-                { name: 'Neighborhoods', url: 'https://www.craigranchhomes.com/neighborhoods' },
+                { name: 'Home', url: baseUrl },
+                { name: 'Neighborhoods', url: `${baseUrl}/neighborhoods` },
               ],
             }),
           ]),

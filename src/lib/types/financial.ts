@@ -159,3 +159,6 @@ export interface MarketTrend {
   pricePerSqFt: number;
 }
 
+
+
+

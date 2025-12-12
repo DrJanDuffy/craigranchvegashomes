@@ -28,6 +28,10 @@ import {
   generateWebPageSchema,
 } from '@/lib/metadata';
 
+const baseUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'
+).replace(/\/$/, '');
+
 // Static generation with ISR - revalidate weekly for community updates
 export const revalidate = 604800; // 1 week
 
@@ -144,7 +148,7 @@ export default function CommunityPage() {
               <School className='h-8 w-8 text-[#3A8DDE]' />
             </div>
             <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
-              Top-Rated Schools
+              Top-Rated Schools in Craig Ranch
             </h2>
             <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
               Craig Ranch is served by excellent public and private schools,
@@ -229,7 +233,7 @@ export default function CommunityPage() {
               <ShoppingCart className='h-8 w-8 text-[#16B286]' />
             </div>
             <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
-              Shopping & Dining
+              Shopping & Dining in Craig Ranch
             </h2>
             <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
               Most shopping and dining options are along West Craig Road, now
@@ -293,7 +297,7 @@ export default function CommunityPage() {
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='text-center mb-12'>
             <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
-              Lifestyle & Community
+              Lifestyle & Community in Craig Ranch
             </h2>
             <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
               Experience the lifestyle that makes Craig Ranch special
@@ -363,15 +367,15 @@ export default function CommunityPage() {
               name: 'Craig Ranch Community Guide: Schools, Amenities & Lifestyle',
               description:
                 'Discover schools, amenities, shopping, dining, and lifestyle in Craig Ranch, Las Vegas. Your complete guide to community living.',
-              url: 'https://www.craigranchhomes.com/community',
+              url: `${baseUrl}/community`,
               breadcrumb: [
-                { name: 'Home', url: 'https://www.craigranchhomes.com' },
-                { name: 'Community Guide', url: 'https://www.craigranchhomes.com/community' },
+                { name: 'Home', url: baseUrl },
+                { name: 'Community Guide', url: `${baseUrl}/community` },
               ],
             }),
             generateBreadcrumbSchema([
-              { name: 'Home', url: 'https://www.craigranchhomes.com' },
-              { name: 'Community Guide', url: 'https://www.craigranchhomes.com/community' },
+              { name: 'Home', url: baseUrl },
+              { name: 'Community Guide', url: `${baseUrl}/community` },
             ]),
           ]),
         }}

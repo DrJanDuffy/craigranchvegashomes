@@ -1,7 +1,9 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.craigranchhomes.com';
+  const baseUrl = (
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'
+  ).replace(/\/$/, '');
 
   return [
     {
@@ -39,6 +41,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/market-insights`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/location`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/contact`,

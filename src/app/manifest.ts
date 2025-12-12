@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Craig Ranch Vegas Homes',
-    short_name: 'Craig Ranch Homes',
+    name: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
+    short_name: 'Craig Ranch Vegas',
     description:
       'Luxury real estate services in Craig Ranch, Las Vegas, Nevada',
     start_url: '/',

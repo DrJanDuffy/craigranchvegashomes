@@ -24,3 +24,6 @@ jest.mock('next/navigation', () => ({
 // Mock environment variables
 process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME = 'test-cloud';
 
+
+
+

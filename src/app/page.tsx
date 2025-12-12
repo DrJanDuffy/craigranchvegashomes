@@ -8,6 +8,7 @@ import PropertyCategories from '@/components/sections/property-categories';
 import FeaturedCommunities from '@/components/sections/featured-communities';
 import BlogPosts from '@/components/sections/blog-posts';
 import RealScoutOfficeWidget from '@/components/sections/realscout-office-widget';
+import FAQSection from '@/components/sections/faq-section';
 import ListingsSkeleton from '@/components/skeletons/listings-skeleton';
 import PropertyCategoriesSkeleton from '@/components/skeletons/property-categories-skeleton';
 import CommunitiesSkeleton from '@/components/skeletons/communities-skeleton';
@@ -17,9 +18,15 @@ import Link from 'next/link';
 import { ArrowRight, Home as HomeIcon, MapPin, TrendingUp } from 'lucide-react';
 import {
   generateMetadata as genMetadata,
+  CRAIG_RANCH_FAQS,
+  generateFAQPageSchema,
   generateWebPageSchema,
   generateRealEstateAgentSchema,
 } from '@/lib/metadata';
+
+const baseUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'
+).replace(/\/$/, '');
 
 // Dynamically import heavy components with loading states
 const DynamicHomeEvaluation = dynamic(
@@ -70,7 +77,7 @@ const DynamicBlogPosts = dynamic(
 export const revalidate = 3600; // 1 hour
 
 export const metadata = genMetadata({
-  title: 'Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas, Nevada',
+  title: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
   description:
     "Find your dream home in Craig Ranch, Las Vegas. Browse luxury homes, explore the neighborhood, and discover why Craig Ranch is one of Las Vegas' most prestigious communities. Work with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada.",
   keywords:
@@ -135,7 +142,7 @@ export default function Home() {
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='text-center mb-12'>
               <h2 className='text-3xl font-bold text-[#0A2540] mb-4'>
-                Featured Listings from Dr. Jan Duffy
+                Featured Craig Ranch Listings from Dr. Jan Duffy
               </h2>
               <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
                 Browse our current office listings. Dr. Jan Duffy specializes in
@@ -203,6 +210,7 @@ export default function Home() {
         <Suspense fallback={<BlogPostsSkeleton />}>
           <DynamicBlogPosts />
         </Suspense>
+        <FAQSection />
       </article>
 
       {/* Structured Data */}
@@ -212,15 +220,16 @@ export default function Home() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify([
             generateWebPageSchema({
-              name: 'Craig Ranch Vegas Homes | Luxury Real Estate in Las Vegas, Nevada',
+              name: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
               description:
                 "Find your dream home in Craig Ranch, Las Vegas. Browse luxury homes, explore the neighborhood, and discover why Craig Ranch is one of Las Vegas' most prestigious communities.",
-              url: 'https://www.craigranchhomes.com',
+              url: baseUrl,
               breadcrumb: [
-                { name: 'Home', url: 'https://www.craigranchhomes.com' },
+                { name: 'Home', url: baseUrl },
               ],
             }),
             generateRealEstateAgentSchema(),
+            generateFAQPageSchema(CRAIG_RANCH_FAQS),
           ]),
         }}
       />
