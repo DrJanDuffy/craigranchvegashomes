@@ -17,7 +17,6 @@ export default function Navigation() {
     { href: '/community', label: 'Community' },
     { href: '/market-data', label: 'Market Data' },
     { href: '/market-insights', label: 'Market Insights' },
-    { href: '/location', label: 'Location' },
     { href: '/contact', label: 'Contact' },
   ];
 

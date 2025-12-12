@@ -233,17 +233,30 @@ export default function ContactPage() {
               />
             </Suspense>
           </div>
-          <div className='mt-6 text-center'>
-            <Link
-              href='https://www.google.com/maps/search/?api=1&query=851+W+Lone+Mountain+Rd+North+Las+Vegas+NV+89032'
-              target='_blank'
-              rel='noopener noreferrer'
-              prefetch={false}
-              className='text-[#3A8DDE] hover:text-[#2A7DCE] font-semibold inline-flex items-center gap-2'
-            >
-              <MapPin className='h-4 w-4' />
-              Open in Google Maps
-            </Link>
+          <div className='mt-6 flex flex-col sm:flex-row gap-3 justify-center'>
+            <Button asChild className='bg-[#16B286] hover:bg-[#15A276] text-white'>
+              <a href='tel:7025001955'>Call Now</a>
+            </Button>
+            <Button asChild variant='outline'>
+              <Link
+                href='https://www.google.com/maps/search/?api=1&query=851+W+Lone+Mountain+Rd+North+Las+Vegas+NV+89032'
+                target='_blank'
+                rel='noopener noreferrer'
+                prefetch={false}
+              >
+                Get Directions
+              </Link>
+            </Button>
+            <Button asChild variant='outline'>
+              <Link
+                href='https://www.google.com/maps/search/?api=1&query=851+W+Lone+Mountain+Rd+North+Las+Vegas+NV+89032'
+                target='_blank'
+                rel='noopener noreferrer'
+                prefetch={false}
+              >
+                View Google Reviews
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
