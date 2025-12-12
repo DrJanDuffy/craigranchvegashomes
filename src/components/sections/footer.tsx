@@ -9,9 +9,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <h3 className='text-2xl font-bold mb-4'>
-              <a href='tel:7025001955' className='text-white hover:text-[#3A8DDE] transition-colors'>
-                (702) 500-1955
-              </a>
+              (702) 500-1955
             </h3>
             <p className='text-gray-300 leading-relaxed'>
               Your trusted partner in finding the perfect home in Craig Ranch.
