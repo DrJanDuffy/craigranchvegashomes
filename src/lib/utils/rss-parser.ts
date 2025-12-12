@@ -246,6 +246,16 @@ export function parseRSSFeed(xmlString: string): RSSFeed {
           imageUrl = feedBaseUrl + imageUrl;
         }
       }
+      
+      // Log extracted image URL for debugging (only in development)
+      if (process.env.NODE_ENV === 'development') {
+        console.log(`[RSS Parser] Extracted image URL for "${itemTitle}": ${imageUrl}`);
+      }
+    } else {
+      // Log when no image is found (only in development)
+      if (process.env.NODE_ENV === 'development') {
+        console.warn(`[RSS Parser] No image found for "${itemTitle}"`);
+      }
     }
     
     items.push({

@@ -25,7 +25,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '**.simplifyingthemarket.com',
+        hostname: '*.simplifyingthemarket.com',
         pathname: '/**',
       },
       {

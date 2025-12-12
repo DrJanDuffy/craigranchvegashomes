@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import { RSSImage } from '@/components/ui/rss-image';
 import PageLayout from '@/components/layout/page-layout';
 import { Badge } from '@/components/ui/badge';
 import Script from 'next/script';
@@ -146,14 +146,12 @@ export default async function MarketInsightsPage() {
                   className='block relative w-full h-[200px] overflow-hidden'
                   aria-label={`Read article: ${post.title}`}
                 >
-                  <Image
+                  <RSSImage
                     src={post.imageUrl}
                     alt={post.title}
                     fill
                     sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
                     className='object-cover transition-transform duration-300 ease-in-out group-hover:scale-105'
-                    loading='lazy'
-                    quality={85}
                   />
                 </Link>
 

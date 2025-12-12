@@ -4,7 +4,6 @@
  * Server component by default (Next.js 16)
  */
 
-import Image from 'next/image';
 import Link from 'next/link';
 import {
   Card,
@@ -15,6 +14,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { RSSImage } from '@/components/ui/rss-image';
 import { parseRSSFeed } from '@/lib/utils/rss-parser';
 
 type BlogPost = {
@@ -73,6 +73,11 @@ async function getBlogPosts(limit: number = 3): Promise<BlogPost[]> {
       const categorySlug = item.categories[0]?.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') || 'market-insights';
       const categoryLink = `https://www.simplifyingthemarket.com/en/category/${categorySlug}/?a=956758-ef2edda2f940e018328655620ea05f18`;
       
+      // Log image URL for debugging (only in development)
+      if (process.env.NODE_ENV === 'development' && item.imageUrl) {
+        console.log(`[Blog Post] ${item.title}: Image URL = ${item.imageUrl}`);
+      }
+      
       return {
         title: item.title,
         postLink: item.link,
@@ -123,14 +128,12 @@ const BlogPostCard = ({ post }: { post: BlogPost }) => {
         className='block relative w-full h-[190px] overflow-hidden'
         aria-label={`Read article: ${post.title}`}
       >
-        <Image
+        <RSSImage
           src={post.imageUrl}
           alt={post.title}
           fill
           sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
           className='object-cover transition-transform duration-300 ease-in-out group-hover:scale-105'
-          loading='lazy'
-          quality={85}
         />
       </Link>
       <CardHeader>
