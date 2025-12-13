@@ -99,4 +99,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
 }
 
 // Revalidate once per day (safe for a mostly-static marketing site).
-export const revalidate = 60 * 60 * 24;
+export const revalidate = 86400;

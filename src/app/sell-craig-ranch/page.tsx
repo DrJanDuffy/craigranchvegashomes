@@ -18,7 +18,7 @@ const baseUrl = (
   process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'
 ).replace(/\/$/, '');
 
-export const revalidate = 60 * 60 * 24 * 7; // weekly
+export const revalidate = 604800; // weekly
 
 export const metadata = genMetadata({
   title: 'Sell a Home in Craig Ranch | Listing Agent: Dr. Jan Duffy, REALTOR®',

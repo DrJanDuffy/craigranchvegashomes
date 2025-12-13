@@ -19,7 +19,7 @@ const baseUrl = (
 ).replace(/\/$/, '');
 
 // Static generation with periodic refresh
-export const revalidate = 60 * 60 * 24 * 7; // weekly
+export const revalidate = 604800; // weekly
 
 export const metadata = genMetadata({
   title:

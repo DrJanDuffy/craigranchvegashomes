@@ -15,7 +15,7 @@ const baseUrl = (
   process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'
 ).replace(/\/$/, '');
 
-export const revalidate = 60 * 60 * 24; // daily
+export const revalidate = 86400; // daily
 
 export const metadata = genMetadata({
   title: 'Craig Ranch Market Report | Craig Ranch Real Estate Trends & Stats',

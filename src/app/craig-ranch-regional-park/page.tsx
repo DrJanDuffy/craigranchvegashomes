@@ -18,7 +18,7 @@ const baseUrl = (
   process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigranchhomes.com'
 ).replace(/\/$/, '');
 
-export const revalidate = 60 * 60 * 24 * 30; // monthly
+export const revalidate = 2592000; // monthly
 
 export const metadata = genMetadata({
   title: 'Craig Ranch Regional Park Guide | Living Near Craig Ranch Park',
