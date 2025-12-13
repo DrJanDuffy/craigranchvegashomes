@@ -149,6 +149,11 @@ export default function RootLayout({
   return (
     <html lang='en' className={`${sourceSansPro.variable} ${openSans.variable}`}>
       <head>
+        {/* Preconnect to critical third-party origins for faster resource loading */}
+        <link rel='preconnect' href='https://em.realscout.com' crossOrigin='anonymous' />
+        <link rel='preconnect' href='https://www.googletagmanager.com' crossOrigin='anonymous' />
+        <link rel='dns-prefetch' href='https://www.google-analytics.com' />
+
         <style>{`
           realscout-office-listings {
             --rs-listing-divider-color: rgb(101, 141, 172);
@@ -191,9 +196,10 @@ export default function RootLayout({
 
         {/* Facebook Pixel - only load when configured
             Note: Meta's script currently triggers a browser deprecation warning (unload listeners).
-            The only way to remove that warning is to not load the script. */}
+            The only way to remove that warning is to not load the script.
+            Using lazyOnload to defer loading and reduce impact on initial page load. */}
         {isValidFacebookPixelId(facebookPixelId) ? (
-          <Script id='facebook-pixel' strategy='afterInteractive'>
+          <Script id='facebook-pixel' strategy='lazyOnload'>
             {`
               !function(f,b,e,v,n,t,s)
               {if(f.fbq)return;n=f.fbq=function(){n.callMethod?

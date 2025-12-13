@@ -35,11 +35,43 @@ const nextConfig = {
       { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
     ];
 
+    // Cache headers for static assets to improve repeat visit performance
+    const cacheHeaders = [
+      {
+        source: '/:path*(.jpg|.jpeg|.png|.gif|.webp|.svg|.ico|.woff|.woff2|.ttf|.eot)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/image',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
+
     return [
       {
         source: '/:path*',
         headers: securityHeaders,
       },
+      ...cacheHeaders,
     ];
   },
   images: {
@@ -47,7 +79,9 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60,
+    // Increase cache TTL to 1 day for better repeat visit performance
+    // The cache headers we set above (1 year) will take precedence for static assets
+    minimumCacheTTL: 86400,
     // Allow specific external image domains
     remotePatterns: [
       {
@@ -114,6 +148,12 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
   },
+  // Optimize production builds
+  swcMinify: true,
+  // Enable compression
+  compress: true,
+  // Optimize production bundle
+  productionBrowserSourceMaps: false,
   // Enable React compiler optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? {

@@ -21,3 +21,4 @@ export const CRAIG_RANCH_LONGFORM_PARAGRAPHS: readonly string[] = [
   'If you are a seller, a helpful discipline is to think like a Craig Ranch buyer: what would you compare your home to, and why should someone choose yours? That mindset leads to better listing preparation and better negotiation outcomes. It also reduces the chance of surprises after inspection, because you have already addressed the most common buyer objections before the home hits the market.',
   'Finally, the best Craig Ranch outcomes tend to come from simple, consistent communication. Buyers do best when they ask questions early, tour strategically, and keep the offer process clean. Sellers do best when they prepare proactively, launch with strong quality, and negotiate with a clear priority list. If you want help building a plan that matches your timeline, call Dr. Jan Duffy, REALTOR®, and we will map out the next steps.'
 ];
+

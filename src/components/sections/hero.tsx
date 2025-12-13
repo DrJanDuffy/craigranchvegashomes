@@ -24,11 +24,12 @@ export default function Hero() {
             alt='Craig Ranch neighborhood aerial view'
             fill
             priority
+            fetchPriority='high'
             className={`object-cover transition-opacity duration-1000 ${
               imageLoaded ? 'opacity-100' : 'opacity-0'
             }`}
             sizes='100vw'
-            quality={90}
+            quality={75}
             onLoad={() => setImageLoaded(true)}
             aria-hidden='true'
           />

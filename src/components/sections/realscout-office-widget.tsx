@@ -1,7 +1,7 @@
 'use client';
 
-import { useIsMobile } from '@/hooks';
-import { useEffect, useRef } from 'react';
+import { useIsMobile, useInView } from '@/hooks';
+import { useEffect, useRef, useState } from 'react';
 import ListingsSkeleton from '@/components/skeletons/listings-skeleton';
 
 type RealScoutOfficeWidgetProps = {
@@ -22,9 +22,25 @@ function RealScoutOfficeWidgetContent({
   className = '',
 }: RealScoutOfficeWidgetProps) {
   const isMobile = useIsMobile();
+  const { ref: setInViewRef, isInView } = useInView({
+    rootMargin: '200px', // Start loading when widget is within 200px of viewport
+    threshold: 0,
+  });
   const widgetRef = useRef<HTMLDivElement>(null);
+  const [isInitialized, setIsInitialized] = useState(false);
+
+  // Combine refs: set the intersection observer ref and store in our ref
+  const combinedRef = (node: HTMLDivElement | null) => {
+    widgetRef.current = node;
+    setInViewRef(node);
+  };
 
   useEffect(() => {
+    // Only initialize widget when it's visible and not already initialized
+    if (!isInView || isInitialized || !widgetRef.current || typeof window === 'undefined') {
+      return;
+    }
+
     // Wait for RealScout script to load before creating widget
     const initWidget = () => {
       if (widgetRef.current && typeof window !== 'undefined') {
@@ -52,6 +68,7 @@ function RealScoutOfficeWidgetContent({
           // Clear existing content and append the widget
           widgetRef.current.innerHTML = '';
           widgetRef.current.appendChild(widget);
+          setIsInitialized(true);
         } else {
           // Wait for RealScout to load
           const checkInterval = setInterval(() => {
@@ -67,8 +84,11 @@ function RealScoutOfficeWidgetContent({
       }
     };
 
-    // Listen for RealScout loaded event or check immediately
-    if (typeof window !== 'undefined') {
+    // Check if script is already loaded, otherwise wait
+    if (typeof customElements !== 'undefined' && customElements.get('realscout-office-listings')) {
+      initWidget();
+    } else {
+      // Listen for RealScout loaded event or check on load
       if (document.readyState === 'complete') {
         initWidget();
       } else {
@@ -83,11 +103,11 @@ function RealScoutOfficeWidgetContent({
         window.removeEventListener('realscout-loaded', initWidget);
       }
     };
-  }, [isMobile, agentEncodedId, showMap, listingsPerPage, priceMin, priceMax]);
+  }, [isInView, isInitialized, isMobile, agentEncodedId, showMap, listingsPerPage, priceMin, priceMax]);
 
   return (
     <div
-      ref={widgetRef}
+      ref={combinedRef}
       className={`real-estate-office-widget-container min-h-[400px] ${className}`}
     >
       <div className='text-center py-8'>
