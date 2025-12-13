@@ -197,6 +197,78 @@ export function generateLocalBusinessSchema() {
 }
 
 /**
+ * Generate Organization schema for Google Knowledge Panel
+ * This is required for Google to display your logo and business information in search results
+ */
+export function generateOrganizationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${siteUrl}#organization`,
+    name: businessName,
+    legalName: businessName,
+    url: siteUrl,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/globe.svg`,
+      width: 512,
+      height: 512,
+    },
+    image: `${siteUrl}/54-DJI_20250707171528_0828_D.jpg`,
+    description:
+      'Luxury real estate services in Craig Ranch, North Las Vegas, Las Vegas, Nevada. Expert real estate agent specializing in Craig Ranch homes and properties.',
+    address: {
+      '@type': 'PostalAddress',
+      ...businessAddress,
+    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: businessPhone,
+        contactType: 'customer service',
+        areaServed: 'US',
+        availableLanguage: ['English'],
+        hoursAvailable: {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: [
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+          ],
+          opens: '09:00',
+          closes: '18:00',
+        },
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: businessPhone,
+        contactType: 'sales',
+        areaServed: 'US',
+        availableLanguage: ['English'],
+      },
+      {
+        '@type': 'ContactPoint',
+        email: businessEmail,
+        contactType: 'customer service',
+        areaServed: 'US',
+        availableLanguage: ['English'],
+      },
+    ],
+    sameAs: [
+      'https://www.facebook.com/DrJanDuffyRealtorCentennialHills',
+      'https://www.instagram.com/drjanduffy',
+      'https://www.youtube.com/@DrDuffy',
+      'https://twitter.com/drjanduffy',
+      'https://www.linkedin.com/in/lvrmembers',
+      'https://www.tiktok.com/@dr.janduffy',
+      'https://www.pinterest.com/bhhsluxury',
+    ],
+  };
+}
+
+/**
  * Generate RealEstateAgent schema
  */
 export function generateRealEstateAgentSchema() {
@@ -213,7 +285,12 @@ export function generateRealEstateAgentSchema() {
       name: 'Berkshire Hathaway HomeServices Nevada',
     },
     url: siteUrl,
-    logo: `${siteUrl}/globe.svg`,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/globe.svg`,
+      width: 512,
+      height: 512,
+    },
     image: `${siteUrl}/54-DJI_20250707171528_0828_D.jpg`,
     address: {
       '@type': 'PostalAddress',
@@ -249,18 +326,41 @@ export function generateRealEstateAgentSchema() {
         addressCountry: 'US',
       },
     },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: businessPhone,
-      email: businessEmail,
-      contactType: 'customer service',
-      areaServed: 'US',
-      availableLanguage: 'English',
-    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: businessPhone,
+        email: businessEmail,
+        contactType: 'customer service',
+        areaServed: 'US',
+        availableLanguage: ['English'],
+        hoursAvailable: {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: [
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+          ],
+          opens: '09:00',
+          closes: '18:00',
+        },
+      },
+    ],
     memberOf: {
       '@type': 'Organization',
       name: 'Berkshire Hathaway HomeServices Nevada',
     },
+    sameAs: [
+      'https://www.facebook.com/DrJanDuffyRealtorCentennialHills',
+      'https://www.instagram.com/drjanduffy',
+      'https://www.youtube.com/@DrDuffy',
+      'https://twitter.com/drjanduffy',
+      'https://www.linkedin.com/in/lvrmembers',
+      'https://www.tiktok.com/@dr.janduffy',
+      'https://www.pinterest.com/bhhsluxury',
+    ],
   };
 }
 
@@ -354,6 +454,36 @@ export function generateFAQPageSchema(
         text: faq.answer,
       },
     })),
+  };
+}
+
+/**
+ * Generate WebSite schema with site name for Google Search
+ * This is required for Google to display your site name in search results
+ * Must be placed on the homepage only
+ */
+export function generateWebSiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Craig Ranch Vegas',
+    alternateName: [
+      'Craig Ranch Homes',
+      'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
+      'craigranchhomes.com',
+    ],
+    url: siteUrl,
+    description:
+      'Luxury real estate services in Craig Ranch, North Las Vegas, Las Vegas, Nevada. Find your dream home with Dr. Jan Duffy, REALTOR® specializing in Craig Ranch properties.',
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${siteUrl}#organization`,
+    },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${siteUrl}/search?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
   };
 }
 

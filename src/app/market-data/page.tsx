@@ -36,7 +36,7 @@ export const revalidate = 900; // 15 minutes
 export const metadata = genMetadata({
   title: 'Craig Ranch Real Estate Market Data & Trends | Las Vegas',
   description:
-    'Stay informed with the latest real estate market data, trends, and statistics for Craig Ranch, Las Vegas. Average prices, days on market, sales volume, and market insights.',
+    'Latest Craig Ranch real estate market data: Average home value $428K, median sale price $415K, 46 days on market (faster than national average). Track pricing trends, sales volume, and market conditions. Updated regularly. Call (702) 820-5408 for market insights.',
   keywords:
     'Craig Ranch market data, Las Vegas real estate trends, market statistics, home prices, days on market, real estate market analysis, Las Vegas housing market',
   path: '/market-data',

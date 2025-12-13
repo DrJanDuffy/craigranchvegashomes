@@ -35,7 +35,7 @@ export const revalidate = false; // Static page, no revalidation needed
 export const metadata = genMetadata({
   title: 'Contact Dr. Jan Duffy - Craig Ranch Vegas | Homes By Dr. Jan Duffy | Las Vegas Real Estate',
   description:
-    'Get in touch with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada. Contact our expert real estate team for buying, selling, or investing in Craig Ranch, Las Vegas. Call (702) 820-5408.',
+    'Contact Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada. Get expert guidance for buying, selling, or investing in Craig Ranch, Las Vegas. Office: 851 W Lone Mountain Rd, North Las Vegas, NV 89032. Call (702) 820-5408 or email DrDuffy@CraigRanchHomes.com.',
   keywords:
     'contact real estate agent, Dr. Jan Duffy, Craig Ranch real estate agent, Las Vegas realtor, Berkshire Hathaway, contact form, real estate consultation',
   path: '/contact',

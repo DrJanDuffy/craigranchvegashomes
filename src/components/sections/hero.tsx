@@ -2,11 +2,8 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
 
 export default function Hero() {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
   // Drone photo background from public directory
   const backgroundImage = '/54-DJI_20250707171528_0828_D.jpg';
 
@@ -17,7 +14,7 @@ export default function Hero() {
         {/* Fallback gradient background */}
         <div className='absolute inset-0 bg-linear-to-r from-[#0A2540] to-[#3A8DDE]'></div>
 
-        {/* Hero Background Image */}
+        {/* Hero Background Image - No fade-in for immediate LCP visibility */}
         <div className='absolute inset-0 w-full h-full'>
           <Image
             src={backgroundImage}
@@ -25,12 +22,9 @@ export default function Hero() {
             fill
             priority
             fetchPriority='high'
-            className={`object-cover transition-opacity duration-1000 ${
-              imageLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
+            className='object-cover'
             sizes='100vw'
-            quality={75}
-            onLoad={() => setImageLoaded(true)}
+            quality={65}
             aria-hidden='true'
           />
         </div>

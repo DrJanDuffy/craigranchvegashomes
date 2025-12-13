@@ -20,7 +20,7 @@ export const revalidate = 86400; // daily
 export const metadata = genMetadata({
   title: 'Craig Ranch Market Report | Craig Ranch Real Estate Trends & Stats',
   description:
-    'Craig Ranch market report with practical insights for buyers and sellers. Track Craig Ranch pricing, demand, and negotiation trends. Call (702) 820-5408 for Craig Ranch strategy.',
+    'Comprehensive Craig Ranch market report: Average home value $428K, median sale $415K, 46 days on market. Track pricing trends, sales volume, inventory levels, and negotiation insights for buyers and sellers. Call (702) 820-5408.',
   keywords:
     'Craig Ranch market report, Craig Ranch real estate trends, Craig Ranch home prices, Craig Ranch days on market, Dr. Jan Duffy REALTOR',
   path: '/craig-ranch-market-report',

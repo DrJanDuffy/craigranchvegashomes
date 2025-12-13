@@ -20,7 +20,7 @@ export const revalidate = 604800; // weekly
 export const metadata = genMetadata({
   title: 'New Construction in Craig Ranch | Options, Strategy, and Next Steps',
   description:
-    'Considering new construction near Craig Ranch? Learn how buyers compare new builds vs resale in Craig Ranch, what to watch for in builder contracts, and how to protect your outcome. Call (702) 820-5408.',
+    'New construction homes in Craig Ranch: Compare Century Communities floor plans (1,519-2,638 sq ft), builder contracts, and new build vs resale options. Expert guidance on protecting your investment. Call (702) 820-5408.',
   keywords:
     'new construction Craig Ranch, Craig Ranch new homes, Craig Ranch builder options, Craig Ranch vs resale, Dr. Jan Duffy REALTOR',
   path: '/new-construction-craig-ranch',

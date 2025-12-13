@@ -20,7 +20,7 @@ export const revalidate = 2592000; // monthly
 export const metadata = genMetadata({
   title: 'Craig Ranch HOA Guide | Fees, Rules, and What Buyers Ask',
   description:
-    'A practical Craig Ranch HOA guide for buyers and sellers: what to ask, what to review, and how HOA details can affect a Craig Ranch transaction. Call (702) 820-5408 for Craig Ranch guidance.',
+    'Complete Craig Ranch HOA guide: fees, rules, restrictions, and what buyers should know. Learn about HOA responsibilities, amenities covered, and how HOA details affect home values and transactions. Call (702) 820-5408.',
   keywords:
     'Craig Ranch HOA, Craig Ranch HOA fees, Craig Ranch rules, Craig Ranch resale package, Craig Ranch real estate agent, Dr. Jan Duffy REALTOR',
   path: '/craig-ranch-hoa',

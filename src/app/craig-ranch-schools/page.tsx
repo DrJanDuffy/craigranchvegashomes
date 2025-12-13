@@ -23,7 +23,7 @@ export const revalidate = 2592000; // monthly
 export const metadata = genMetadata({
   title: 'Craig Ranch Schools | Schools Near Craig Ranch (North Las Vegas)',
   description:
-    'A hyperlocal guide to schools near Craig Ranch for families buying and selling in Craig Ranch. Learn what to consider, how to compare options, and how schools affect Craig Ranch home values. Call (702) 820-5408.',
+    'Complete guide to schools near Craig Ranch: top-rated elementary, middle, and high schools serving the community. Learn about school districts, ratings, and how schools impact home values in Craig Ranch, North Las Vegas. Call (702) 820-5408.',
   keywords:
     'Craig Ranch schools, schools near Craig Ranch, Craig Ranch North Las Vegas schools, Craig Ranch homes school district, Dr. Jan Duffy REALTOR',
   path: '/craig-ranch-schools',

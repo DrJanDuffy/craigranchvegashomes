@@ -23,7 +23,7 @@ export const revalidate = 2592000; // monthly
 export const metadata = genMetadata({
   title: 'Craig Ranch Regional Park Guide | Living Near Craig Ranch Park',
   description:
-    'Craig Ranch Regional Park is a major lifestyle draw for Craig Ranch buyers. Learn what living near the park feels like, what to consider when buying/selling, and how park proximity affects Craig Ranch home demand. Call (702) 820-5408.',
+    'Craig Ranch Regional Park: 170-acre park with sports fields, playgrounds, trails, and 40+ annual events. Learn how park proximity affects home values, what living near the park offers, and buying/selling considerations. Call (702) 820-5408.',
   keywords:
     'Craig Ranch Regional Park, Craig Ranch park homes, living near Craig Ranch Regional Park, Craig Ranch Las Vegas parks, Dr. Jan Duffy REALTOR',
   path: '/craig-ranch-regional-park',

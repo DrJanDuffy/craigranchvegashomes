@@ -39,7 +39,7 @@ export const metadata = genMetadata({
   title:
     'Craig Ranch Neighborhoods & Collections | North Las Vegas Communities',
   description:
-    'Explore the distinct neighborhoods in Craig Ranch: Jasmine Ranch, Centennial Crossing, Seabreeze, and Century Communities collections (Mohave, Essence, Serenity, Olympic, Monarch). Find your perfect home in North Las Vegas.',
+    'Explore Craig Ranch neighborhoods: Jasmine Ranch, Centennial Crossing, Seabreeze, and Century Communities collections (Mohave, Essence, Serenity, Olympic, Monarch). Homes from $370K to $1.8M. Find your perfect community in North Las Vegas. Call (702) 820-5408.',
   keywords:
     'Craig Ranch neighborhoods, Jasmine Ranch, Centennial Crossing, Seabreeze, Century Communities, Mohave Collection, Essence Collection, Serenity Collection, Olympic Collection, Monarch Collection, North Las Vegas communities',
   path: '/neighborhoods',

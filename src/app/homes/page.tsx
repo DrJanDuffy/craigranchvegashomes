@@ -45,7 +45,7 @@ export const revalidate = 1800; // 30 minutes
 export const metadata = genMetadata({
   title: 'Homes for Sale in Craig Ranch, Las Vegas | Craig Ranch Vegas | Homes By Dr. Jan Duffy',
   description:
-    "Browse luxury homes for sale in Craig Ranch, Las Vegas. Find your dream home in one of Las Vegas' most prestigious communities. Work with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada.",
+    "Browse luxury homes for sale in Craig Ranch, Las Vegas. View current listings from $370K to $1.8M with detailed photos, virtual tours, and market data. Average home value: $428K. Work with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada. Call (702) 820-5408.",
   keywords:
     'homes for sale Craig Ranch, Las Vegas homes, luxury homes for sale, Craig Ranch real estate, North Las Vegas homes, property listings, real estate agent Las Vegas',
   path: '/homes',

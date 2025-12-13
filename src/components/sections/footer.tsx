@@ -8,7 +8,7 @@ export default function Footer() {
         <div className='grid md:grid-cols-4 gap-8'>
           {/* Company Info */}
           <div>
-            <h3 className='text-2xl font-bold mb-4'>
+            <h3 className='text-2xl font-bold mb-4 text-white'>
               Craig Ranch Vegas | Homes By Dr. Jan Duffy
             </h3>
             <p className='text-gray-300 leading-relaxed'>
@@ -18,14 +18,14 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className='text-lg font-semibold mb-4'>Quick Links</h4>
+            <h4 className='text-lg font-semibold mb-4 text-white'>Quick Links</h4>
             <ul className='space-y-2 text-gray-300'>
               <li>
                 <Link
                   href='/homes'
                   className='hover:text-white transition-colors duration-200 hover:underline'
                 >
-                  Available Homes
+                  Homes for Sale
                 </Link>
               </li>
               <li>
@@ -38,10 +38,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href='/community'
+                  href='/market-data'
                   className='hover:text-white transition-colors duration-200 hover:underline'
                 >
-                  About Us
+                  Market Data
                 </Link>
               </li>
               <li>
@@ -54,10 +54,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href='/neighborhoods'
+                  href='/home-valuation-craig-ranch'
                   className='hover:text-white transition-colors duration-200 hover:underline'
                 >
-                  Areas We Serve
+                  Home Valuation
                 </Link>
               </li>
               <li>
@@ -73,7 +73,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className='text-lg font-semibold mb-4'>Contact Info</h4>
+            <h4 className='text-lg font-semibold mb-4 text-white'>Contact Info</h4>
             <ul className='space-y-2 text-gray-300'>
               <li className='flex items-center'>
                 <span className='mr-2'>📞</span>
@@ -102,7 +102,7 @@ export default function Footer() {
 
           {/* Social Media */}
           <div>
-            <h4 className='text-lg font-semibold mb-4'>Follow Us</h4>
+            <h4 className='text-lg font-semibold mb-4 text-white'>Follow Us</h4>
             <p className='text-sm text-gray-300 mb-4'>
               Follow us on social media for the latest updates on Las Vegas 55+
               communities:

@@ -39,7 +39,7 @@ export const metadata = genMetadata({
   title:
     'Craig Ranch Community Guide: Schools, Amenities & Lifestyle | Las Vegas',
   description:
-    'Discover schools, amenities, shopping, dining, and lifestyle in Craig Ranch, Las Vegas. Your complete guide to community living. Learn about top-rated schools, parks, shopping centers, and recreational facilities.',
+    'Discover Craig Ranch community: 170-acre regional park, excellent schools, 5 miles of trails, shopping centers, and family-friendly amenities. Award-winning master-planned community in North Las Vegas. Learn about schools, parks, and lifestyle. Call (702) 820-5408.',
   keywords:
     'Craig Ranch community, Las Vegas schools, Craig Ranch amenities, community guide, Las Vegas lifestyle, North Las Vegas community, Craig Ranch parks, Craig Ranch shopping',
   path: '/community',

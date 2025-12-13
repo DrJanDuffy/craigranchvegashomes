@@ -79,7 +79,7 @@ export const revalidate = 3600; // 1 hour
 export const metadata = genMetadata({
   title: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
   description:
-    "Find your dream home in Craig Ranch, Las Vegas. Browse luxury homes, explore the neighborhood, and discover why Craig Ranch is one of Las Vegas' most prestigious communities. Work with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada.",
+    "Find your dream home in Craig Ranch, Las Vegas. Browse luxury homes from $370K to $1.8M, explore the award-winning community with 170-acre park, excellent schools, and 5 miles of trails. Work with Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices® Nevada. Call (702) 820-5408.",
   keywords:
     'Craig Ranch, Las Vegas real estate, luxury homes, Las Vegas homes for sale, North Las Vegas, Nevada real estate, Craig Ranch community, luxury properties, real estate agent Las Vegas, Dr. Jan Duffy, Berkshire Hathaway',
   path: '/',
@@ -162,7 +162,7 @@ export default function Home() {
         </section>
 
         {/* Market Data Preview - Moved up to show market strength early */}
-        <section className='py-16 bg-gradient-to-r from-[#0A2540] to-[#3A8DDE]'>
+        <section className='py-16 bg-linear-to-r from-[#0A2540] to-[#3A8DDE]'>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
             <h2 className='text-3xl font-bold text-white mb-4'>
               Craig Ranch Market Overview
@@ -210,6 +210,98 @@ export default function Home() {
         <Suspense fallback={<BlogPostsSkeleton />}>
           <DynamicBlogPosts />
         </Suspense>
+        
+        {/* Strategic Internal Links for Sitelinks Optimization */}
+        <section className='py-12 bg-gray-50 border-t border-gray-200'>
+          <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+            <nav aria-label='Site navigation' className='text-center'>
+              <h2 className='sr-only'>Site Navigation</h2>
+              <ul className='flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm'>
+                <li>
+                  <Link
+                    href='/homes'
+                    className='text-[#0A2540] hover:text-[#3A8DDE] hover:underline transition-colors font-medium'
+                  >
+                    Homes for Sale
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/neighborhood'
+                    className='text-[#0A2540] hover:text-[#3A8DDE] hover:underline transition-colors font-medium'
+                  >
+                    Neighborhood Guide
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/market-data'
+                    className='text-[#0A2540] hover:text-[#3A8DDE] hover:underline transition-colors font-medium'
+                  >
+                    Market Data
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/market-insights'
+                    className='text-[#0A2540] hover:text-[#3A8DDE] hover:underline transition-colors font-medium'
+                  >
+                    Market Insights
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/home-valuation-craig-ranch'
+                    className='text-[#0A2540] hover:text-[#3A8DDE] hover:underline transition-colors font-medium'
+                  >
+                    Home Valuation
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/sell-craig-ranch'
+                    className='text-[#0A2540] hover:text-[#3A8DDE] hover:underline transition-colors font-medium'
+                  >
+                    Sell Your Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/new-construction-craig-ranch'
+                    className='text-[#0A2540] hover:text-[#3A8DDE] hover:underline transition-colors font-medium'
+                  >
+                    New Construction
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/craig-ranch-schools'
+                    className='text-[#0A2540] hover:text-[#3A8DDE] hover:underline transition-colors font-medium'
+                  >
+                    Schools
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/craig-ranch-hoa'
+                    className='text-[#0A2540] hover:text-[#3A8DDE] hover:underline transition-colors font-medium'
+                  >
+                    HOA Information
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/contact'
+                    className='text-[#0A2540] hover:text-[#3A8DDE] hover:underline transition-colors font-medium'
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </section>
+        
         <FAQSection />
       </article>
 

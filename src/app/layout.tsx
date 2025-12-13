@@ -1,6 +1,11 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Source_Sans_3, Open_Sans } from 'next/font/google';
+import {
+  generateOrganizationSchema,
+  generateLocalBusinessSchema,
+  generateWebSiteSchema,
+} from '@/lib/metadata';
 import './globals.css';
 
 const googleSiteVerification =
@@ -149,6 +154,11 @@ export default function RootLayout({
   return (
     <html lang='en' className={`${sourceSansPro.variable} ${openSans.variable}`}>
       <head>
+        {/* Favicon for Google Search results - must be square, at least 48x48px, stable URL */}
+        <link rel='icon' href='/favicon.ico' sizes='any' />
+        <link rel='icon' href='/favicon.ico' type='image/x-icon' />
+        {/* Apple Touch Icon for iOS devices */}
+        <link rel='apple-touch-icon' href='/favicon.ico' />
         {/* Preconnect to critical third-party origins for faster resource loading */}
         <link rel='preconnect' href='https://em.realscout.com' crossOrigin='anonymous' />
         <link rel='preconnect' href='https://www.googletagmanager.com' crossOrigin='anonymous' />
@@ -311,7 +321,12 @@ export default function RootLayout({
               telephone: '+1-702-820-5408',
               email: 'DrDuffy@CraigRanchHomes.com',
               image: ogImageUrl,
-              logo: logoUrl,
+              logo: {
+                '@type': 'ImageObject',
+                url: logoUrl,
+                width: 512,
+                height: 512,
+              },
               address: {
                 '@type': 'PostalAddress',
                 streetAddress: '851 W Lone Mountain Rd',
@@ -350,28 +365,51 @@ export default function RootLayout({
               ],
               priceRange: '$$$',
               currenciesAccepted: 'USD',
+              contactPoint: [
+                {
+                  '@type': 'ContactPoint',
+                  telephone: '+1-702-820-5408',
+                  contactType: 'customer service',
+                  areaServed: 'US',
+                  availableLanguage: ['English'],
+                  hoursAvailable: {
+                    '@type': 'OpeningHoursSpecification',
+                    dayOfWeek: [
+                      'Monday',
+                      'Tuesday',
+                      'Wednesday',
+                      'Thursday',
+                      'Friday',
+                    ],
+                    opens: '09:00',
+                    closes: '18:00',
+                  },
+                },
+                {
+                  '@type': 'ContactPoint',
+                  email: 'DrDuffy@CraigRanchHomes.com',
+                  contactType: 'customer service',
+                  areaServed: 'US',
+                  availableLanguage: ['English'],
+                },
+              ],
             }),
           }}
         />
 
-        {/* Structured Data for Website */}
+        {/* Structured Data for Organization - Required for Google Knowledge Panel */}
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'WebSite',
-              name: 'Craig Ranch Vegas | Homes By Dr. Jan Duffy',
-              url: siteUrl,
-              description:
-                'Luxury real estate services in Craig Ranch, North Las Vegas, Las Vegas, Nevada. Find your dream home with Dr. Jan Duffy, REALTOR® specializing in Craig Ranch properties.',
-              potentialAction: {
-                '@type': 'SearchAction',
-                target:
-                  `${siteUrl}/search?q={search_term_string}`,
-                'query-input': 'required name=search_term_string',
-              },
-            }),
+            __html: JSON.stringify(generateOrganizationSchema()),
+          }}
+        />
+
+        {/* Structured Data for Website - Site Name for Google Search */}
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateWebSiteSchema()),
           }}
         />
       </head>

@@ -23,7 +23,7 @@ export const revalidate = 604800; // weekly
 export const metadata = genMetadata({
   title: 'Sell a Home in Craig Ranch | Listing Agent: Dr. Jan Duffy, REALTOR®',
   description:
-    'Thinking about selling in Craig Ranch? Dr. Jan Duffy, REALTOR®, helps you price, prep, market, and negotiate to maximize net proceeds in Craig Ranch, North Las Vegas / Las Vegas. Call (702) 820-5408.',
+    'Sell your Craig Ranch home with expert guidance. Dr. Jan Duffy, REALTOR®, helps you price competitively, prepare for market, and negotiate to maximize proceeds. Average days on market: 46 days. Free consultation. Call (702) 820-5408.',
   keywords:
     'sell my home Craig Ranch, Craig Ranch listing agent, Craig Ranch home value, Craig Ranch real estate agent, Dr. Jan Duffy REALTOR',
   path: '/sell-craig-ranch',

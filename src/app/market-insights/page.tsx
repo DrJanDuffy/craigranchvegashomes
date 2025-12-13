@@ -26,7 +26,7 @@ const baseUrl = (
 export const metadata = genMetadata({
   title: 'Craig Ranch Las Vegas Homes Market Insights | Craig Ranch Vegas | Homes By Dr. Jan Duffy',
   description:
-    'Read the latest real estate market insights and trends for Craig Ranch, North Las Vegas and Las Vegas, Nevada. Updated articles from Simplifying the Market.',
+    'Read the latest real estate market insights and trends for Craig Ranch, North Las Vegas and Las Vegas, Nevada. Expert analysis on home prices, market conditions, and buying/selling strategies. Updated articles from Simplifying the Market. Call (702) 820-5408.',
   keywords:
     'Craig Ranch market insights, Craig Ranch real estate news, Las Vegas market insights, North Las Vegas real estate trends',
   path: '/market-insights',
